@@ -11,8 +11,13 @@ const bodyParser = require('body-parser')
 // const apiRoutes = require('./routes/api-routes');
 const PORT = process.env.PORT || 3001;
 const app = express();
+const User = require('./models/Schema')
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/powerx");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/powerx", {
+  useNewUrlParser: true,
+
+
+})
 
 // Define middleware here
 app.use(express.json())
@@ -37,7 +42,22 @@ app.post('/login',(req,res) => {
 })
 
 app.post('/register',(req,res) => {
-  console.log(req.body)
+  User.findOne({username: req.body.username}, (err,doc) => {
+    if (err) throw err;
+    if (doc) res.send('User Already Exists');
+    if (!doc) {
+      async function asyncCall() {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        const newUser = new User({
+          username:req.body.username,
+          password: hashedPassword
+        });
+        await newUser.save();
+        res,send('User Created')
+      }
+      asyncCall()
+    }
+  })
 })
 
 app.get('/user',(req,res) => {
