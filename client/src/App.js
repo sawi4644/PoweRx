@@ -10,8 +10,6 @@ import GetUser from './components/GetUser/getUser'
 
 function App() {
       
-  // };
-
   return (
     <div className='App'>
       <Register />
