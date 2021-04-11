@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState } from 'react'
-import axios from 'axios'
-import { Mongoose } from 'mongoose';
+import axios from 'axios';
 // import Login from '../src/components/Login/Login'
 
 

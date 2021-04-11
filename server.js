@@ -33,7 +33,10 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-app.use(cookieParser('secretcode'))
+app.use(cookieParser('secretcode'));
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passportConfig')(passport);
 
 
 //Routes
