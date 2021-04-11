@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react'
 import axios from 'axios';
+import Login from './components/Login/login'
 // import Login from '../src/components/Login/Login'
 
 
@@ -8,8 +9,8 @@ import axios from 'axios';
 function App() {
   const [registerUsername, setRegisterUsername] = useState('')
   const [registerPassword, setRegisterPassword] = useState('')
-  const [loginUsername, setLoginUsername] = useState('')
-  const [loginPassword, setLoginPassword] = useState('')
+  // const [loginUsername, setLoginUsername] = useState('')
+  // const [loginPassword, setLoginPassword] = useState('')
   const [data, setData] = useState(null)
   const register = () => {
     axios({
@@ -23,18 +24,18 @@ function App() {
     })
     .then(res => console.log(res))
   };
-  const login = () => {
-    axios({
-      method: 'POST',
-      data: {
-      username: loginUsername,
-      password: loginPassword
-    },
-    withCredentials: true,
-    url: "http://localhost:3001/login"
-    })
-    .then(res => console.log(res))
-  };
+  // const login = () => {
+  //   axios({
+  //     method: 'POST',
+  //     data: {
+  //     username: loginUsername,
+  //     password: loginPassword
+  //   },
+  //   withCredentials: true,
+  //   url: "http://localhost:3001/login"
+  //   })
+  //   .then(res => console.log(res))
+  // };
   const getUser = () => {
     axios({
       method: 'GET',
@@ -56,12 +57,14 @@ function App() {
         <button onClick={register}>submit</button>
       </div>
 
-      <div>
+      <Login />
+
+      {/* <div>
         <h1>Login</h1>
         <input placeholder='username' onChange={e => setLoginUsername(e.target.value)}/>
         <input placeholder='password' onChange={e => setLoginPassword(e.target.value)}/>
         <button onClick={login}>submit</button>
-      </div>
+      </div> */}
 
       <div>
         <h1>Get User</h1>
