@@ -1,20 +1,16 @@
 import './App.css';
-import React, { useState } from 'react'
-import axios from 'axios';
-import Register from './components/Register/register'
-import Login from './components/Login/login'
-import GetUser from './components/GetUser/getUser'
-
-
+import React from 'react'
+import LoginPage from './pages/Login/LoginPage'
+// import Register from './components/Register/register'
+// import Login from './components/Login/login'
+// import GetUser from './components/GetUser/getUser'
 
 
 function App() {
       
   return (
     <div className='App'>
-      <Register />
-      <Login />
-      <GetUser />
+      <LoginPage />
     </div>
   );
 }
