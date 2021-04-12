@@ -1,21 +1,37 @@
 import './App.css';
-import React, { useState } from 'react'
-import axios from 'axios';
-import Register from './components/Register/register'
-import Login from './components/Login/login'
-import GetUser from './components/GetUser/getUser'
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
+import Register from './pages/Register/register'
+import Login from './pages/Login/login'
 
 
 
 function App() {
       
   return (
-    <div className='App'>
-      <Register />
-      <Login />
-      <GetUser />
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/register">
+            <Register/>
+          </Route>
+          <Route path="/login">
+            <Login/>
+          </Route>
+          <Route path="/">
+            <Register/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+    // <div className='App'>
+    //   <LoginPage />
+    // </div>
   );
 }
 
