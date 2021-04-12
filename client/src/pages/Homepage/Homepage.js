@@ -1,16 +1,17 @@
 import React from 'react'
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import HomePageCard from './HomePageCards'
+import HomePageCard from './CardHomepage'
+import Information from './Information.json'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-// import GetUser from './components/GetUser/getUser'
 
 
+console.log(Information)
 
-function Homepage() {
+const Homepage = () => {
 
-    return (
-        <div>
+        return(
+    <div>
             <Jumbotron>
                 <h1>Welcome {  }</h1>
                 <p>
@@ -20,10 +21,17 @@ function Homepage() {
                     Simpler way to fillout Rx forms, the easy step every dentist needs!
                 </p>
             </Jumbotron>
-           
+
             <HomePageCard />
-        </div>
-    )
+
+            <HomePageCard />
+
+            <HomePageCard />
+
+    </div>
+  )
+       
+  
 }
 
 export default Homepage
