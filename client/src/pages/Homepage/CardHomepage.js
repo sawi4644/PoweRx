@@ -1,29 +1,22 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
+// import Container from 'react-bootstrap/Container';
+// import Information from './Information'
 
 
 function CardHomepage(props) {
     return (
-    <Container>
-        <row>
-            <Col xs>
             <Card style={{ width: '18rem' }}>
                      <Card.Body>
-                     <Card.Title>Rx Form</Card.Title>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                     <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                     <Card.Title cardTitle={props.CardTitle} >{props.CardTitle}</Card.Title>
+                <Card.Img variant="top" src={props.Image} Image={props.Image}/>
+                     <Card.Text description={props.Description}>
+                                {props.Description}
                      </Card.Text>
-                 <Button variant="primary">Go to RX Form</Button>
+                 <Button variant="primary">Go to {props.CardTitle}</Button>
              </Card.Body>
              </Card>
-            </Col>
-        </row>
-    </Container>
     )
 }
 

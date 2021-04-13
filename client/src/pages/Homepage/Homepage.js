@@ -1,12 +1,9 @@
 import React from 'react'
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import HomePageCard from './CardHomepage'
-import Information from './Information.json'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-
-
-console.log(Information)
+import Info from './Infomation.json'
 
 const Homepage = () => {
 
@@ -22,12 +19,18 @@ const Homepage = () => {
                 </p>
             </Jumbotron>
 
-            <HomePageCard />
-
-            <HomePageCard />
-
-            <HomePageCard />
-
+            <div className="row">
+            {Info.map(({ id, CardTitle, Image, Description}) =>  {
+                return (
+                 <div key={id}  className="col-sm-12 col-md-4 d-flex justify-content-center">
+                    <HomePageCard 
+                    CardTitle={CardTitle}
+                    Image={Image}
+                    Description={Description}/>
+                 </div>
+                );
+            })}
+             </div>
     </div>
   )
        
