@@ -6,7 +6,7 @@ const sampleData = {
       "Mono EMAX": false,
       "Layered Zirconia": false,
       "Mono Zirconia": true,
-      "Composite": false
+      "Composite": true
     },
     LabTime: "10 days"
   }
