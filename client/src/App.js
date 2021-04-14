@@ -1,14 +1,13 @@
 import './App.css';
 import React from 'react'
+import Homepage from '../src/pages/Homepage/Homepage'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-
 import Register from './pages/Register/register'
 import Login from './pages/Login/login'
-
 
 
 function App() {
@@ -23,6 +22,9 @@ function App() {
           <Route path="/login">
             <Login/>
           </Route>
+          <Route path="/homepage">
+            <Homepage/>
+          </Route>
           <Route path="/">
             <Register/>
           </Route>
@@ -30,7 +32,7 @@ function App() {
       </div>
     </Router>
     // <div className='App'>
-    //   <LoginPage />
+    //   <Homepage />
     // </div>
   );
 }
