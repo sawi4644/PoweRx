@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+
 const infoSchema = new Schema({
     accountNum: {
         type: Integer,
@@ -33,7 +34,18 @@ const infoSchema = new Schema({
     dateDue: {
         type: Integer,
         required: "Please enter the date due in Office by 5pm"
-    }
+    },//please send section of top row on RX form
+    rxForms:{
+        type: Boolean,
+    },
+    boxes:{
+        type:Boolean,
+    },
+    mailingLabels:{
+        type:Boolean,
+    }//enclousures section will be an admin section- it will extend this model
+
 })
+
 const InfoSection = mongoose.model('InfoSection', infoSchema)
 module.exports = InfoSection
