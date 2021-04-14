@@ -1,15 +1,41 @@
 const sampleData = {
-  "All Porcelain": {
-    ListItems: {
-      "Tech Recommendation": false,
-      "Layered EMAX": true,
-      "Mono EMAX": false,
-      "Layered Zirconia": false,
-      "Mono Zirconia": true,
-      "Composite": true
-    },
-    LabTime: "10 days"
-  }
+  // "All Porcelain": {
+    // ListItems: {
+      "techRecommendation": {
+        name: "TECH RECOMMENDATION",
+        value: false,
+        inputType: ""
+      },
+      "layeredEmax": {
+        name: "Layered EMAX",
+        value: false,
+        inputType: ""
+      },
+      "monoEmax": {
+        name: "Mono EMAX",
+        value: false,
+        inputType: ""
+      },
+      "layeredZirconia": {
+        name: "Layered Zirconia",
+        value: false,
+        inputType: ""
+      },
+      "monoZirconia": {
+        name: "Mono Zirconia",
+        value: false,
+        inputType: ""
+      },
+      "composite": {
+        name: "Composite",
+        value: false,
+        inputType: ""
+      },
+
+      
+    // },
+    // LabTime: "10 days"
+  // }
   
 }
 
