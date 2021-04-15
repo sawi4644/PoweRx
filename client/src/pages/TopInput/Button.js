@@ -5,17 +5,18 @@ import Button from 'react-bootstrap/Button'
 
 function SubmitButton () {
     return (
-        <Form>
-            <Form>
-                <Form.Group >
-                    <Form.File id="exampleFormControlFile1" label="Please Select File to Attach" />
-                </Form.Group>
-            </Form>
+    <Form>
+      {/* <Button className="ButtonClass" variant="primary" type="submit">
+        Submit
+      </Button> */}
 
-            <Button variant="primary" type="submit">
-                Submit
-      </Button>
-        </Form>
+       <Form className="ButtonClass">
+        <Form.Group >
+          <Form.File  id="exampleFormControlFile1" label="" />
+        </Form.Group>
+      </Form>
+
+    </Form>
     )
 
 }

@@ -5,36 +5,36 @@ import sample from './Sample'
 import Form from 'react-bootstrap/Form'
 import Button from './Button'
 import DateInput from './DateInput'
+import './Header.css'
 // import Col from 'react-bootstrap/Col'
 
 const HeaderRxInput = () => {
 
   // const blankForm = () => {
-  //   axios.POST()
+  //   axios.POST('/api/header')
   // }
 
 
 
   return (
 
-          <Wrapper className="InputStyles">
-          <Form>
+          <div className="divContainer">
+          <Form className="FormDesign">
               {Object.entries(sample).map((sampleData) => {
                 const [
                   key,
                   obj,
                 ] = sampleData
                 return (
-                  <InputForm
+                  <InputForm 
                   key={key}
                   Value={obj.Value}
-                  FieldLabel={obj.FieldLabel}
                     />
                     )})}
                   <DateInput />
           </Form>
-              <Button/>
-          </Wrapper>
+              <Button className="ButtonDesign"/>
+          </div>
         
   )
 }

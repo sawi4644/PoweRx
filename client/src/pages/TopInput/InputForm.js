@@ -7,14 +7,14 @@ function InputForm (props) {
     return (
       <Form>
         <Form.Row>
-          <Form.Group Id={props.Id} controlId="text" as={Col}>
-            <Form.Label FieldLabel={props.FieldLabel}>{props.Value}</Form.Label>
-            <Form.Control type="text" placeholder="Docters account #" />
+          <Form.Group Id={props.Id}  as={Col}>
+            <Form.Label ></Form.Label>
+            <Form.Control className="FormContainer" type="text" placeholder="Docters account #" />
           </Form.Group>
        
           <Form.Group Id={props.Id} as={Col}>
-            <Form.Label FieldLabel={props.FieldLabel}>{props.Value}</Form.Label>
-            <Form.Control type="text" placeholder="Docters account #" />
+            <Form.Label ></Form.Label>
+            <Form.Control className="FormContainer"type="text"placeholder="Docters account #" />
           </Form.Group>
         </Form.Row>
         </Form>

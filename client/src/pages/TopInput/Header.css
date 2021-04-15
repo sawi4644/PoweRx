@@ -1,0 +1,30 @@
+.FormDesign {
+   max-width: 1000px;
+   column-count: 2 ;
+
+
+
+}
+
+.FormContainer {
+    border: none;
+    border-bottom: 4px solid black;
+    
+}
+
+.DateInputClass {
+    border: none;
+    border-bottom: 4px solid black;
+    
+}
+
+.ButtonClass {
+    display: flex;
+    flex-direction: row-reverse;
+    
+
+}
+
+.divContainer{
+   
+}
