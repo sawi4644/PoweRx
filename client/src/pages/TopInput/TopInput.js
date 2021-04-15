@@ -1,21 +1,39 @@
 import React from 'react'
 import Wrapper from '../../components/Wrapper/wrapper'
 import InputForm from './InputForm'
-// import sampleData from './sampleData'
-
+import sample from './Sample'
+import Form from 'react-bootstrap/Form'
+import Button from './Button'
+// import Col from 'react-bootstrap/Col'
 const RxForm = () => {
 
-  console.log()
+  // const blankForm = () => {
+  //   axios.POST()
+  // }
 
 
   return (
-        <div>
+        
         <Wrapper>
-            <InputForm />
+          <Form>
+              {Object.entries(sample).map((sampleData) => {
+                const [
+                  key,
+                  obj,
+                ] = sampleData
+                return (
+                  <InputForm
+                  key={key}
+                  Value={obj.Value}
+                  FieldLabel={obj.FieldLabel}
+                    />
+                )})}
+          </Form>
+              <Button/>
+            
         </Wrapper>
-        </div>
+        
   )
-
 }
 
 export default RxForm

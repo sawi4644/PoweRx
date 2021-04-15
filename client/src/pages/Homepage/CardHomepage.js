@@ -9,7 +9,7 @@ function CardHomepage(props) {
     return (
             <Card style={{ width: '18rem' }}>
                      <Card.Body>
-                     <Card.Title cardTitle={props.CardTitle} >{props.CardTitle}</Card.Title>
+                     <Card.Title cardTitle={props.CardTitle}>{props.CardTitle}</Card.Title>
                 <Card.Img variant="top" src={props.Image} Image={props.Image}/>
                      <Card.Text description={props.Description}>
                                 {props.Description}
