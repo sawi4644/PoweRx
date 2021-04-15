@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const User = require('./models/user')
 
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/powerrx", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
