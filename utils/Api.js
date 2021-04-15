@@ -5,7 +5,7 @@ export default {
     return axios('/api/form')
 
   },
-  
+
   saveFormData: function (data) {
     return axios.post('/api/form',data)
 
@@ -16,7 +16,7 @@ export default {
   },
 
   SavedHeaderInput: function () {
-      return axios('/api/header', data)
+      return axios.post('/api/header', data)
   }
 
 }

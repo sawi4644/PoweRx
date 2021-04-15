@@ -1,8 +1,6 @@
 const router = require('express').Router()
-// const adminController = require('../controllers/adminController')
 // const rxController= require('../controllers/rxController')
-// const userController = require('../controllers/userController')
-
+const HeaderInfo = require('../controllers/HeaderController')
 
 router.route('/api/drawings')
   .get(rxController.getRX)
@@ -11,5 +9,9 @@ router.route('/api/drawings')
 router.route('/api/users/:id')
   .get(userController.getUser)
   .put(userController.updateUser)
+
+router.route('/api/header')
+  .get(HeaderInfo.getRX)
+  .post(HeaderInfo.getRX)
 
 module.exports = router
