@@ -1,15 +1,15 @@
 const router = require('express').Router()
 // const adminController = require('../controllers/adminController')
-// const rxController= require('../controllers/rxController')
+const rxController= require('../controllers/rxController')
 // const userController = require('../controllers/userController')
 
 
-router.route('/api/drawings')
+router.route('/api/form')
   .get(rxController.getRX)
-  .post(rxController.createRx)
+  .post(rxController.getRX)
 
-router.route('/api/users/:id')
-  .get(userController.getUser)
-  .put(userController.updateUser)
+// router.route('/api/users/:id')
+//   .get(userController.getUser)
+//   .put(userController.updateUser)
 
 module.exports = router

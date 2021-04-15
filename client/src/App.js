@@ -13,27 +13,27 @@ import RxForm from './pages/RxForm/rxForm'
 function App() {
       
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/register">
-            <Register/>
-          </Route>
-          <Route path="/login">
-            <Login/>
-          </Route>
-          <Route path="/homepage">
-            <Homepage/>
-          </Route>
-          <Route path="/">
-            <Register/>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-    // <div className='App'>
-    //   <Homepage />
-    // </div>
+    // <Router>
+    //   <div>
+    //     <Switch>
+    //       <Route path="/register">
+    //         <Register/>
+    //       </Route>
+    //       <Route path="/login">
+    //         <Login/>
+    //       </Route>
+    //       <Route path="/homepage">
+    //         <Homepage/>
+    //       </Route>
+    //       <Route path="/">
+    //         <Register/>
+    //       </Route>
+    //     </Switch>
+    //   </div>
+    // </Router>
+    <div className='App'>
+      <RxForm />
+    </div>
   );
 }
 

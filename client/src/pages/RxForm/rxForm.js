@@ -1,13 +1,25 @@
-import React, {} from 'react'
+import React, {useState, useEffect} from 'react'
 import Wrapper from '../../components/Wrapper/wrapper'
 import Row from '../../components/Row/row'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import sampleData from './sampleData'
+import API from '../../utils/API'
 
 const RxForm = () => {
 
   console.log(sampleData)
+
+  const [form, setForm] = useState(sampleData)
+
+  const save = (e) => {
+    e.preventDefault()
+    API.saveFormData(form)
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err))
+  }
 
 
   return (
@@ -34,7 +46,7 @@ const RxForm = () => {
 
             console.log(sData)
             return(
-            <Form.Check  type="checkbox" label={obj.name} />
+            <Form.Check key={key} type="checkbox" label={obj.name} />
           )})}
           {/* <Form.Check type="checkbox" label="Layered EMAX" />
           <Form.Check type="checkbox" label="Mono EMAX" />
@@ -42,7 +54,7 @@ const RxForm = () => {
           <Form.Check type="checkbox" label="Mono Zirconia" />
           <Form.Check type="checkbox" label="Composite" /> */}
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={save}>
           Submit
         </Button>
       </Form>
