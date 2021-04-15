@@ -9,6 +9,13 @@ const UserSchema = new Schema({
     password: {
         type: String
     }
+    //might need to make one for checklist as well
+    // info: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Info'
+    //     }
+    // ]
 })
 
 const User = mongoose.model('User', UserSchema)

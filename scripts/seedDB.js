@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const db = require("../models");
 
 const userSeed = {
-    username: 'dentist',
+    username: 'admin',
   }
 
   const runSeeder = async () => {
