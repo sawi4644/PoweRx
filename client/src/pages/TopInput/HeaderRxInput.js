@@ -4,17 +4,20 @@ import InputForm from './InputForm'
 import sample from './Sample'
 import Form from 'react-bootstrap/Form'
 import Button from './Button'
+import DateInput from './DateInput'
 // import Col from 'react-bootstrap/Col'
-const RxForm = () => {
+
+const HeaderRxInput = () => {
 
   // const blankForm = () => {
   //   axios.POST()
   // }
 
 
+
   return (
-        
-        <Wrapper>
+
+          <Wrapper className="InputStyles">
           <Form>
               {Object.entries(sample).map((sampleData) => {
                 const [
@@ -27,12 +30,13 @@ const RxForm = () => {
                   Value={obj.Value}
                   FieldLabel={obj.FieldLabel}
                     />
-                )})}
+                    )})}
+                  <DateInput />
           </Form>
               <Button/>
-        </Wrapper>
+          </Wrapper>
         
   )
 }
 
-export default RxForm
+export default HeaderRxInput

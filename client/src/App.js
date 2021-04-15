@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Register from './pages/Register/register'
 import Login from './pages/Login/login'
-import TopInput from './pages/TopInput/TopInput'
+import HeaderRxInput from './pages/TopInput/HeaderRxInput'
 
 function App() {
       
@@ -36,7 +36,7 @@ function App() {
     // // </div>
 
     <div>
-      <TopInput />
+      <HeaderRxInput />
     </div>
   );
 }

@@ -1,20 +1,21 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
 
-function InputForm (props) {
+
+function DateInput (props) {
     return (
+        
       <Form>
         <Form.Row>
           <Form.Group Id={props.Id} controlId="text" as={Col}>
             <Form.Label FieldLabel={props.FieldLabel}>{props.Value}</Form.Label>
-            <Form.Control type="text" placeholder="Docters account #" />
+            <Form.Control type="date" placeholder="Docters account #" />
           </Form.Group>
        
           <Form.Group Id={props.Id} as={Col}>
             <Form.Label FieldLabel={props.FieldLabel}>{props.Value}</Form.Label>
-            <Form.Control type="text" placeholder="Docters account #" />
+            <Form.Control type="date" placeholder="Docters account #" />
           </Form.Group>
         </Form.Row>
         </Form>
@@ -22,9 +23,4 @@ function InputForm (props) {
     )
 }
 
-export default InputForm
-
-
-
-
- 
+export default DateInput
