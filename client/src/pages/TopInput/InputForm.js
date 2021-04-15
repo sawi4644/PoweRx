@@ -18,7 +18,6 @@ function InputForm (props) {
           </Form.Group>
         </Form.Row>
         </Form>
-      
            
     )
 }

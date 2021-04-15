@@ -30,7 +30,6 @@ const RxForm = () => {
                 )})}
           </Form>
               <Button/>
-            
         </Wrapper>
         
   )
