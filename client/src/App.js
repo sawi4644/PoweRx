@@ -9,6 +9,7 @@ import {
 import Register from './pages/Register/register'
 import Login from './pages/Login/login'
 import RxForm from './pages/RxForm/rxForm'
+import { FormContext } from '../context/formContext';
 
 function App() {
       
@@ -31,9 +32,11 @@ function App() {
     //     </Switch>
     //   </div>
     // </Router>
-    <div className='App'>
-      <RxForm />
-    </div>
+    <FormContext.Provider>
+      <div className='App'>
+        <RxForm />
+      </div>
+    </FormContext.Provider>
   );
 }
 

@@ -8,29 +8,29 @@ import API from '../../utils/API'
 
 const RxForm = () => {
 
-  const [form, setForm] = useState({
-    label: {
-      name: '',
-      value: false,
-      inputType: ''
-    }
-  })
-
+  const [form, setForm] = useState(sampleData)
+  
+  // label: {
+  //   name: '',
+  //   value: false,
+  //   inputType: ''
+  // }
   const checkUpdate = (e) => {
     setForm({
       ...form,
       value: true
     })
-    console.log(form)
+    // console.log("This is the form", form)
   }
 
   const save = (e) => {
+    console.log(form)
     e.preventDefault()
-    API.saveFormData(form)
-    .then(data => {
-      console.log(data)
-    })
-    .catch(err => console.log(err))
+    // API.saveFormData(form)
+    // .then(data => {
+    //   console.log(data)
+    // })
+    // .catch(err => console.log(err))
   }
 
 
