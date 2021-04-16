@@ -7,8 +7,8 @@ const cookieParser = require('cookie-parser')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
 const bodyParser = require('body-parser')
-// const path = require("path");
-// const apiRoutes = require('./routes/api-routes');
+const path = require("path");
+const apiRoutes = require('./routes/api-routes');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const User = require('./models/user')
@@ -91,7 +91,7 @@ app.get('/User',(req,res) => {
   // }
 
   // Define API routes here
-  // app.use(apiRoutes)
+  app.use(apiRoutes)
 
   // Send every other request to the React app
   // Define any API routes before this runs
