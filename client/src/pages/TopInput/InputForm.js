@@ -9,13 +9,9 @@ function InputForm (props) {
         <Form.Row>
           <Form.Group Id={props.Id}  as={Col}>
             <Form.Label ></Form.Label>
-            <Form.Control className="FormContainer" type="text" placeholder="Docters account #" />
+            <Form.Control FieldLabel={props.FieldLabel} className="FormContainer" type="text" placeholder={props.FieldLabel} />
           </Form.Group>
        
-          <Form.Group Id={props.Id} as={Col}>
-            <Form.Label ></Form.Label>
-            <Form.Control className="FormContainer"type="text"placeholder="Docters account #" />
-          </Form.Group>
         </Form.Row>
         </Form>
            

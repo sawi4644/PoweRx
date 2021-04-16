@@ -35,9 +35,10 @@ function App() {
     // //   <Homepage />
     // // </div>
 
-    <div>
+    <div className="HeaderRxInputSection">
       <HeaderRxInput />
     </div>
+    
   );
 }
 

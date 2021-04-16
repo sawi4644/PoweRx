@@ -1,8 +1,5 @@
 .FormDesign {
-   max-width: 1000px;
    column-count: 2 ;
-
-
 
 }
 
@@ -25,6 +22,10 @@
 
 }
 
-.divContainer{
-   
+.HeaderRxInputSection{
+   width: 50%;
+   min-width: 400px;
+   position: absolute;
+   right: 0px;
+   margin-right: 5%;
 }

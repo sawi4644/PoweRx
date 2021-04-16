@@ -9,14 +9,10 @@ function DateInput (props) {
       <Form>
         <Form.Row>
           <Form.Group Id={props.Id} controlId="text" as={Col}>
-            <Form.Label FieldLabel={props.FieldLabel}>{props.Value}</Form.Label>
-            <Form.Control className="DateInputClass" type="date" placeholder="Docters account #" />
+            <Form.Label FieldLabel={props.FieldLabel}>{props.text}</Form.Label>
+            <Form.Control className="DateInputClass" type="date" placeholder={props.FieldLabel} />
           </Form.Group>
        
-          <Form.Group Id={props.Id} as={Col}>
-            <Form.Label FieldLabel={props.FieldLabel}>{props.Value}</Form.Label>
-            <Form.Control className="DateInputClass" type="date" placeholder="Docters account #" />
-          </Form.Group>
         </Form.Row>
         </Form>
            
