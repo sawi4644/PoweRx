@@ -3,7 +3,7 @@ const sampleData = {
     // ListItems: {
       "techRecommendation": {
         name: "TECH RECOMMENDATION",
-        value: false,
+        value: true,
         inputType: ""
       },
       "layeredEmax": {

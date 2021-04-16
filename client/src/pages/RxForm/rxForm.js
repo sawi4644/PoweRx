@@ -10,7 +10,16 @@ import {FormContext} from '../../context/formContext'
 
 const RxForm = () => {
 
-  // const [form, setForm] = useState(sampleData)
+  const [allPorcelain, setAllPorcelain] = useState({
+      techRec: false,
+      layeredEmax: false,
+      monoEmax: false,
+      LayeredZirconia: false,
+      monoZirconia: false,
+      composite: false,
+  });
+
+
 
   // const { form, setForm} = useContext(FormContext)
   
@@ -20,51 +29,48 @@ const RxForm = () => {
   //   inputType: ''
   // }
   const checkUpdate = (e) => {
-    // setForm({
-    //   ...form,
-    //   value: true
-    // })
-    // console.log("This is the form", form)
+    const name = e.target.name
+    setAllPorcelain({
+      ...allPorcelain,
+      [name]: !allPorcelain[name]
+    })
+    // console.log("This is the form", allPorcelain)
   }
 
   const save = (e) => {
-    // console.log(form)
+    console.log(allPorcelain)
     e.preventDefault()
-    // API.saveFormData(form)
-    // .then(data => {
-    //   console.log(data)
-    // })
-    // .catch(err => console.log(err))
+    API.saveFormData(allPorcelain)
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err))
   }
 
 
   return (
     <Wrapper>
-      <Form>
-        {/* <Form.Group controlId="formBasicEmail">
-          <Form.Label>Shade</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Stump Shade</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group> */}
-        <Form.Group controlId="formBasicCheckbox">
-          <p></p>
-          {Object.entries(sampleData).map((sData) => {
-            const [key, obj] = sData;
-            console.log(sData);
-            return <Form.Check key={key} type="checkbox" label={obj.name} onClick={checkUpdate} defaultValue="defaultChecked"/>;
-          })}
-        </Form.Group>
-        <Button variant="primary" type="submit" onClick={save}>
-          Submit
-        </Button>
-      </Form>
+      <pre>
+        {JSON.stringify(allPorcelain, null, 2)}
+      </pre>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox"  name="techRec" label="Tech Recommendation" onChange={checkUpdate}/>
+      </Form.Group>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Layered EMAX" onChange={checkUpdate}/>
+      </Form.Group>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Mono Emax" onChange={checkUpdate}/>
+      </Form.Group>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Layered Zirconia" onChange={checkUpdate}/>
+      </Form.Group>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Mono Zirconia" onChange={checkUpdate}/>
+      </Form.Group>
+      <Form.Group controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Composite" onChange={checkUpdate}/>
+      </Form.Group>
     </Wrapper>
   );
 
