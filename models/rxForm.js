@@ -3,38 +3,16 @@ const Schema = mongoose.Schema
 
 
 const rxSchema = new Schema({
-    AccountNumber: {
-        type: Number,
-        required: "Please Enter Doctor's Account Number",
-    }, phoneNum: {
-        type: Number,
-        required: "Please enter a phone number"
+    personalInformation:{
+        accountNumber: Number,
+        phoneNumber: Number,
+        doctorName: String,
+        office: String,
+        patientLastName: String,
+        patientFirstNme: String,
+        dateSent: Date,
+        dateDue: Date,
     },
-    doctorName: {
-        type: String,
-        required: "Please enter Doctor's full name"
-    },
-    office: {
-        type: String,
-        required: "Please enter Office Name"
-    },
-    patientLastName: {
-        type: String,
-        required: "Please enter Patient's last name'"
-    },
-    patientFirstName: {
-        type: String,
-        required: "Please enter Patient's first name'"
-    },
-    dateSent: {
-        type: Date,
-        required: "Please enter the date the form is submitted"
-    },
-    dateDue: {
-        type: Date,
-        required: "Please enter the date due in Office by 5pm"
-    },
-    
     //please send section of top row on RX form
     allPorcelain: {
         techRec: Boolean,
