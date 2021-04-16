@@ -6,13 +6,12 @@ import Button from 'react-bootstrap/Button'
 function InputForm (props) {
     return (
       <Form>
-        <Form.Row>
+        {/* <Form.Row>
           <Form.Group Id={props.Id}  as={Col}>
             <Form.Label ></Form.Label>
             <Form.Control FieldLabel={props.FieldLabel} className="FormContainer" type="text" placeholder={props.FieldLabel} />
           </Form.Group>
-       
-        </Form.Row>
+        </Form.Row> */}
         </Form>
            
     )

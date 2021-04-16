@@ -7,13 +7,12 @@ function DateInput (props) {
     return (
 
       <Form>
-        <Form.Row>
+        {/* <Form.Row>
           <Form.Group Id={props.Id} controlId="text" as={Col}>
-            <Form.Label FieldLabel={props.FieldLabel}>{props.text}</Form.Label>
+            <Form.Label FieldLabel={props.FieldLabel}>{props.value}</Form.Label>
             <Form.Control className="DateInputClass" type="date" placeholder={props.FieldLabel} />
           </Form.Group>
-       
-        </Form.Row>
+        </Form.Row> */}
         </Form>
            
     )

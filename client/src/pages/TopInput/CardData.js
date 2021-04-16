@@ -3,7 +3,8 @@ const sample = {
    "AccountNumber": {
         id: 1,
         FieldLabel: "Dr Acc #",
-        placeholder: "Dr Acc #"
+        placeholder: "Dr Acc #",
+        value: ""
     },
     "Phone Number": {
         id: 2,
