@@ -1,12 +1,12 @@
 const router = require('express').Router()
 // const adminController = require('../controllers/adminController')
-// const rxController= require('../controllers/rxController')
-// const userController = require('../controllers/userController')
+const rxController= require('../controllers/rxFormController')
+const userController = require('../controllers/userController')
 
 
-router.route('/api/drawings')
-  .get(rxController.getRX)
-  .post(rxController.createRx)
+router.route('/api/rxForms')
+  .get(rxController.getRX) //get all forms
+  .post(rxController.createRx) //create a drawing- run controller model when one of these routes get hit
 
 router.route('/api/users/:id')
   .get(userController.getUser)
