@@ -26,7 +26,7 @@ const Homepage = () => {
             </Jumbotron>
 
             <div className="row">
-              {Info.map(({ id, CardTitle, Image, Description }) => {
+              {Info.map(({ id, CardTitle, Image, Description, Link }) => {
                 return (
                   <div
                     key={id}
@@ -36,6 +36,7 @@ const Homepage = () => {
                       CardTitle={CardTitle}
                       Image={Image}
                       Description={Description}
+                      Link={Link}
                     />
                   </div>
                 );

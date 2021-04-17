@@ -3,6 +3,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 // import Container from 'react-bootstrap/Container';
 // import Information from './Information'
+import {
+    Link,
+    useLocation,
+    useHistory 
+  } from "react-router-dom";
 
 
 function CardHomepage(props) {
@@ -14,7 +19,7 @@ function CardHomepage(props) {
                      <Card.Text description={props.Description}>
                                 {props.Description}
                      </Card.Text>
-                 <Button variant="primary">Go to {props.CardTitle}</Button>
+                 <Button><Link to={props.Link} style={{color: "white"}} >Home</Link></Button>
              </Card.Body>
              </Card>
     )
