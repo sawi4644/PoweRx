@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Wrapper from '../../components/Wrapper/wrapper'
 import InputForm from './InputForm'
 import CardData from './CardData'
 import Form from 'react-bootstrap/Form'
-import Button from './Button'
+import Button from 'react-bootstrap/Button'
+import API from '../../utils/Api'
+// import Button from './Button'
 import DateInput from './DateInput'
 import './Header.css' 
 import CheckInput from './CheckInput'
@@ -11,43 +13,62 @@ import CheckInput from './CheckInput'
 
 const HeaderRxInput = () => {
 
-  // const [HeaderInput, setHeaderInput] = useState([])
+  const [personalInformation, setpersonalInformation] = useState({
+      accountNumber: "",
+      phoneNumber: "",
+      doctorName: "",
+      office: "",
+      patientLastName: "",
+      patientFirstNme: "",
+      dateSent: Date.now(),
+      dateDue: Date.now(),
+  })
 
-  // useEffect(() => {
-  //   API.GetHeaderInput()
-  //     .then(response => setHeaderInput(response.data))
-  //     .catch(err => console.log(err))
-  // }, [])
+
+  const FormUpdate = e => {
+    const {name, value} = e.target
+    console.log(name)
+    setpersonalInformation({
+      ...personalInformation,
+      [name]: value,
+  })
+}
+
+  const save = e => {
+    e.preventDefault()
+    console.log(personalInformation)
+    API.saveFormData(personalInformation)
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err))
+  }
+ 
 
 
   return (
     <Wrapper>
-        <Form>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
+      <pre>
+        {JSON.stringify(personalInformation, null, 2)}
+      </pre>
+      <Form>
+        <Form.Group controlId="Doctors Name">
+          <Form.Label>Doctors Name</Form.Label>
+          <Form.Control onChange={FormUpdate} value={personalInformation.doctorName} name="doctorName" label="Doctors Name" type="input" placeholder="Doctors Name" />
+          <Form.Text className="text-muted">
     </Form.Text>
-  </Form.Group>
+        </Form.Group>
 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
+        <Form.Group controlId="Doctors Account Number">
+          <Form.Label>Doctors Account Number</Form.Label>
+          <Form.Control onChange={FormUpdate} name="accountNumber" label="Doctors Account Number" type="number" placeholder="Account Number" />
+        </Form.Group>
+      <Button  onSubmit={save}variant="primary">Submit</Button>
+      </Form>
     </Wrapper>
 
   )
 }
-
-
-
-
-
 
 
 

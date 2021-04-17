@@ -15,7 +15,7 @@ export default {
       return axios('/api/header')
   },
 
-  SavedHeaderInput: function () {
+  SavedHeaderInput: function (data) {
       return axios.post('/api/header', data)
   }
 
