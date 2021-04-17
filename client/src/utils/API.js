@@ -11,12 +11,4 @@ export default {
 
   },
 
-  GetHeaderInput: function () {
-      return axios('/api/rxForms')
-  },
-
-  SavedHeaderInput: function (data) {
-      return axios.post('/api/rxForms', data)
-  }
-
 }

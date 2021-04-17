@@ -37,7 +37,7 @@ const HeaderRxInput = () => {
   const save = e => {
     e.preventDefault()
     console.log(personalInformation)
-    API.SavedHeaderInput(personalInformation)
+    API.saveFormData({personalInformation})
     .then(data => {
       console.log(data)
     })
