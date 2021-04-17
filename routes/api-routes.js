@@ -5,7 +5,7 @@ const userController = require('../controllers/userController')
 
 
 router.route('/api/rxForms')
-  .get(rxController.getRxForm) //get all forms
+  .get(rxController.getAllRxForm) //get all forms
   .post(rxController.createRxForm) //create a drawing- run controller model when one of these routes get hit
 
 router.route('/api/rxForms/:id')

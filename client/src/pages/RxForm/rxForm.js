@@ -68,7 +68,7 @@ const RxForm = () => {
         />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Mono Emax" onChange={checkUpdate} />
+        <Form.Check type="checkbox" name="monoEmax" label="Mono Emax" onChange={checkUpdate} />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
         <Form.Check
