@@ -21,8 +21,11 @@ const Homepage = () => {
                 Simpler way to fillout Rx forms, the easy step every dentist
                 needs!
               </p>
-              <Link to="/login">login</Link>
-              <Link to="/register">register</Link>
+              <Button><Link to="/login"style={{color: "white"}} >login</Link></Button>
+              <br/>
+              <br/>
+              <Button><Link to="/register"style={{color: "white"}} >register</Link></Button>
+              
             </Jumbotron>
 
             <div className="row">

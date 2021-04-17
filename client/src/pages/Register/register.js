@@ -4,6 +4,7 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
+import Button from 'react-bootstrap/Button'
 
 import Wrapper from '../../components/Wrapper/wrapper'
 
@@ -32,8 +33,12 @@ const Register = () => {
         <input placeholder='username' onChange={e => setRegisterUsername(e.target.value)}/>
         <input placeholder='password' onChange={e => setRegisterPassword(e.target.value)}/>
         <button onClick={register}>submit</button>
-        <Link to="/login">Login</Link>
-        <Link to="/homepage">Homepage</Link>        
+        <br/>
+        <br/>
+        <Button><Link to="/login"style={{color: "white"}} >login</Link></Button>
+        <br/>
+        <br/>
+        <Button><Link to="/homepage"style={{color: "white"}} >Homepage</Link></Button>
       </div>
     </Wrapper>
   )
