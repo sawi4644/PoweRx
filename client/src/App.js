@@ -10,6 +10,7 @@ import Register from './pages/Register/register'
 import Login from './pages/Login/login'
 import RxForm from './pages/RxForm/rxForm'
 import { FormProvider } from '../src/context/formContext';
+import HeaderRxInput from './pages/TopInput/HeaderRxInput'
 
 function App() {
       
