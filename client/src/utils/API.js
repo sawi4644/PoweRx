@@ -2,9 +2,9 @@ import axios from 'axios'
 
 export default {
   getFormData: function () {
-    return axios('/api/form')
+    return axios('/api/rxForms')
   },
   saveFormData: function (data) {
-    return axios.post('/api/form',data)
+    return axios.post('/api/rxForms',data)
   }
 }

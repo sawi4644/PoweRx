@@ -38,8 +38,8 @@ const RxForm = () => {
   }
 
   const save = (e) => {
-    console.log(allPorcelain)
     e.preventDefault()
+    console.log(allPorcelain)
     API.saveFormData(allPorcelain)
     .then(data => {
       console.log(data)
@@ -50,27 +50,48 @@ const RxForm = () => {
 
   return (
     <Wrapper>
-      <pre>
-        {JSON.stringify(allPorcelain, null, 2)}
-      </pre>
+      <pre>{JSON.stringify(allPorcelain, null, 2)}</pre>
       <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox"  name="techRec" label="Tech Recommendation" onChange={checkUpdate}/>
+        <Form.Check
+          type="checkbox"
+          name="techRec"
+          label="Tech Recommendation"
+          onChange={checkUpdate}
+        />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Layered EMAX" onChange={checkUpdate}/>
+        <Form.Check
+          type="checkbox"
+          name="layeredEmax"
+          label="Layered EMAX"
+          onChange={checkUpdate}
+        />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Mono Emax" onChange={checkUpdate}/>
+        <Form.Check type="checkbox" label="Mono Emax" onChange={checkUpdate} />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Layered Zirconia" onChange={checkUpdate}/>
+        <Form.Check
+          type="checkbox"
+          name="LayeredZirconia"
+          label="Layered Zirconia"
+          onChange={checkUpdate}
+        />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Mono Zirconia" onChange={checkUpdate}/>
+        <Form.Check
+          type="checkbox"
+          name="monoZirconia"
+          label="Mono Zirconia"
+          onChange={checkUpdate}
+        />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Composite" onChange={checkUpdate}/>
+        <Form.Check type="checkbox" name="composite" label="Composite" onChange={checkUpdate} />
       </Form.Group>
+      <Button variant="primary" type="submit" onClick={save}>
+        Submit
+      </Button>
     </Wrapper>
   );
 
