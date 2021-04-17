@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Register from './pages/Register/register'
 import Login from './pages/Login/login'
+import RxForm from './pages/RxForm/rxForm'
+import { FormProvider } from '../src/context/formContext';
 import HeaderRxInput from './pages/TopInput/HeaderRxInput'
 
 function App() {
@@ -31,14 +33,10 @@ function App() {
     //     </Switch>
     //   </div>
     // </Router>
-    // // <div className='App'>
-    // //   <Homepage />
-    // // </div>
-
-    <div className="HeaderRxInputSection">
-      <HeaderRxInput />
+    <div className='App'>
+      <RxForm />
     </div>
-    
+ 
   );
 }
 

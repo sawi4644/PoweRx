@@ -1,18 +1,20 @@
 const db = require('../models')
 module.exports = {
     createRxForm: function(req, res) {
-        console.log('this is the header data', req.body)
+        console.log("Nick said take it from here backend", req.body)
+        res.sendStatus(418)
         db.rxForm
         .create(req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
     getAllRxForm: function(req, res) {
-        db.rxForm
-        .find(req.query)
-        .sort({ date: -1 })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+        
+        // db.rxForm
+        // .find(req.query)
+        // .sort({ date: -1 })
+        // .then(dbModel => res.json(dbModel))
+        // .catch(err => res.status(422).json(err));
     },
     findById: function(req, res) {
         db.rxForm

@@ -12,8 +12,9 @@ const apiRoutes = require('./routes/api-routes');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const User = require('./models/user')
+const morgan = require('morgan')
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/powerrx", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://PowerAdmin:Arima2020@cluster0.kx3fz.mongodb.net/powerrx?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -23,6 +24,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/powerrx", {
 });
 
 // Define middleware here
+app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({
