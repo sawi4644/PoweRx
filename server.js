@@ -15,7 +15,8 @@ const app = express();
 const User = require('./models/user')
 const morgan = require('morgan')
 
-mongoose.connect(process.env.MONGODB_URI, {
+// mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect("mongodb://localhost/powerrx", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
