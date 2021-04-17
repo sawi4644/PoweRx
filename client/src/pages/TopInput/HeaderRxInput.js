@@ -63,7 +63,7 @@ const HeaderRxInput = () => {
           <Form.Label>Doctors Account Number</Form.Label>
           <Form.Control onChange={FormUpdate} name="accountNumber" label="Doctors Account Number" type="number" placeholder="Account Number" />
         </Form.Group>
-      <Button  onSubmit={save}variant="primary">Submit</Button>
+      <Button  onClick={save} variant="primary">Submit</Button>
       </Form>
     </Wrapper>
 
