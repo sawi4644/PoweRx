@@ -20,8 +20,8 @@ const HeaderRxInput = () => {
       office: "",
       patientLastName: "",
       patientFirstNme: "",
-      dateSent: Date.now(),
-      dateDue: Date.now(),
+      dateSent: Date(),
+      dateDue: Date(),
   })
 
 
@@ -37,7 +37,7 @@ const HeaderRxInput = () => {
   const save = e => {
     e.preventDefault()
     console.log(personalInformation)
-    API.saveFormData(personalInformation)
+    API.SavedHeaderInput(personalInformation)
     .then(data => {
       console.log(data)
     })
