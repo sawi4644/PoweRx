@@ -2,7 +2,7 @@ const db = require('../models')
 module.exports = {
     createRxForm: function(req, res) {
         console.log("Nick said take it from here backend", req.body)
-        res.sendStatus(418)
+        // res.sendStatus(418)
         db.rxForm
         .create(req.body)
         .then(dbModel => res.json(dbModel))

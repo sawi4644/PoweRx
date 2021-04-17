@@ -40,7 +40,7 @@ const RxForm = () => {
   const save = (e) => {
     e.preventDefault()
     console.log(allPorcelain)
-    API.saveFormData(allPorcelain)
+    API.saveFormData({allPorcelain})
     .then(data => {
       console.log(data)
     })

@@ -7,7 +7,7 @@ export default {
   },
 
   saveFormData: function (data) {
-    return axios.post('/api/form',data)
+    return axios.post('/api/rxForms',data)
 
   },
 

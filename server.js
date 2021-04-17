@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 const express = require("express");
 const cors = require('cors')
@@ -14,7 +15,7 @@ const app = express();
 const User = require('./models/user')
 const morgan = require('morgan')
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://PowerAdmin:Arima2020@cluster0.kx3fz.mongodb.net/powerrx?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
