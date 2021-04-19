@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react'
 import Homepage from '../src/pages/Homepage/Homepage'
 import {
@@ -15,32 +14,34 @@ import HeaderRxInput from './pages/TopInput/HeaderRxInput'
 
 function App() {
       
-  return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/homepage">
-            <Homepage />
-          </Route>
-          <Route path="/form">
-            <HeaderRxInput />
-            <RxForm />
-          </Route>
-          <Route path="/history">
-            <History />
-          </Route>
-          <Route path="/">
-            <Register />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+  return "Hello World"
+
+  // return (
+  //   <Router>
+  //     <div>
+  //       <Switch>
+  //         <Route path="/register">
+  //           <Register />
+  //         </Route>
+  //         <Route path="/login">
+  //           <Login />
+  //         </Route>
+  //         <Route path="/homepage">
+  //           <Homepage />
+  //         </Route>
+  //         <Route path="/form">
+  //           <HeaderRxInput />
+  //           <RxForm />
+  //         </Route>
+  //         <Route path="/history">
+  //           <History />
+  //         </Route>
+  //         <Route path="/">
+  //           <Register />
+  //         </Route>
+  //       </Switch>
+  //     </div>
+  //   </Router>
     // <div className='App'>
     //   <HeaderRxInput />
     //   <RxForm />
