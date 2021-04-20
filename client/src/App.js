@@ -11,10 +11,11 @@ import RxForm from './pages/RxForm/rxForm'
 import History from '../src/pages/History/history'
 import { FormProvider } from '../src/context/formContext';
 import HeaderRxInput from './pages/TopInput/HeaderRxInput'
+import Signup from '../src/components/SignUp/SignUp'
 
 function App() {
       
-  return "Hello World"
+  return <Signup />
 
   // return (
   //   <Router>
@@ -46,7 +47,7 @@ function App() {
     //   <HeaderRxInput />
     //   <RxForm />
     // </div>
-  );
+  // );
 }
 
 export default App;
