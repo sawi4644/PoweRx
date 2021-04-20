@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 import Homepage from '../src/pages/Homepage/Homepage'
 import {
   BrowserRouter as Router,
@@ -15,7 +16,13 @@ import Signup from '../src/components/SignUp/SignUp'
 
 function App() {
       
-  return <Signup />
+  return (
+    <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vH"}}>
+      <div className="w-100" style={{ maxWidth: "400px"}}>
+        <Signup />
+      </div>
+    </Container>
+  ) 
 
   // return (
   //   <Router>
