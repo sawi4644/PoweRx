@@ -14,6 +14,7 @@ import Dashboard from '../src/components/Dashboard/Dashboard'
 import Login from '../src/components/Login/Login'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import ForgotPassword from './components/ForgotPassword/ForgotPassword'
+import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 
 function App() {
       
@@ -27,6 +28,7 @@ function App() {
           <AuthProvider>
             <Switch>
               <PrivateRoute exact path="/" component={Dashboard} />
+              <PrivateRoute exact path="/update-profile" component={UpdateProfile} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
