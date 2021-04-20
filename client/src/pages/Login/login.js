@@ -4,7 +4,7 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
-
+import Button from 'react-bootstrap/Button'
 import Wrapper from '../../components/Wrapper/wrapper'
 
 const Login = () => {
@@ -32,8 +32,12 @@ const Login = () => {
         <input placeholder='username' onChange={e => setLoginUsername(e.target.value)}/>
         <input placeholder='password' onChange={e => setLoginPassword(e.target.value)}/>
         <button onClick={login}>submit</button>
-        <Link to="/register">register</Link>
-        <Link to="/homepage">homepage</Link>
+        <br/>
+        <br/>
+        <Button><Link to="/register"style={{color: "white"}} >Register</Link></Button>
+        <br/>
+        <br/>
+        <Button><Link to="/homepage"style={{color: "white"}} >Homepage</Link></Button>
       </div>
     </Wrapper>
 	)

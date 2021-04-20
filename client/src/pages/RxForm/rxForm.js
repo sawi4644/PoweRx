@@ -1,14 +1,22 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect, useContext,} from 'react'
 import Wrapper from '../../components/Wrapper/wrapper'
 import Row from '../../components/Row/row'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import sampleData from './sampleData'
 import API from '../../utils/API'
-import {FormContext} from '../../context/formContext'
+import {FormContext} from '../../contexts/AuthContext'
+import {
+  Link,
+  useLocation,
+  useHistory 
+} from "react-router-dom";
+
 
 
 const RxForm = () => {
+
+  let history = useHistory();
 
   const [allPorcelain, setAllPorcelain] = useState({
       techRec: false,
@@ -45,6 +53,7 @@ const RxForm = () => {
       console.log(data)
     })
     .catch(err => console.log(err))
+    .then(history.push('/homepage'))
   }
 
 
@@ -92,6 +101,9 @@ const RxForm = () => {
       <Button variant="primary" type="submit" onClick={save}>
         Submit
       </Button>
+      <br/>
+      <br/>
+      <Button><Link to="/homepage" style={{color: "white"}} >Home</Link></Button>
     </Wrapper>
   );
 
