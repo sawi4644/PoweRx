@@ -1,11 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import Homepage from '../src/pages/Homepage/Homepage'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Register from './pages/Register/register'
 import Login from './pages/Login/login'
 import RxForm from './pages/RxForm/rxForm'
@@ -18,14 +14,21 @@ import { AuthProvider } from './contexts/AuthContext'
 function App() {
       
   return (
-    <AuthProvider>
-      <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vH"}}>
-        <div className="w-100" style={{ maxWidth: "400px"}}>
-          <Signup />
-        </div>
-      </Container>
-    </AuthProvider>
-  ) 
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vH" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+        <Router>
+          <AuthProvider>
+            <Switch>
+              <Route path="/signup" component={Signup} />
+            </Switch>
+          </AuthProvider>
+        </Router>
+      </div>
+    </Container>
+  ); 
 
   // return (
   //   <Router>
