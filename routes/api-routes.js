@@ -8,6 +8,11 @@ router.route('/api/rxForms')
   .get(rxController.getAllRxForm) //get all forms
   .post(rxController.createRxForm) //create a drawing- run controller model when one of these routes get hit
 
+router.route('/api/history')
+  .get(rxController.getAllRxForm)
+
+
+
 router.route('/api/rxForms/:id')
 .put(rxController.updateRxForm) 
 .delete(rxController.deleteRxForm)
