@@ -10,7 +10,7 @@ import Register from './pages/Register/register'
 import Login from './pages/Login/login'
 import RxForm from './pages/RxForm/rxForm'
 import History from '../src/pages/History/history'
-import { FormProvider } from '../src/context/formContext';
+import { FormProvider } from './context/AuthContext';
 import HeaderRxInput from './pages/TopInput/HeaderRxInput'
 import Signup from '../src/components/SignUp/SignUp'
 
