@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import sampleData from './sampleData'
 import API from '../../utils/API'
-import {FormContext} from '../../context/AuthContext'
+import {FormContext} from '../../contexts/AuthContext'
 import {
   Link,
   useLocation,
