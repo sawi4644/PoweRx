@@ -1,50 +1,48 @@
 import './App.css';
-import React from 'react'
-import Homepage from '../src/pages/Homepage/Homepage'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import Register from './pages/Register/register'
-import Login from './pages/Login/login'
-import RxForm from './pages/RxForm/rxForm'
-import History from '../src/pages/History/history'
-import { FormProvider } from '../src/context/formContext';
-import HeaderRxInput from './pages/TopInput/HeaderRxInput'
+import React, { useState, useEffect } from 'react'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer';
+import { Switch, Route } from 'react-router-dom';
+import Home from './pages';
+import About from './pages/about';
+import Historyt from './pages/historyT';
+import Rxformfill from './pages/rxformfill';
+import Dropdown from './components/Dropdown';
+
+
 
 function App() {
-      
-  return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/homepage">
-            <Homepage />
-          </Route>
-          <Route path="/form">
-            <HeaderRxInput />
-            <RxForm />
-          </Route>
-          <Route path="/history">
-            <History />
-          </Route>
-          <Route path="/">
-            <Register />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-    // <div className='App'>
-    //   <HeaderRxInput />
-    //   <RxForm />
-    // </div>
+  const [isOpen, setIsOpen]= useState(false)
+
+  const toggle = ()=>{
+    setIsOpen(!isOpen)
+  }
+  
+  useEffect(()=>{
+    const hideMenu= ()=>{
+      if (window.innerWidth> 760 && isOpen){
+        setIsOpen(false)
+      }
+    }
+    window.addEventListener('resize', hideMenu)
+
+    return ()=>{
+      window.removeEventListener('resize', hideMenu)
+    }
+  })
+  return(
+      <>
+      <Navbar toggle={toggle}/>
+      <Dropdown isOpen={isOpen} toggle={toggle} />
+      <Switch>
+        <Route path="/" exact component= {Home}/>
+        <Route path="/about" exact component= {About}/>
+        <Route path="/history" exact component= {Historyt}/>
+        <Route path="/rxform" exact component= {Rxformfill}/>
+        
+      </Switch>
+      <Footer />
+      </>
   );
 }
 

@@ -15,7 +15,7 @@ const Homepage = () => {
         return (
           <div>
             <Jumbotron style={{textAlign:"center"}}>
-              <h1>Welcome {}</h1>
+              <h1 className='text-purple-500'>Welcome {}</h1>
               <p>PowerRx</p>
               <p>
                 Simpler way to fillout Rx forms, the easy step every dentist
