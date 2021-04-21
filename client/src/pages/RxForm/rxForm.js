@@ -11,12 +11,17 @@ import {
   useLocation,
   useHistory 
 } from "react-router-dom";
+import { useAuth } from '../../contexts/AuthContext'
+
 
 
 
 const RxForm = () => {
 
   let history = useHistory();
+  const { currentUser, createToken } = useAuth()
+
+  createToken().then((Headers) => console.log(Headers))
 
   const [allPorcelain, setAllPorcelain] = useState({
       techRec: false,

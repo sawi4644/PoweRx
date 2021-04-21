@@ -2,10 +2,8 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import Homepage from '../src/pages/Homepage/Homepage'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Register from './pages/Register/register'
 // import Login from './pages/Login/login'
 import RxForm from './pages/RxForm/rxForm'
-import History from '../src/pages/History/history'
 import { FormProvider } from './contexts/AuthContext';
 import HeaderRxInput from './pages/TopInput/HeaderRxInput'
 import Signup from '../src/components/SignUp/SignUp'
@@ -29,6 +27,7 @@ function App() {
             <Switch>
               <PrivateRoute exact path="/" component={Dashboard} />
               <PrivateRoute exact path="/update-profile" component={UpdateProfile} />
+              <PrivateRoute exact path="/form" component={RxForm} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
