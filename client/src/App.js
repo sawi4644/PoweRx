@@ -1,11 +1,11 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import Homepage from '../src/pages/Homepage/Homepage'
+import Homepage from './components/Homepage/Homepage'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Login from './pages/Login/login'
-import RxForm from './pages/RxForm/rxForm'
+import RxForm from './components/RxForm/rxForm'
 import { FormProvider } from './contexts/AuthContext';
-import HeaderRxInput from './pages/TopInput/HeaderRxInput'
+import HeaderRxInput from './components/TopInput/HeaderRxInput'
 import Signup from '../src/components/SignUp/SignUp'
 import { AuthProvider } from './contexts/AuthContext'
 import Dashboard from '../src/components/Dashboard/Dashboard'

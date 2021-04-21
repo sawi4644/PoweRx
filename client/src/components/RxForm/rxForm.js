@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext,} from 'react'
-import Wrapper from '../../components/Wrapper/wrapper'
-import Row from '../../components/Row/row'
+import Wrapper from '../Wrapper/wrapper'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import sampleData from './sampleData'
