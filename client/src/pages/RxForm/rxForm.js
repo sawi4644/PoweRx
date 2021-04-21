@@ -21,7 +21,7 @@ const RxForm = () => {
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
 
-  createToken().then((Headers) => console.log(Headers))
+  // createToken().then((Headers) => console.log(Headers))
 
   const [allPorcelain, setAllPorcelain] = useState({
       techRec: false,
@@ -46,12 +46,13 @@ const RxForm = () => {
     e.preventDefault()
     console.log(allPorcelain)
     createToken().then(headers => {
+      console.log(headers)
       API.saveFormData({allPorcelain}, headers)
-    .then(data => {
-      console.log(data)
+      .then(data => {
+      console.log("Nick", data)
     })
     .catch(err => console.log(err))
-    .then(history.push('/'))
+    // .then(history.push('/'))
     })
     
   }

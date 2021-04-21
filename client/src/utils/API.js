@@ -4,14 +4,14 @@ import axios from 'axios'
 
 export default {
   getFormData: async function () {
-    await axios.get('/api/rxForms')
+    return await axios.get('/api/rxForms')
   },
   saveFormData: async function (data, headers) {
-    await axios.get('/api/rxForms', data, headers)
+    return await axios.post('/api/rxForms', data, headers)
   },
 
   getHistory: async function () {
-    await axios.get('/api/rxForms')
+    return await axios.get('/api/rxForms')
   },
 
 }

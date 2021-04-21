@@ -5,8 +5,14 @@ module.exports = {
         // res.sendStatus(418)
         db.rxForm
         .create(req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+        .then(dbModel => {
+          console.log(dbModel)
+          res.json({dbModel, "ok": true})
+        })
+        .catch(err => {
+          console.log(err)
+          res.status(422).json(err)
+        });
     },
     getAllRxForm: function(req, res) {
         
