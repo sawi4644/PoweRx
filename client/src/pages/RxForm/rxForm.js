@@ -21,7 +21,7 @@ const RxForm = () => {
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
 
-  const token = createToken().then((Headers) => console.log(Headers))
+  createToken().then((Headers) => console.log(Headers))
 
   const [allPorcelain, setAllPorcelain] = useState({
       techRec: false,
@@ -51,7 +51,7 @@ const RxForm = () => {
       console.log(data)
     })
     .catch(err => console.log(err))
-    .then(history.push('/homepage'))
+    .then(history.push('/'))
     })
     
   }
@@ -103,7 +103,7 @@ const RxForm = () => {
       </Button>
       <br/>
       <br/>
-      <Button><Link to="/homepage" style={{color: "white"}} >Home</Link></Button>
+      <Button><Link to="/" style={{color: "white"}} >Home</Link></Button>
     </Wrapper>
   );
 
