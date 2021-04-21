@@ -21,7 +21,7 @@ const RxForm = () => {
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
 
-  createToken().then((Headers) => console.log(Headers))
+  const token = createToken().then((Headers) => console.log(Headers))
 
   const [allPorcelain, setAllPorcelain] = useState({
       techRec: false,
@@ -33,14 +33,6 @@ const RxForm = () => {
   });
 
 
-
-  // const { form, setForm} = useContext(FormContext)
-  
-  // label: {
-  //   name: '',
-  //   value: false,
-  //   inputType: ''
-  // }
   const checkUpdate = (e) => {
     const name = e.target.name
     setAllPorcelain({
@@ -53,12 +45,15 @@ const RxForm = () => {
   const save = (e) => {
     e.preventDefault()
     console.log(allPorcelain)
-    API.saveFormData({allPorcelain})
+    createToken().then(headers => {
+      API.saveFormData({allPorcelain}, headers)
     .then(data => {
       console.log(data)
     })
     .catch(err => console.log(err))
     .then(history.push('/homepage'))
+    })
+    
   }
 
 
