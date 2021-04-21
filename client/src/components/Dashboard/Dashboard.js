@@ -6,8 +6,11 @@ import { Link, useHistory } from 'react-router-dom'
 
 export default function Dashboard() {
   const [error, setError] = useState("")
-  const { currentUser, logout } = useAuth()
+  const { currentUser, logout, createToken } = useAuth()
   const history = useHistory()
+
+  // console.log(currentUser)
+  
 
   async function handleLogout () {
     setError('')
@@ -32,6 +35,9 @@ export default function Dashboard() {
       </Card>
       <div className="w-100 text-center mt-2">
         <Button variant="link" onClick={handleLogout}>Log Out</Button>
+      </div>
+      <div className="w-100 text-center mt-2">
+        <Button variant="link"><Link to="/form">Form</Link></Button>
       </div>
     </>
   )

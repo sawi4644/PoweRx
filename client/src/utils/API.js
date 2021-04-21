@@ -1,16 +1,22 @@
 import axios from 'axios'
+// import token from '../contexts/AuthContext'
+
 
 export default {
-  getFormData: function () {
-    return axios('/api/rxForms')
+  getFormData: async function () {
+    return await axios.get('/api/rxForms')
+  },
+  saveFormData: async function (data, headers) {
+    return await axios.post('/api/rxForms', data, headers)
   },
 
-  saveFormData: function (data) {
-    return axios.post('/api/rxForms',data)
+  getHistory: async function () {
+    return await axios.get('/api/rxForms')
   },
-
-  getHistory: function (data) {
-    return axios('/api/history')
-  }
 
 }
+
+
+
+
+

@@ -36,6 +36,21 @@ export function AuthProvider({ children}) {
     return currentUser.updatePassword(password)
   }
 
+
+
+  const createToken = async () => {
+    const user = auth.currentUser;
+    const token = user && (await user.getIdToken());
+    const payloadHeader = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    return payloadHeader;
+  }
+
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -52,6 +67,7 @@ export function AuthProvider({ children}) {
     resetPassword,
     updateEmail,
     updatePassword,
+    createToken,
     signup
   }
 

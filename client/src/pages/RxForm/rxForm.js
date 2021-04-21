@@ -11,12 +11,20 @@ import {
   useLocation,
   useHistory 
 } from "react-router-dom";
+import { useAuth } from '../../contexts/AuthContext'
+
 
 
 
 const RxForm = () => {
 
   let history = useHistory();
+  const { currentUser, createToken } = useAuth()
+
+  // createToken().then((Headers) => console.log(Headers))
+
+  // console.log(currentUser.uid)
+  
 
   const [allPorcelain, setAllPorcelain] = useState({
       techRec: false,
@@ -28,14 +36,6 @@ const RxForm = () => {
   });
 
 
-
-  // const { form, setForm} = useContext(FormContext)
-  
-  // label: {
-  //   name: '',
-  //   value: false,
-  //   inputType: ''
-  // }
   const checkUpdate = (e) => {
     const name = e.target.name
     setAllPorcelain({
@@ -48,12 +48,16 @@ const RxForm = () => {
   const save = (e) => {
     e.preventDefault()
     console.log(allPorcelain)
-    API.saveFormData({allPorcelain})
-    .then(data => {
-      console.log(data)
+    createToken().then(headers => {
+      console.log(headers)
+      API.saveFormData({allPorcelain, userId: currentUser.uid}, headers)
+      .then(data => {
+      console.log("Nick", data)
     })
     .catch(err => console.log(err))
-    .then(history.push('/homepage'))
+    // .then(history.push('/'))
+    })
+    
   }
 
 
@@ -103,7 +107,7 @@ const RxForm = () => {
       </Button>
       <br/>
       <br/>
-      <Button><Link to="/homepage" style={{color: "white"}} >Home</Link></Button>
+      <Button><Link to="/" style={{color: "white"}} >Home</Link></Button>
     </Wrapper>
   );
 
