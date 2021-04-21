@@ -23,6 +23,9 @@ const RxForm = () => {
 
   // createToken().then((Headers) => console.log(Headers))
 
+  // console.log(currentUser.uid)
+  
+
   const [allPorcelain, setAllPorcelain] = useState({
       techRec: false,
       layeredEmax: false,
@@ -47,7 +50,7 @@ const RxForm = () => {
     console.log(allPorcelain)
     createToken().then(headers => {
       console.log(headers)
-      API.saveFormData({allPorcelain}, headers)
+      API.saveFormData({allPorcelain, userId: currentUser.uid}, headers)
       .then(data => {
       console.log("Nick", data)
     })

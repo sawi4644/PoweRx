@@ -37,6 +37,7 @@ export function AuthProvider({ children}) {
   }
 
 
+
   const createToken = async () => {
     const user = auth.currentUser;
     const token = user && (await user.getIdToken());
