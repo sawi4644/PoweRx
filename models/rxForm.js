@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 
 const rxSchema = new Schema({
+    userId: String,
     personalInformation:{
         accountNumber: Number,
         phoneNumber: Number,

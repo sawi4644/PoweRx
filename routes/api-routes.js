@@ -10,6 +10,7 @@ router
 
 router
   .route("/rxForms/:id")
+  .get(rxController.getRxFromByUid)
   .put(rxController.updateRxForm)
   .delete(rxController.deleteRxForm);
 

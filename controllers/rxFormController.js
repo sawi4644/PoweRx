@@ -28,6 +28,12 @@ module.exports = {
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       },
+    getRxFromByUid: function (req,res) {
+      db.rxForm
+        .find({ userId: req.params.id})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err))
+    },
     updateRxForm: function(req, res) {
         db.rxForm
       .findOneAndUpdate({ _id: req.params.id }, req.body)
