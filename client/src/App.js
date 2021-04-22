@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import Homepage from './components/Homepage/Homepage'
+import Homepage from './components/Homepage/HomePage'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Login from './pages/Login/login'
 import RxForm from './components/RxForm/rxForm'
