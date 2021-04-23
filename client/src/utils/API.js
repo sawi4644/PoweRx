@@ -10,8 +10,8 @@ export default {
     return await axios.post('/api/rxForms', data, headers)
   },
 
-  getHistory: async function () {
-    return await axios.get('/api/rxForms')
+  getHistory: async function (uid, headers) {
+    return await axios.get(`/api/rxForms/${uid}`, headers)
   },
 
 }
