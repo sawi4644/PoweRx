@@ -3,6 +3,8 @@ import { Card, Button, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 
+//code to push up to main
+
 const Hero = () => {
 
     const [error, setError] = useState("");
