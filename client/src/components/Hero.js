@@ -40,8 +40,8 @@ const Hero = () => {
         </Card> */}
 
         <Link
-          className="py-6 px-10 bg-blue-500 rounded-full text-3xl hover:bg-blue-300 transition duration-500 ease-in-out flex items-center animate-bounce"
-          to="./form"
+          className="py-6 px-10 bg-blue-700 rounded-full text-3xl hover:bg-blue-400 transition duration-500 ease-in-out flex items-center animate-bounce"
+          to="./form" style={{color: "white"}}
         >
           New RX Form
           <svg
