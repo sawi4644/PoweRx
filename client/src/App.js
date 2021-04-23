@@ -1,11 +1,9 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import Homepage from './components/Homepage/HomePage'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Login from './pages/Login/login'
 import RxForm from './components/RxForm/rxForm'
-import { FormProvider } from './contexts/AuthContext';
-import HeaderRxInput from './components/TopInput/HeaderRxInput'
+// import { FormProvider } from './contexts/AuthContext';
+// import HeaderRxInput from './components/TopInput/HeaderRxInput'
 import Signup from '../src/components/SignUp/SignUp'
 import { AuthProvider } from './contexts/AuthContext'
 import Dashboard from '../src/components/Dashboard/Dashboard'
@@ -38,37 +36,6 @@ function App() {
     </Container>
   ); 
 
-  // return (
-  //   <Router>
-  //     <div>
-  //       <Switch>
-  //         <Route path="/register">
-  //           <Register />
-  //         </Route>
-  //         <Route path="/login">
-  //           <Login />
-  //         </Route>
-  //         <Route path="/homepage">
-  //           <Homepage />
-  //         </Route>
-  //         <Route path="/form">
-  //           <HeaderRxInput />
-  //           <RxForm />
-  //         </Route>
-  //         <Route path="/history">
-  //           <History />
-  //         </Route>
-  //         <Route path="/">
-  //           <Register />
-  //         </Route>
-  //       </Switch>
-  //     </div>
-  //   </Router>
-    // <div className='App'>
-    //   <HeaderRxInput />
-    //   <RxForm />
-    // </div>
-  // );
 }
 
 export default App;
