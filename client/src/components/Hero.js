@@ -32,13 +32,8 @@ const Hero = () => {
 
 
         <Link
-<<<<<<< HEAD
-          className="py-6 px-10 bg-blue-400 rounded-full text-3xl hover:bg-blue-200 transition duration-500 ease-in-out flex items-center animate-bounce"
-          to="./form"
-=======
           className="py-6 px-10 bg-blue-700 rounded-full text-3xl hover:bg-blue-400 transition duration-500 ease-in-out flex items-center animate-bounce"
           to="./form" style={{color: "white"}}
->>>>>>> 99782b969656b8c1f13d249f4083924a0135e929
         >
           New RX Form
           <svg
