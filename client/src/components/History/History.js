@@ -1,72 +1,58 @@
-import React, {useState, useEffect, useContext,} from 'react'
+import React, { useState, useEffect, useContext, } from 'react'
 // import Wrapper from '../Wrapper/wrapper'
 // import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Button, Card, Container } from 'react-bootstrap'
 // import sampleData from './sampleData'
 import API from '../../utils/API'
 // import {FormContext} from '../../contexts/AuthContext'
-import {
-  Link,
-  useLocation,
-  useHistory 
-} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext'
-
-
-
+import MyCard from '../Card/MyCard'
 
 const RxHistory = () => {
-
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
+  const [filledForm, setFilledForm] = useState({
+    // techRec: false,
+    // layeredEmax: false,
+    // monoEmax: false,
+    // LayeredZirconia: false,
+    // monoZirconia: false,
+    // composite: false, 
+  });
+  useEffect(() => {
+    RxHistoryForm()
+  }, [])
 
-  
-
-  // createToken().then((Headers) => console.log(Headers))
-
-  // console.log(currentUser.uid)
-  
-
-  const [allPorcelain, setAllPorcelain] = useState({
-      techRec: false,
-      layeredEmax: false,
-      monoEmax: false,
-      LayeredZirconia: false,
-      monoZirconia: false,
-      composite: false, 
-    });
-
-    useEffect(() => {
-      console.log("Friday")
-       RxHistoryForm()
-    }, [])
-    
-    const RxHistoryForm = e => {
-        // e.preventDefault()
-        console.log("Thursday")
-        createToken().then(headers => {
-          console.log(headers)
-          API.getHistory(currentUser.uid, headers)
-          .then(data => {
-          console.log("Nick", data)
+  const RxHistoryForm = e => {
+    createToken().then(headers => {
+      API.getHistory(currentUser.uid, headers)
+        .then(data => {
+          setFilledForm(data)
         })
         .catch(err => console.log(err))
-        
-            // getToken().then(headers => {
-            //     API.getHistory({ allPorcelain, userId: currentUser.uid }, headers)
-            //         .then(data => {
-            //             console.log("Nick", data)
-            //         })
-            //         .catch(err => console.log(err))
-            // })
-    })}
-
+    })
+  }
   return (
-        <>
-          
-        </>
+    <div>
+     {filledForm.data(form)}.map(data => (
+       <p>{filledForm[data]}</p>
+     ))}
+
+    </div>
+    // <div>
+    //   {Object.entries(filledForm.data).map((oneForm) => {
+    //     const [
+    //       key,
+    //       obj,
+    //     ] = oneForm
+    //     console.log(oneForm)
+    //     return(
+    //       <MyCard>{filledForm}</MyCard>
+    //     )
+    //   })}
+    // </div>
+    // <MyCard>{console.log(filledForm.data)}</MyCard>
   );
-
 }
-
 export default RxHistory
