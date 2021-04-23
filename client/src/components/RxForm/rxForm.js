@@ -15,7 +15,7 @@ import { useAuth } from '../../contexts/AuthContext'
 
 
 
-const RxForm = () => {
+const RxForm = ({defaultPorcelain}) => {
 
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
@@ -25,7 +25,7 @@ const RxForm = () => {
   // console.log(currentUser.uid)
   
 
-  const [allPorcelain, setAllPorcelain] = useState({
+  const [allPorcelain, setAllPorcelain] = useState( defaultPorcelain ||{
       techRec: false,
       layeredEmax: false,
       monoEmax: false,
