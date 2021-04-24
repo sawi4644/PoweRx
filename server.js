@@ -47,62 +47,10 @@ app.use(passport.session());
 require('./config/passportConfig')(passport);
 
 
-//Routes Passport
-// app.post('/login',(req,res, next) => {
-//   passport.authenticate('local', (err, user,info) => {
-//     if (err) throw err 
-//     if (!user) res.send('No User Exists')
-//     else {
-//       req.login(user, err => {
-//         if (err) throw err
-//         res.send('Successfully Authenticated')
-//         console.log(req.user)
-//       })
-//     }
-//   })(req,res,next)
-// })
-
-// app.post('/register',(req,res) => {
-//   User.findOne({username: req.body.username}, async (err,doc) => {
-//     if (err) throw err;
-//     if (doc) res.send('User Already Exists');
-//     if (!doc) {
-//       async function asyncCall() {
-//         const hashedPassword = await bcrypt.hash(req.body.password, 10)
-//         const newUser = new User({
-//           username:req.body.username,
-//           password: hashedPassword
-//         });
-//         await newUser.save();
-//         res.send('User Created')
-//       }
-//       asyncCall()
-//     }
-//   })
-// })
-
-// app.get('/User',(req,res) => {
-//   res.send(req.user);
-// })
-
-
-//Starter code 
-  // app.use(express.urlencoded({ extended: true }));
-  // app.use(express.json());
-
-  // Serve up static assets (usually on heroku)
-  // if (process.env.NODE_ENV === "production") {
-  //   app.use(express.static("client/build"));
-  // }
-
   // Define API routes here
   app.use("/api", checkAuth, apiRoutes )
 
-  // Send every other request to the React app
-  // Define any API routes before this runs
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  // });
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

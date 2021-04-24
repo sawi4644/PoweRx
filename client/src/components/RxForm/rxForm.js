@@ -232,9 +232,8 @@ const RxForm = (props) => {
 
 
   return (
-    <Wrapper>
-      <div>
-        <pre>{JSON.stringify(personalInformation, null, 2)}</pre>
+    <Wrapper className="flex flex-wrap">
+      <div className="grid grid-cols gap-2">
         <Form>
           <Form.Group controlId="Doctors Name">
             <Form.Label>Doctors Name</Form.Label>
@@ -271,19 +270,19 @@ const RxForm = (props) => {
               name="phoneNumber"
               label="phone Number"
               type="number"
-              placeholder="phone Number"
+              placeholder="Phone Number"
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
           <Form.Group controlId="office">
-            <Form.Label>office</Form.Label>
+            <Form.Label>Office</Form.Label>
             <Form.Control
               onChange={FormUpdate}
               value={personalInformation.office}
               name="office"
               label="office"
               type="input"
-              placeholder="office"
+              placeholder="Office"
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -295,7 +294,7 @@ const RxForm = (props) => {
               name="patientLastName"
               label="Doctors Name"
               type="input"
-              placeholder="patient LastName"
+              placeholder="Last Name"
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -307,7 +306,7 @@ const RxForm = (props) => {
               name="patientFirstName"
               label="Patient FirstName"
               type="input"
-              placeholder="patient FirstName"
+              placeholder="First Name"
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -334,7 +333,7 @@ const RxForm = (props) => {
               placeholder="Date Sent"
             />
             <Form.Text className="text-muted"></Form.Text>
-            <pre>{JSON.stringify(attachedItems, null, 2)}</pre>
+            <pre><strong>Please Send: </strong></pre>
             <CheckInput
               toggleItems={toggleItems}
               attachedItems={attachedItems}
@@ -343,7 +342,7 @@ const RxForm = (props) => {
         </Form>
       </div>
       <div>
-        <pre>{JSON.stringify(allPorcelain, null, 2)}</pre>
+        <pre><strong>ALL PORCELAIN</strong></pre>
         {Object.entries(allPorcelain).map((pork) => {
           const [key, value] = pork;
           return (
@@ -359,7 +358,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(pfm, null, 2)}</pre>
+        <pre><strong>PFM</strong></pre>
         {Object.entries(pfm).map((mfp) => {
           const [key, value] = mfp;
           return (
@@ -375,7 +374,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(metalCollar, null, 2)}</pre>
+        <pre><strong>METAL COLLAR</strong></pre>
         {Object.entries(metalCollar).map((metC) => {
           const [key, value] = metC;
           return (
@@ -391,7 +390,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(allGold, null, 2)}</pre>
+        <pre><strong>ALL GOLD</strong></pre>
         {Object.entries(allGold).map((gold) => {
           const [key, value] = gold;
           return (
@@ -407,7 +406,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(abutment, null, 2)}</pre>
+        <pre><strong>ABUTMENT</strong></pre>
         {Object.entries(abutment).map((abut) => {
           const [key, value] = abut;
           return (
@@ -423,7 +422,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(atlantisAbutment, null, 2)}</pre>
+        <pre><strong>ATLANTIS ABUTMENT</strong></pre>
         {Object.entries(atlantisAbutment).map((atlantis) => {
           const [key, value] = atlantis;
           return (
@@ -439,7 +438,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(screwRetainedCrown, null, 2)}</pre>
+        <pre><strong>SCREW RETAINED CROWN</strong></pre>
         {Object.entries(screwRetainedCrown).map((screw) => {
           const [key, value] = screw;
           return (
@@ -455,7 +454,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(temps, null, 2)}</pre>
+        <pre><strong> TEMPS</strong></pre>
         {Object.entries(temps).map((temp) => {
           const [key, value] = temp;
           return (
@@ -471,7 +470,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(temps2, null, 2)}</pre>
         {Object.entries(temps2).map((temp2) => {
           const [key, value] = temp2;
           return (
@@ -488,7 +486,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(ifNoOcclusalClearance, null, 2)}</pre>
+        <pre><strong>IF NO OCCLUSAL CLEARANCE</strong></pre>
         {Object.entries(ifNoOcclusalClearance).map((occlusal) => {
           const [key, value] = occlusal;
           return (
@@ -504,7 +502,7 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(teeth, null, 2)}</pre>
+        <pre><strong>TEETH</strong></pre>
         {Object.entries(teeth).map((tooth) => {
           const [key, value] = tooth;
           return (
