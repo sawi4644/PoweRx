@@ -9,13 +9,18 @@ import {useHistory } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext'
 import MyCard from '../Card/MyCard'
 
+
 const RxHistory = () => {
   let history = useHistory();
+
+
   const { currentUser, createToken } = useAuth()
   const [filledForm, setFilledForm] = useState([]);
     useEffect(() => {
        RxHistoryForm()
     }, [])
+
+
     const RxHistoryForm = e => {
         createToken().then(headers => {
           API.getHistory(currentUser.uid, headers)
@@ -26,6 +31,7 @@ const RxHistory = () => {
         .catch(err => console.log(err))
     })}
 
+    
   return (
     <div>
       {/* <pre>{JSON.stringify(filledForm, null, 2)}</pre> */}
@@ -37,5 +43,4 @@ const RxHistory = () => {
     </div>
   );
 }
-
 export default RxHistory

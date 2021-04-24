@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
 import { Card, Modal, Button } from 'react-bootstrap'
+
+
 export default function MyCard(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
   const objectsToMap = {
     "Personal Info": props.personalInformation,
     "Attached Items": props.attachedItems,
@@ -20,6 +24,8 @@ export default function MyCard(props) {
     "Teeth": props.teeth
   }
   console.log(props)
+
+
   return (
     <Card className="m-5" style={{ width: "18rem" }}>
       <Card.Body>
