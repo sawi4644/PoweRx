@@ -19,63 +19,107 @@ const rxSchema = new Schema({
     },
     //please send section of top row on RX form
     allPorcelain: {
-        techRec: {type: Boolean, default: false},
-        layeredEmax: {type: Boolean, default: false},
-        monoEmax: {type: Boolean, default: false},
-        LayeredZirconia: {type: Boolean, default: false},
-        monoZirconia: {type: Boolean, default: false},
-        composite: {type: Boolean, default: false}
+        techRec: Boolean,
+        layeredEmax: Boolean,
+        monoEmax: Boolean,
+        LayeredZirconia: Boolean,
+        monoZirconia: Boolean,
+        composite: Boolean
         //Lab time 10 days
       },
     pfm: {
-        nonprecious: {type: Boolean, default: false},
-        semiNoble: {type: Boolean, default: false},
-        whiteNoble: {type: Boolean, default: false},
-        highNoble: {type: Boolean, default: false}
+        nonprecious: Boolean,
+        semiNoble: Boolean,
+        whiteNoble: Boolean,
+        highNoble: Boolean
        //Lab time 10 days
     },
     metalCollar: {
-        noCollar: {type: Boolean, default: false},
-        porcButt: {type: Boolean, default: false},
-        lingual: {type: Boolean, default: false},
-        halfLingual: {type: Boolean, default: false},
-        fullCollar: {type: Boolean, default: false}
+        noCollar: Boolean,
+        porcButt: Boolean,
+        lingual: Boolean,
+        halfLingual: Boolean,
+        fullCollar: Boolean
     },
     allGold: {
-        fullGoldTypeThree: {type: Boolean, default: false},
-        inlayOnlayTypeTwo: {type: Boolean, default: false},
-        fullWhiteNoble: {type: Boolean, default: false}
+        fullGoldTypeThree: Boolean,
+        inlayOnlayTypeTwo: Boolean,
+        fullWhiteNoble: Boolean
         //lab time  8 days
     },
     abutment: {
-        techRecommendation: {type: Boolean, default: false},
-        titaniumCadCam: {type: Boolean, default: false},
-        zirconiaCadCam: {type: Boolean, default: false},
-        customUCLA: {type: Boolean, default: false},
-        stock: {type: Boolean, default: false}
+        techRecommendation: Boolean,
+        titaniumCadCam: Boolean,
+        zirconiaCadCam: Boolean,
+        customUCLA: Boolean,
+        stock: Boolean
     },
     atlantisAbutment: {
-        titanium: {type: Boolean, default: false},
-        zirconia: {type: Boolean, default: false},
-        composite: {type: Boolean, default: false}
+        titanium: Boolean,
+        zirconia: Boolean,
+        composite: Boolean
+        //lab time 12 days
+    },
+    screwRetainedCrown: {
+        semiNoble: Boolean,
+        zirconia: Boolean,
+        composite: Boolean
         //lab time 12 days
     },
     temps: {
-        diagnosticWaxUp: {type: Boolean, default: false},
+        diagnosticWaxUp: Boolean,
+        wireCast: Boolean,
+        metalFrame: Boolean,
+        splinted: Boolean,
+        individual: Boolean
+        //lab time 6 days
+    },
+    temps2: {
         abutmentNums: String,
         ponticsNums: String,
-        wireCast: {type: Boolean, default: false},
-        metalFrame: {type: Boolean, default: false},
-        splinted: {type: Boolean, default: false},
-        individual: {type: Boolean, default: false}
         //lab time 6 days
     },
     ifNoOcclusalClearance: {
-        metalOcclusion: {type: Boolean, default: false},
-        reductionCoping: {type: Boolean, default: false},
-        spotOpposing: {type: Boolean, default: false},
-        makePermanentNote: {type: Boolean, default: false},
-        callDoctor: {type: Boolean, default: false},
+        metalOcclusion: Boolean,
+        reductionCoping: Boolean,
+        spotOpposing: Boolean,
+        makePermanentNote: Boolean,
+        callDoctor: Boolean,
+    },
+    teeth: {
+        1: Boolean,
+        2: Boolean,
+        3: Boolean,
+        4: Boolean,
+        5: Boolean,
+        6: Boolean,
+        7: Boolean,
+        8: Boolean,
+        9: Boolean,
+        10: Boolean,
+        11: Boolean,
+        12: Boolean,
+        13: Boolean,
+        14: Boolean,
+        15: Boolean,
+        16: Boolean,
+        17: Boolean,
+        18: Boolean,
+        19: Boolean,
+        20: Boolean,
+        21: Boolean,
+        22: Boolean,
+        23: Boolean,
+        24: Boolean,
+        25: Boolean,
+        26: Boolean,
+        27: Boolean,
+        28: Boolean,
+        29: Boolean,
+        30: Boolean,
+        31: Boolean,
+        32: Boolean,
+       
     }
 }
 )

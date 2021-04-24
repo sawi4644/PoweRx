@@ -15,6 +15,9 @@ import {
   useLocation
 } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext'
+
+
+
 const HeaderRxInput = (props) => {
   const { currentUser, createToken } = useAuth()
   const [personalInformation, setpersonalInformation] = useState({
