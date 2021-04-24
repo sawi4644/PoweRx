@@ -8,10 +8,9 @@ export default function MyCard(props) {
   const handleShow = () => setShow(true);
 
 
-  const [show, setShow] = useState(false);
+  
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+
 
   const objectsToMap = {
     "Personal Info": props.personalInformation,
