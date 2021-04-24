@@ -5,7 +5,7 @@ export default function MyCard(props) {
 
   const objectsToMap = {
     "All Porcelain": props.allPorcelain,
-    "PFM": props.pfm
+    // "PFM": props.pfm
   }
 
 
