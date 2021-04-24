@@ -3,26 +3,12 @@ import { Card, Button, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 
-//code to push up to main
 
 const Hero = () => {
 
     const [error, setError] = useState("");
     const { currentUser, logout, createToken } = useAuth();
-    // const history = useHistory();
-
-    // // console.log(currentUser)
-
-    // async function handleLogout() {
-    //   setError("");
-    //   try {
-    //     await logout();
-    //     history.push("/login");
-    //   } catch {
-    //     setError("Failed to log out");
-    //   }
-    // }
-
+  
     return (
       <div className="bg-white h-screen flex flex-col justify-center items-center">
         <h1 className="lg:text-9xl md:text:7xl sm:text-5xl text-3xl font-black mb-14">

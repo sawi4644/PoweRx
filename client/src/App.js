@@ -47,10 +47,10 @@ function App() {
         <Navbar toggle={toggle} />
         <Dropdown isOpen={isOpen} toggle={toggle} />
         <Container
-          className="d-flex flex-row flex-wrap"
+          className="d-flex align-items-center justify-content-center"
           style={{ minHeight: "100vH" }}
         >
-          <div className="w-100 flex-wrap" style={{ maxWidth: "400px" }}>
+          <div className="w-100" style={{ maxWidth: "400px" }}>
             <Switch>
               <PrivateRoute exact path="/" component={Home} />
               <PrivateRoute
