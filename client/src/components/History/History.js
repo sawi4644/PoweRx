@@ -28,6 +28,7 @@ const RxHistory = () => {
         createToken().then(headers => {
           API.getHistory(currentUser.uid, headers)
           .then(response => {
+          console.log(response.data)
           setFilledForm(response.data)
         })
         .catch(err => console.log(err))

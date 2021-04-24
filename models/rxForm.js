@@ -10,9 +10,14 @@ const rxSchema = new Schema({
         doctorName: String,
         office: String,
         patientLastName: String,
-        patientFirstNme: String,
+        patientFirstName: String,
         dateSent: Date,
         dateDue: Date,
+    },
+    attachedItems:{
+        Rxforms: {type: Boolean, default: false},
+        Boxes: {type: Boolean, default: false},
+        MailingLabels: {type: Boolean, default: false}
     },
     //please send section of top row on RX form
     allPorcelain: {
@@ -58,14 +63,23 @@ const rxSchema = new Schema({
         composite: Boolean
         //lab time 12 days
     },
+    screwRetainedCrown: {
+        semiNoble: Boolean,
+        zirconia: Boolean,
+        composite: Boolean
+        //lab time 12 days
+    },
     temps: {
         diagnosticWaxUp: Boolean,
-        abutmentNums: String,
-        ponticsNums: String,
         wireCast: Boolean,
         metalFrame: Boolean,
         splinted: Boolean,
         individual: Boolean
+        //lab time 6 days
+    },
+    temps2: {
+        abutmentNums: String,
+        ponticsNums: String,
         //lab time 6 days
     },
     ifNoOcclusalClearance: {
@@ -74,7 +88,15 @@ const rxSchema = new Schema({
         spotOpposing: Boolean,
         makePermanentNote: Boolean,
         callDoctor: Boolean,
+    },
+    teeth: {
+        1: Boolean,
+        2: Boolean,
+        3: Boolean,
+        4: Boolean,
+        5: Boolean,
     }
+    
 }
 )
    
