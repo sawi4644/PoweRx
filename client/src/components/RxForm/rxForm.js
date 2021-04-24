@@ -3,8 +3,6 @@ import Wrapper from '../Wrapper/wrapper'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import API from '../../utils/API'
-import Checkbox from '../Checkbox/Checkbox'
-import { FormContext } from '../../contexts/AuthContext'
 import {
   Link,
   useLocation,
@@ -21,8 +19,7 @@ const RxForm = (props) => {
 
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
-  // createToken().then((Headers) => console.log(Headers))
-  // console.log(currentUser.uid)
+
   const [allPorcelain, setAllPorcelain] = useState({
     techRec: false,
     layeredEmax: false,
@@ -198,7 +195,7 @@ const RxForm = (props) => {
           console.log("Nick", data)
         })
         .catch(err => console.log(err))
-      // .then(history.push('/'))
+      .then(history.push('/history'))
     })
   }
 
