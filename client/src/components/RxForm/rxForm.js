@@ -52,6 +52,50 @@ const RxForm = ({ defaultPorcelain }) => {
     fullCollar: false,
   });
 
+  const [allGold, setAllGold] = useState({
+    fullGoldTypeThree: false,
+    inlayOnlayTypeTwo: false,
+    fullWhiteNoble: false,
+    
+  });
+
+  const [abutment, setAbutment] = useState({
+    techRecommendation: false,
+    titaniumCadCam: false,
+    zirconiaCadCam: false,
+    customUCLA: false,
+    stock: false,
+  });
+
+  const [atlantisAbutment, setAtlantisAbutment] = useState({
+    techRecommendation: false,
+    titaniumCadCam: false,
+    zirconiaCadCam: false,
+    customUCLA: false,
+    stock: false,
+  });
+
+  const [temps, setTemps] = useState({
+    diagnosticWaxUp: false,
+    abutmentNums: false,
+    ponticsNums: false,
+    wireCast: false,
+    metalFrame: false,
+    splinted: false,
+    individual: false,
+  });
+
+  const [ifNoOcclusalClearance, setIfNoOcclusalClearance] = useState({
+    metalOcclusion: false,
+    reductionCoping: false,
+    spotOpposing: false,
+    makePermanentNote: false,
+    callDoctor: false,
+    
+  });
+
+
+
   const checkUpdate = (e) => {
     const name = e.target.name
     setAllPorcelain({
@@ -75,7 +119,7 @@ const RxForm = ({ defaultPorcelain }) => {
     console.log(allPorcelain)
     createToken().then(headers => {
       console.log(headers)
-      API.saveFormData({ allPorcelain, pfm, metalCollar, userId: currentUser.uid }, headers)
+      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, ifNoOcclusalClearance, userId: currentUser.uid }, headers)
         .then(data => {
           console.log("Nick", data)
         })
