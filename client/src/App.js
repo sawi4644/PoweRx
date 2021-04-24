@@ -19,16 +19,11 @@ import { AuthProvider } from './contexts/AuthContext'
 import { Container } from 'react-bootstrap'
 import Billie from '../src/components/History/History'
 // random comment so i can push code
-
-
-
 function App() {
   const [isOpen, setIsOpen]= useState(false)
-
   const toggle = ()=>{
     setIsOpen(!isOpen)
   }
-  
   useEffect(()=>{
     const hideMenu= ()=>{
       if (window.innerWidth> 760 && isOpen){
@@ -36,7 +31,6 @@ function App() {
       }
     }
     window.addEventListener('resize', hideMenu)
-
     return ()=>{
       window.removeEventListener('resize', hideMenu)
     }
@@ -72,5 +66,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
