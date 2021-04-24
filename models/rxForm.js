@@ -8,7 +8,7 @@ const rxSchema = new Schema({
         doctorName: String,
         office: String,
         patientLastName: String,
-        patientFirstNme: String,
+        patientFirstName: String,
         dateSent: Date,
         dateDue: Date,
     },

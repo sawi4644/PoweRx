@@ -86,26 +86,26 @@ const HeaderRxInput = (props) => {
     </Form.Text>
         </Form.Group>
         <Form.Group controlId="Doctors Name">
-          <Form.Label>Doctors Name</Form.Label>
+          <Form.Label>Patient Last Name</Form.Label>
           <Form.Control onChange={FormUpdate} value={personalInformation.patientLastName} name="patientLastName" label="Doctors Name" type="input" placeholder="patient LastName" />
           <Form.Text className="text-muted">
     </Form.Text>
         </Form.Group>
         <Form.Group controlId="Patient FirstName">
-          <Form.Label>Doctors Name</Form.Label>
-          <Form.Control onChange={FormUpdate} value={personalInformation.patientFirstNme} name="patientFirstName" label="Patient FirstName" type="input" placeholder="patient FirstName" />
+          <Form.Label>Patient First Name</Form.Label>
+          <Form.Control onChange={FormUpdate} value={personalInformation.patientFirstName} name="patientFirstName" label="Patient FirstName" type="input" placeholder="patient FirstName" />
           <Form.Text className="text-muted">
     </Form.Text>
         </Form.Group>
         <Form.Group controlId="Date Due">
-          <Form.Label>Date Due</Form.Label>
+          <Form.Label>Due Date</Form.Label>
           <Form.Control onChange={FormUpdate} value={personalInformation.dateDue} name="dateDue" label="Date Due" type="date" placeholder="Date Due" />
           <Form.Text className="text-muted">
     </Form.Text>
         </Form.Group>
         <Form.Group controlId="Date Sent">
           <Form.Label>Date Sent</Form.Label>
-          <Form.Control onChange={FormUpdate} value={personalInformation.dateSent} name="dateSent" label="Patient FirstName" type="date" placeholder="patient FirstName" />
+          <Form.Control onChange={FormUpdate} value={personalInformation.dateSent} name="dateSent" label="Date Sent" type="date" placeholder="Date Sent" />
           <Form.Text className="text-muted">
     </Form.Text>
     <pre>
@@ -121,3 +121,5 @@ const HeaderRxInput = (props) => {
     </Wrapper>
   )
 }
+
+export default HeaderRxInput

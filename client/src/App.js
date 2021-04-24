@@ -18,6 +18,7 @@ import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 import { AuthProvider } from './contexts/AuthContext'
 import { Container } from 'react-bootstrap'
 import Billie from '../src/components/History/History'
+
 // random comment so i can push code
 
 
@@ -58,7 +59,7 @@ function App() {
                 path="/update-profile"
                 component={UpdateProfile}
               />
-              <PrivateRoute exact path="/form" component={RxForm} />
+              <PrivateRoute exact path="/form" component={HeaderRxInput} />
               <PrivateRoute exact path="/about" component={About} />
               <PrivateRoute exact path="/history" component={Billie} />
               <Route path="/signup" component={Signup} />
