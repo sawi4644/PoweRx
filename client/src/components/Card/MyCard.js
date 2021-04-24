@@ -1,7 +1,12 @@
 import React, {useState} from 'react'
 import { Card, Modal, Button } from 'react-bootstrap'
 
+
 export default function MyCard(props) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   const [show, setShow] = useState(false);
 
@@ -24,9 +29,9 @@ export default function MyCard(props) {
     "Teeth": props.teeth
 
   }
-
-
   console.log(props)
+
+
   return (
     <Card className="m-5" style={{ width: "18rem" }}>
       <Card.Body>
@@ -49,6 +54,8 @@ export default function MyCard(props) {
             subtitles,
             selections,
           ] = section
+
+
           return (
             <>
               <Card.Subtitle className="mb-2" style={{textDecoration: "underline"}}>

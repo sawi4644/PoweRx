@@ -17,16 +17,13 @@ import CheckInput from '../TopInput/CheckInput'
 
 
 
+
 const RxForm = (props) => {
 
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
-
   // createToken().then((Headers) => console.log(Headers))
-
   // console.log(currentUser.uid)
-
-
   const [allPorcelain, setAllPorcelain] = useState({
     techRec: false,
     layeredEmax: false,
@@ -34,17 +31,13 @@ const RxForm = (props) => {
     LayeredZirconia: false,
     monoZirconia: false,
     composite: false,
-
-
   });
-
   const [pfm, setPfm] = useState({
     nonprecious: false,
     semiNoble: false,
     whiteNoble: false,
     highNoble: false,
   });
-
   const [metalCollar, setMetalCollar] = useState({
     noCollar: false,
     porcButt: false,
@@ -86,7 +79,6 @@ const RxForm = (props) => {
     ponticsNums: "",
   });
 
-
   const [ifNoOcclusalClearance, setAllNoOcclusal] = useState({
     metalOcclusion: false,
     reductionCoping: false,
@@ -108,7 +100,6 @@ const RxForm = (props) => {
     zirconia: false,
     composite: false,
   });
-
 
   const checkUpdate11 = (e) => {
     const name = e.target.name
@@ -198,8 +189,6 @@ const RxForm = (props) => {
     })
   }
 
-
-
   const save = (e) => {
     e.preventDefault()
     console.log(allPorcelain)
@@ -212,7 +201,6 @@ const RxForm = (props) => {
         .catch(err => console.log(err))
       // .then(history.push('/'))
     })
-
   }
 
   const [personalInformation, setpersonalInformation] = useState({
@@ -261,6 +249,7 @@ const RxForm = (props) => {
               label="Doctors Name"
               type="input"
               placeholder="Doctors Name"
+
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -273,8 +262,11 @@ const RxForm = (props) => {
               label="Doctors Account Number"
               type="number"
               placeholder="Account Number"
+
             />
+            <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
+
           <Form.Group controlId="phone Number">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control
@@ -543,7 +535,5 @@ const RxForm = (props) => {
       </Button>
     </Wrapper>
   );
-
 }
-
 export default RxForm
