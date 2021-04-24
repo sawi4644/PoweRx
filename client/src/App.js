@@ -5,12 +5,9 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './pages';
 import About from './pages/about';
-import Historyt from './pages/historyT';
 import Dropdown from './components/Dropdown';
 import RxForm from './components/RxForm/rxForm'
-import HeaderRxInput from './components/TopInput/HeaderRxInput'
 import Signup from '../src/components/SignUp/SignUp'
-import Dashboard from '../src/components/Dashboard/Dashboard'
 import Login from '../src/components/Login/Login'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import ForgotPassword from './components/ForgotPassword/ForgotPassword'
@@ -18,17 +15,12 @@ import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 import { AuthProvider } from './contexts/AuthContext'
 import { Container } from 'react-bootstrap'
 import Billie from '../src/components/History/History'
-// random comment so i can push code
-
-
 
 function App() {
   const [isOpen, setIsOpen]= useState(false)
-
   const toggle = ()=>{
     setIsOpen(!isOpen)
   }
-  
   useEffect(()=>{
     const hideMenu= ()=>{
       if (window.innerWidth> 760 && isOpen){
@@ -36,7 +28,6 @@ function App() {
       }
     }
     window.addEventListener('resize', hideMenu)
-
     return ()=>{
       window.removeEventListener('resize', hideMenu)
     }
@@ -72,5 +63,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;

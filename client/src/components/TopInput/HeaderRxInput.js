@@ -14,21 +14,33 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
+import { useAuth } from '../../contexts/AuthContext'
 
-const HeaderRxInput = () => {
 
+
+const HeaderRxInput = (props) => {
+  const { currentUser, createToken } = useAuth()
   const [personalInformation, setpersonalInformation] = useState({
       accountNumber: "",
       phoneNumber: "",
       doctorName: "",
       office: "",
       patientLastName: "",
-      patientFirstNme: "",
+      patientFirstName: "",
       dateSent: Date(),
       dateDue: Date(),
   })
-
-
+  const [attachedItems, setAttachedItems] = useState({
+    RxForm: false,
+    Boxes: false,
+    MailingLabel: false,
+  });
+  const toggleItems = (e) => {
+    const name = e.target.name
+    setAttachedItems({
+      ...attachedItems,
+      [name]: !attachedItems[name]
+    })}
   const FormUpdate = e => {
     const {name, value} = e.target
     console.log(name)
@@ -37,88 +49,80 @@ const HeaderRxInput = () => {
       [name]: value,
   })
 }
-
   const save = e => {
     e.preventDefault()
     console.log(personalInformation)
-    API.saveFormData({personalInformation})
-    .then(data => {
-      console.log(data)
+    createToken().then(headers => {
+      API.saveFormData({ personalInformation, attachedItems }, headers)
+        .then(data => {
+          console.log(data)
+        })
+        .catch(err => console.log(err))
     })
-    .catch(err => console.log(err))
   }
- 
-
-
   return (
     <Wrapper>
       <pre>
         {JSON.stringify(personalInformation, null, 2)}
       </pre>
-      <Form>
+      <Form >
         <Form.Group controlId="Doctors Name">
           <Form.Label>Doctors Name</Form.Label>
           <Form.Control onChange={FormUpdate} value={personalInformation.doctorName} name="doctorName" label="Doctors Name" type="input" placeholder="Doctors Name" />
           <Form.Text className="text-muted">
     </Form.Text>
         </Form.Group>
-
         <Form.Group controlId="Doctors Account Number">
           <Form.Label>Doctors Account Number</Form.Label>
-          <Form.Control onChange={FormUpdate} name="accountNumber" label="Doctors Account Number" type="number" placeholder="Account Number" />
+          <Form.Control onChange={FormUpdate} value={personalInformation.accountNumber}name="accountNumber" label="Doctors Account Number" type="number" placeholder="Account Number" />
         </Form.Group>
-      <Button  onClick={save} variant="primary">Submit</Button>
+      <Form.Group controlId="phone Number">
+          <Form.Label>Phone Number</Form.Label>
+          <Form.Control onChange={FormUpdate} value={personalInformation.phoneNumber} name="phoneNumber" label="phone Number" type="number" placeholder="phone Number" />
+          <Form.Text className="text-muted">
+    </Form.Text>
+        </Form.Group>
+        <Form.Group controlId="office">
+          <Form.Label>office</Form.Label>
+          <Form.Control onChange={FormUpdate} value={personalInformation.office} name="office" label="office" type="input" placeholder="office" />
+          <Form.Text className="text-muted">
+    </Form.Text>
+        </Form.Group>
+        <Form.Group controlId="Doctors Name">
+          <Form.Label>Patient Last Name</Form.Label>
+          <Form.Control onChange={FormUpdate} value={personalInformation.patientLastName} name="patientLastName" label="Doctors Name" type="input" placeholder="patient LastName" />
+          <Form.Text className="text-muted">
+    </Form.Text>
+        </Form.Group>
+        <Form.Group controlId="Patient FirstName">
+          <Form.Label>Patient First Name</Form.Label>
+          <Form.Control onChange={FormUpdate} value={personalInformation.patientFirstName} name="patientFirstName" label="Patient FirstName" type="input" placeholder="patient FirstName" />
+          <Form.Text className="text-muted">
+    </Form.Text>
+        </Form.Group>
+        <Form.Group controlId="Date Due">
+          <Form.Label>Due Date</Form.Label>
+          <Form.Control onChange={FormUpdate} value={personalInformation.dateDue} name="dateDue" label="Date Due" type="date" placeholder="Date Due" />
+          <Form.Text className="text-muted">
+    </Form.Text>
+        </Form.Group>
+        <Form.Group controlId="Date Sent">
+          <Form.Label>Date Sent</Form.Label>
+          <Form.Control onChange={FormUpdate} value={personalInformation.dateSent} name="dateSent" label="Date Sent" type="date" placeholder="Date Sent" />
+          <Form.Text className="text-muted">
+    </Form.Text>
+    <pre>
+        {JSON.stringify(attachedItems, null, 2)}
+      </pre>
+      <CheckInput
+        toggleItems={toggleItems}
+        attachedItems={attachedItems}
+      />
+        </Form.Group>
+        <Button  onClick={save} variant="primary">Submit</Button>
       </Form>
     </Wrapper>
-
   )
 }
-
-
-
-
-          // <>
-          // <Form className="FormDesign">
-          //     {Object.entries(CardData).map((sampleData) => {
-          //       const [
-          //         key,
-          //         obj,
-          //       ] = sampleData
-          //       return (
-          //         <InputForm 
-          //         key={key}
-          //         placeholder={obj.FieldLabel}
-          //         FieldLabel={obj.FieldLabel}
-          //         value={obj.value}
-          //           />
-          //           )})}
-          //         <DateInput />
-          //         <DateInput />
-          //         <CheckInput />
-          // </Form >
-
-
-          // {/* <Form className="FormDesign">
-          //     {Object.entries(sample2).map((sampleD) => {
-          //       const [
-          //         key,
-          //         obj,
-          //       ] = sampleD
-          //       return (
-          //         <InputForm 
-          //         key={key}
-          //         placeholder={obj.FieldLabel}
-          //         FieldLabel={obj.FieldLabel}
-          //           />
-          //           )})}
-          //         <DateInput />
-              
-          // </Form> */}
-
-          //     <Button className="ButtonDesign"/>
-          // </>
-        
-  
-
 
 export default HeaderRxInput
