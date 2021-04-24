@@ -1,7 +1,4 @@
 import React, {useState, useEffect, useContext,} from 'react'
-// import Wrapper from '../Wrapper/wrapper'
-// import Form from 'react-bootstrap/Form'
-// import { Button, Card, Container } from 'react-bootstrap'
 import API from '../../utils/API'
 import {useHistory } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext'
