@@ -8,6 +8,11 @@ export default function MyCard(props) {
   const handleShow = () => setShow(true);
 
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const objectsToMap = {
     "Personal Info": props.personalInformation,
     "Attached Items": props.attachedItems,
@@ -22,6 +27,7 @@ export default function MyCard(props) {
     "Temps Continued": props.temps2,
     "If No Occlusal": props.ifNoOcclusalClearance,
     "Teeth": props.teeth
+
   }
   console.log(props)
 
@@ -37,6 +43,7 @@ export default function MyCard(props) {
           <Button variant="primary" onClick={handleShow}>
             Launch demo modal
           </Button>
+
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Modal heading</Modal.Title>
@@ -69,9 +76,10 @@ export default function MyCard(props) {
             </>
           );
         })}
-        
             </Modal.Body>
           </Modal>
+
+          
         </Card.Text>
       </Card.Body>
     </Card>

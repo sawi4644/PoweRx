@@ -1,55 +1,29 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form'
+import Wrapper from '../Wrapper/wrapper'
 
-export default function Checkbox(props) {
+export default function Checkbox({allPorcelain, checkUpdate}) {
     return (
-
-        
-
-
-        <div>
-
-        <Form.Group controlId="formBasicCheckbox">
-        <Form.Check
-          type="checkbox"
-          name="techRec"
-          label="Tech Recommendation"
-          onChange={props.checkUpdate}
-        />
-      </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check
-          type="checkbox"
-          name="layeredEmax"
-          label="Layered EMAX"
-          onChange={props.checkUpdate}
-        />
-      </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" name="monoEmax" label="Mono Emax" onChange={props.checkUpdate} />
-      </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check
-          type="checkbox"
-          name="LayeredZirconia"
-          label="Layered Zirconia"
-          onChange={props.checkUpdate}
-        />
-      </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check
-          type="checkbox"
-          name="monoZirconia"
-          label="Mono Zirconia"
-          onChange={props.checkUpdate}
-        />
-      </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" name="composite" label="Composite" onChange={props.checkUpdate} />
-      </Form.Group>
-
-      </div>
-
+      <div>
+        {/* {console.log({allPorcelain})} */}
+        {/* <pre>{JSON.stringify({allPorcelain}, null, 2)}</pre> */}
+        {/* {Object.entries({allPorcelain}).map(pork => {
+          const [
+            key,
+            value
+          ] = pork
+          return (
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check
+                type={"checkbox"}
+                name={key}
+                label={key}
+                onChange={checkUpdate}
+              />
+            </Form.Group>
+          )
+        })} */}
+    </div>
 
       
 

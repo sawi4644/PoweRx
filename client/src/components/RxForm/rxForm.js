@@ -13,7 +13,13 @@ import {
 } from "react-router-dom";
 import { useAuth } from '../../contexts/AuthContext'
 import CheckInput from '../TopInput/CheckInput'
+
+
+
+
+
 const RxForm = (props) => {
+
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
   // createToken().then((Headers) => console.log(Headers))
@@ -39,11 +45,13 @@ const RxForm = (props) => {
     halfLingual: false,
     fullCollar: false,
   });
+
   const [allGold, setAllGold] = useState({
     fullGoldTypeThree: false,
     inlayOnlayTypeTwo: false,
     fullWhiteNoble: false,
   });
+
   const [abutment, setAllAbutment] = useState({
     techRecommendation: false,
     titaniumCadCam: false,
@@ -51,11 +59,13 @@ const RxForm = (props) => {
     customUCLA: false,
     stock: false,
   });
+
   const [atlantisAbutment, setAtlantisAbutment] = useState({
     titanium: false,
     zirconia: false,
     composite: false,
   });
+
   const [temps, setAllTemps] = useState({
     diagnosticWaxUp: false,
     wireCast: false,
@@ -63,10 +73,12 @@ const RxForm = (props) => {
     splinted: false,
     individual: false,
   });
+
   const [temps2, setAllTemps2] = useState({
     abutmentNums: "",
     ponticsNums: "",
   });
+
   const [ifNoOcclusalClearance, setAllNoOcclusal] = useState({
     metalOcclusion: false,
     reductionCoping: false,
@@ -74,6 +86,7 @@ const RxForm = (props) => {
     makePermanentNote: false,
     callDoctor: false,
   });
+
   const [teeth, setAllTeeth] = useState({
     1: false,
     2: false,
@@ -81,11 +94,13 @@ const RxForm = (props) => {
     4: false,
     5: false,
   });
+
   const [screwRetainedCrown, setAllScrewRetainedCrown] = useState({
     semiNoble: false,
     zirconia: false,
     composite: false,
   });
+
   const checkUpdate11 = (e) => {
     const name = e.target.name
     setAllScrewRetainedCrown({
@@ -93,6 +108,7 @@ const RxForm = (props) => {
       [name]: !screwRetainedCrown[name]
     })
   }
+
   const checkUpdate10 = (e) => {
     const name = e.target.name
     setAllTeeth({
@@ -100,6 +116,7 @@ const RxForm = (props) => {
       [name]: !teeth[name]
     })
   }
+
   const checkUpdate = (e) => {
     const name = e.target.name
     setAllPorcelain({
@@ -107,6 +124,7 @@ const RxForm = (props) => {
       [name]: !allPorcelain[name]
     })
   }
+
   const checkUpdate2 = (e) => {
     const name = e.target.name
     setPfm({
@@ -114,6 +132,7 @@ const RxForm = (props) => {
       [name]: !pfm[name]
     })
   }
+
   const checkUpdate3 = (e) => {
     const name = e.target.name
     setMetalCollar({
@@ -121,6 +140,7 @@ const RxForm = (props) => {
       [name]: !metalCollar[name]
     })
   }
+
   const checkUpdate4 = (e) => {
     const name = e.target.name
     setAllGold({
@@ -128,6 +148,7 @@ const RxForm = (props) => {
       [name]: !allGold[name]
     })
   }
+
   const checkUpdate5 = (e) => {
     const name = e.target.name
     setAllAbutment({
@@ -135,6 +156,7 @@ const RxForm = (props) => {
       [name]: !abutment[name]
     })
   }
+
   const checkUpdate6 = (e) => {
     const name = e.target.name
     setAtlantisAbutment({
@@ -142,6 +164,7 @@ const RxForm = (props) => {
       [name]: !atlantisAbutment[name]
     })
   }
+
   const checkUpdate7 = (e) => {
     const name = e.target.name
     setAllTemps({
@@ -149,6 +172,7 @@ const RxForm = (props) => {
       [name]: !temps[name]
     })
   }
+
   const checkUpdate8 = (e) => {
     const {name, value} = e.target
     setAllTemps2({
@@ -156,6 +180,7 @@ const RxForm = (props) => {
       [name]: value
     })
   }
+
   const checkUpdate9 = (e) => {
     const name = e.target.name
     setAllNoOcclusal({
@@ -163,6 +188,7 @@ const RxForm = (props) => {
       [name]: !ifNoOcclusalClearance[name]
     })
   }
+
   const save = (e) => {
     e.preventDefault()
     console.log(allPorcelain)
@@ -176,6 +202,7 @@ const RxForm = (props) => {
       // .then(history.push('/'))
     })
   }
+
   const [personalInformation, setpersonalInformation] = useState({
     accountNumber: "",
     phoneNumber: "",
@@ -207,6 +234,7 @@ const RxForm = (props) => {
     });
   };
 
+
   return (
     <Wrapper>
       <div>
@@ -221,6 +249,7 @@ const RxForm = (props) => {
               label="Doctors Name"
               type="input"
               placeholder="Doctors Name"
+
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -233,8 +262,11 @@ const RxForm = (props) => {
               label="Doctors Account Number"
               type="number"
               placeholder="Account Number"
+
             />
+            <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
+
           <Form.Group controlId="phone Number">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control

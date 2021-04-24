@@ -118,9 +118,7 @@ const rxSchema = new Schema({
         29: Boolean,
         30: Boolean,
         31: Boolean,
-        32: Boolean,
-       
-    }
+        32: Boolean,  
 }
 )
     const RxForm = mongoose.model('RxForm', rxSchema)
