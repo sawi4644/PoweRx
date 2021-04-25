@@ -1,4 +1,4 @@
-require('dotenv').config()
+// require('dotenv').config()
 const checkAuth = require('./checkauth')
 const mongoose = require('mongoose')
 const express = require("express");
@@ -32,10 +32,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-// app.use(cors({
-//   origin: "http://localhost:3000", //location of the react app were connecting to
-//   credentials: true
-// }))
+app.use(cors({
+  origin: "http://localhost:3000", //location of the react app were connecting to
+  credentials: true
+}))
 
 app.use(session({
   secret: 'secretcodoe',
