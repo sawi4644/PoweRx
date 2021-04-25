@@ -15,7 +15,9 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const User = require('./models/user')
 const morgan = require('morgan')
+
 console.log(process.env.MONGODB_URI)
+
 mongoose.connect(process.env.MONGODB_URI, {
 // mongoose.connect("mongodb://localhost/powerrx", {
   useNewUrlParser: true,
@@ -30,10 +32,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({
-  origin: "http://localhost:3000", //location of the react app were connecting to
-  credentials: true
-}))
+// app.use(cors({
+//   origin: "http://localhost:3000", //location of the react app were connecting to
+//   credentials: true
+// }))
 
 app.use(session({
   secret: 'secretcodoe',
