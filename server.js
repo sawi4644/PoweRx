@@ -1,4 +1,4 @@
-// require('dotenv').config()
+require('dotenv').config()
 const checkAuth = require('./checkauth')
 const mongoose = require('mongoose')
 const express = require("express");
@@ -43,10 +43,10 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-app.use(cookieParser('secretcode'));
-app.use(passport.initialize());
-app.use(passport.session());
-require('./config/passportConfig')(passport);
+// app.use(cookieParser('secretcode'));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// require('./config/passportConfig')(passport);
 
 
 //Routes Passport
