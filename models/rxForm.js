@@ -119,6 +119,7 @@ const rxSchema = new Schema({
         30: Boolean,
         31: Boolean,
         32: Boolean,  
+
 },
 BottomBoo: {
     DrDieTrim: Boolean,
@@ -140,6 +141,7 @@ OcclutionStaining: {
     Dark: Boolean,
   
 },
+
 
 })
     const RxForm = mongoose.model('RxForm', rxSchema)

@@ -13,6 +13,7 @@ export default function MyCard(props) {
 
 
   const objectsToMap = {
+    // "Bob": props.bob,
     "Personal Info": props.personalInformation,
     "Attached Items": props.attachedItems,
     "All Porcelain": props.allPorcelain,
@@ -29,6 +30,7 @@ export default function MyCard(props) {
     // "Teeth Shade": props.shade,
     // "Extra Choices": props.bottomBoo,
     // "Occlution Staining": props.occlutionStaining
+
   }
   console.log(objectsToMap)
 
