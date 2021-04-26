@@ -15,9 +15,6 @@ import { useAuth } from '../../contexts/AuthContext'
 import CheckInput from '../TopInput/CheckInput'
 
 
-
-
-
 const RxForm = (props) => {
 
   let history = useHistory();
@@ -99,6 +96,20 @@ const RxForm = (props) => {
     semiNoble: false,
     zirconia: false,
     composite: false,
+  });
+
+  const [bottomBoo, setBottomBoo] = useState({
+    drDieTrim: false,
+    metalTryIn: false,
+    bisqueBake: false,
+    finish: false,
+    callDoctor: false,
+  })
+
+  const [occlutionStaining, setOcclutionStaining] = useState({
+    none: false,
+    light: false,
+    dark: false,
   });
 
   const checkUpdate11 = (e) => {
@@ -189,12 +200,36 @@ const RxForm = (props) => {
     })
   }
 
+  const checkUpdate12 = (e) => {
+    const name = e.target.name
+    setBottomBoo({
+      ...bottomBoo,
+      [name]: !bottomBoo[name]
+    })
+  }
+
+  const checkUpdate13 = (e) => {
+    const name = e.target.name
+    setOcclutionStaining({
+      ...occlutionStaining,
+      [name]: !occlutionStaining[name]
+    })
+  }
+
+  const checkUpdate14 = (e) => {
+    const {name, value} = e.target
+    setShade({
+      ...shade,
+      [name]: value
+    })
+  }
+
   const save = (e) => {
     e.preventDefault()
     console.log(allPorcelain)
     createToken().then(headers => {
       console.log(headers)
-      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, temps2, ifNoOcclusalClearance, teeth, screwRetainedCrown, personalInformation, attachedItems,  userId: currentUser.uid }, headers)
+      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, temps2, ifNoOcclusalClearance, teeth, screwRetainedCrown, personalInformation, attachedItems, bottomBoo , occlutionStaining , shade ,  userId: currentUser.uid }, headers)
         .then(data => {
           console.log("Nick", data)
         })
@@ -213,11 +248,20 @@ const RxForm = (props) => {
     dateSent: Date(),
     dateDue: Date(),
   });
+
   const [attachedItems, setAttachedItems] = useState({
     RxForm: false,
     Boxes: false,
     MailingLabel: false,
   });
+
+  const [shade, setShade] = useState({
+    shade: "",
+    stumpShade: "",
+    drLicense: "",
+    email: "OfficeEmail@test.com",
+  });
+
   const toggleItems = (e) => {
     const name = e.target.name;
     setAttachedItems({
@@ -236,10 +280,9 @@ const RxForm = (props) => {
 
 
   return (
-    <Wrapper>
-      <div>
-        <pre>{JSON.stringify(personalInformation, null, 2)}</pre>
-        <Form>
+    <>
+      <div  >
+        <Form className= "flex flex-col">
           <Form.Group controlId="Doctors Name">
             <Form.Label>Doctors Name</Form.Label>
             <Form.Control
@@ -338,7 +381,6 @@ const RxForm = (props) => {
               placeholder="Date Sent"
             />
             <Form.Text className="text-muted"></Form.Text>
-            <pre>{JSON.stringify(attachedItems, null, 2)}</pre>
             <CheckInput
               toggleItems={toggleItems}
               attachedItems={attachedItems}
@@ -347,7 +389,6 @@ const RxForm = (props) => {
         </Form>
       </div>
       <div>
-        <pre>{JSON.stringify(allPorcelain, null, 2)}</pre>
         {Object.entries(allPorcelain).map((pork) => {
           const [key, value] = pork;
           return (
@@ -363,7 +404,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(pfm, null, 2)}</pre>
         {Object.entries(pfm).map((mfp) => {
           const [key, value] = mfp;
           return (
@@ -379,7 +419,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(metalCollar, null, 2)}</pre>
         {Object.entries(metalCollar).map((metC) => {
           const [key, value] = metC;
           return (
@@ -395,7 +434,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(allGold, null, 2)}</pre>
         {Object.entries(allGold).map((gold) => {
           const [key, value] = gold;
           return (
@@ -411,7 +449,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(abutment, null, 2)}</pre>
         {Object.entries(abutment).map((abut) => {
           const [key, value] = abut;
           return (
@@ -427,7 +464,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(atlantisAbutment, null, 2)}</pre>
         {Object.entries(atlantisAbutment).map((atlantis) => {
           const [key, value] = atlantis;
           return (
@@ -443,7 +479,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(screwRetainedCrown, null, 2)}</pre>
         {Object.entries(screwRetainedCrown).map((screw) => {
           const [key, value] = screw;
           return (
@@ -459,7 +494,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(temps, null, 2)}</pre>
         {Object.entries(temps).map((temp) => {
           const [key, value] = temp;
           return (
@@ -475,7 +509,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(temps2, null, 2)}</pre>
         {Object.entries(temps2).map((temp2) => {
           const [key, value] = temp2;
           return (
@@ -483,7 +516,7 @@ const RxForm = (props) => {
               <Form.Label>{key}</Form.Label>
               <Form.Control
                 name={key}
-                as="textarea"
+                as="input"
                 rows={1}
                 onChange={checkUpdate8}
               />
@@ -492,7 +525,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(ifNoOcclusalClearance, null, 2)}</pre>
         {Object.entries(ifNoOcclusalClearance).map((occlusal) => {
           const [key, value] = occlusal;
           return (
@@ -508,7 +540,6 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-        <pre>{JSON.stringify(teeth, null, 2)}</pre>
         {Object.entries(teeth).map((tooth) => {
           const [key, value] = tooth;
           return (
@@ -523,6 +554,53 @@ const RxForm = (props) => {
           );
         })}
       </div>
+      <div>
+      {Object.entries(bottomBoo).map((bottomboos) => {
+          const [key, value] = bottomboos;
+          return (
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check
+                type={"checkbox"}
+                name={key}
+                label={key}
+                onChange={checkUpdate12}
+              />
+            </Form.Group>
+          );
+        })}
+      </div>
+        <div>
+        {Object.entries(occlutionStaining).map((occlutionStainings) => {
+          const [key, value] = occlutionStainings;
+          return (
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check
+                type={"checkbox"}
+                name={key}
+                label={key}
+                onChange={checkUpdate13}
+              />
+            </Form.Group>
+          );
+        })}
+        </div>
+        <div>
+        {Object.entries(shade).map((shadey) => {
+          const [key, value] = shadey;
+          return (
+            <Form.Group>
+              <Form.Label>{key}</Form.Label>
+              <Form.Control
+                name={key}
+                as="input"
+                rows={4}
+                placeholder={value}
+                onChange={checkUpdate14}
+              />
+            </Form.Group>
+            );
+          })}
+        </div>
       <Button variant="primary" type="submit" onClick={save}>
         Submit
       </Button>
@@ -533,7 +611,7 @@ const RxForm = (props) => {
           Home
         </Link>
       </Button>
-    </Wrapper>
+    </>
   );
 }
 export default RxForm

@@ -25,10 +25,12 @@ export default function MyCard(props) {
     "Temps": props.temps,
     "Temps Continued": props.temps2,
     "If No Occlusal": props.ifNoOcclusalClearance,
-    "Teeth": props.teeth
-
+    "Teeth": props.teeth,
+    // "Teeth Shade": props.shade,
+    // "Extra Choices": props.bottomBoo,
+    // "Occlution Staining": props.occlutionStaining
   }
-  console.log(props)
+  console.log(objectsToMap)
 
 
   return (

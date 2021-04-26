@@ -119,7 +119,28 @@ const rxSchema = new Schema({
         30: Boolean,
         31: Boolean,
         32: Boolean,  
-}
+},
+BottomBoo: {
+    DrDieTrim: Boolean,
+    MetalTryIn: Boolean,
+    BisqueBake: Boolean,
+    Finish: Boolean,
+    callDoctor: Boolean,
+},
+Shade: {
+    Shade: String,
+    StumpShade: String,
+    DrLIcense: String,
+    Email: String,
+},
+
+OcclutionStaining: {
+    None: Boolean,
+    Light: Boolean,
+    Dark: Boolean,
+  
+},
+
 })
     const RxForm = mongoose.model('RxForm', rxSchema)
     module.exports = RxForm
