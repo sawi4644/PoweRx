@@ -98,18 +98,18 @@ const RxForm = (props) => {
     composite: false,
   });
 
-  const [bottomBoo, setAllBottomBoo] = useState({
-    DrDieTrim: false,
-    MetalTryIn: false,
-    BisqueBake: false,
-    Finish: false,
+  const [bottomBoo, setBottomBoo] = useState({
+    drDieTrim: false,
+    metalTryIn: false,
+    bisqueBake: false,
+    finish: false,
     callDoctor: false,
   })
 
-  const [OcclutionStaining, setAllOcclutionStaining] = useState({
-    None: false,
-    Light: false,
-    Dark: false,
+  const [occlutionStaining, setOcclutionStaining] = useState({
+    none: false,
+    light: false,
+    dark: false,
   });
 
   const checkUpdate11 = (e) => {
@@ -202,7 +202,7 @@ const RxForm = (props) => {
 
   const checkUpdate12 = (e) => {
     const name = e.target.name
-    setAllBottomBoo({
+    setBottomBoo({
       ...bottomBoo,
       [name]: !bottomBoo[name]
     })
@@ -210,16 +210,16 @@ const RxForm = (props) => {
 
   const checkUpdate13 = (e) => {
     const name = e.target.name
-    setAllOcclutionStaining({
-      ...OcclutionStaining,
-      [name]: !OcclutionStaining[name]
+    setOcclutionStaining({
+      ...occlutionStaining,
+      [name]: !occlutionStaining[name]
     })
   }
 
   const checkUpdate14 = (e) => {
     const {name, value} = e.target
-    setAllShade({
-      ...Shade,
+    setShade({
+      ...shade,
       [name]: value
     })
   }
@@ -229,7 +229,7 @@ const RxForm = (props) => {
     console.log(allPorcelain)
     createToken().then(headers => {
       console.log(headers)
-      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, temps2, ifNoOcclusalClearance, teeth, screwRetainedCrown, personalInformation, attachedItems, bottomBoo , OcclutionStaining , Shade,  userId: currentUser.uid }, headers)
+      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, temps2, ifNoOcclusalClearance, teeth, screwRetainedCrown, personalInformation, attachedItems, bottomBoo , occlutionStaining , shade ,  userId: currentUser.uid }, headers)
         .then(data => {
           console.log("Nick", data)
         })
@@ -255,11 +255,11 @@ const RxForm = (props) => {
     MailingLabel: false,
   });
 
-  const [Shade, setAllShade] = useState({
-    Shade: "",
-    StumpShade: "",
-    DrLIcense: "",
-    Email: "OfficeEmail@test.com",
+  const [shade, setShade] = useState({
+    shade: "",
+    stumpShade: "",
+    drLicense: "",
+    email: "OfficeEmail@test.com",
   });
 
   const toggleItems = (e) => {
@@ -280,9 +280,9 @@ const RxForm = (props) => {
 
 
   return (
-    <Wrapper>
-      <div>
-        <Form>
+    <>
+      <div  >
+        <Form className= "flex flex-col">
           <Form.Group controlId="Doctors Name">
             <Form.Label>Doctors Name</Form.Label>
             <Form.Control
@@ -516,7 +516,7 @@ const RxForm = (props) => {
               <Form.Label>{key}</Form.Label>
               <Form.Control
                 name={key}
-                as="textarea"
+                as="input"
                 rows={1}
                 onChange={checkUpdate8}
               />
@@ -555,8 +555,8 @@ const RxForm = (props) => {
         })}
       </div>
       <div>
-      {Object.entries(bottomBoo).map((bottomboo) => {
-          const [key, value] = bottomboo;
+      {Object.entries(bottomBoo).map((bottomboos) => {
+          const [key, value] = bottomboos;
           return (
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check
@@ -570,8 +570,8 @@ const RxForm = (props) => {
         })}
       </div>
         <div>
-        {Object.entries(OcclutionStaining).map((OcclutionStaining) => {
-          const [key, value] = OcclutionStaining;
+        {Object.entries(occlutionStaining).map((occlutionStainings) => {
+          const [key, value] = occlutionStainings;
           return (
             <Form.Group controlId="formBasicCheckbox">
               <Form.Check
@@ -585,8 +585,8 @@ const RxForm = (props) => {
         })}
         </div>
         <div>
-        {Object.entries(Shade).map((Shade) => {
-          const [key, value] = Shade;
+        {Object.entries(shade).map((shadey) => {
+          const [key, value] = shadey;
           return (
             <Form.Group>
               <Form.Label>{key}</Form.Label>
@@ -611,7 +611,7 @@ const RxForm = (props) => {
           Home
         </Link>
       </Button>
-    </Wrapper>
+    </>
   );
 }
 export default RxForm
