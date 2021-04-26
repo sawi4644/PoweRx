@@ -119,7 +119,10 @@ const rxSchema = new Schema({
         30: Boolean,
         31: Boolean,
         32: Boolean,  
-}
+    },
+    bob: {
+        niceGuy: Boolean
+    }
 })
     const RxForm = mongoose.model('RxForm', rxSchema)
     module.exports = RxForm

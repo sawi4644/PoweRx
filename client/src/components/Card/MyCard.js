@@ -13,6 +13,7 @@ export default function MyCard(props) {
 
 
   const objectsToMap = {
+    // "Bob": props.bob,
     "Personal Info": props.personalInformation,
     "Attached Items": props.attachedItems,
     "All Porcelain": props.allPorcelain,
@@ -25,7 +26,7 @@ export default function MyCard(props) {
     "Temps": props.temps,
     "Temps Continued": props.temps2,
     "If No Occlusal": props.ifNoOcclusalClearance,
-    "Teeth": props.teeth
+    "Teeth": props.teeth,
 
   }
   console.log(props)
