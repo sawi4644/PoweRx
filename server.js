@@ -1,4 +1,5 @@
 require('dotenv').config()
+const checkAuth = require('./checkauth')
 const mongoose = require('mongoose')
 const express = require("express");
 const cors = require('cors')
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const User = require('./models/user')
 const morgan = require('morgan')
+//code to allow commit 
 
 // mongoose.connect(process.env.MONGODB_URI, {
 mongoose.connect("mongodb://localhost/powerrx", {
@@ -46,47 +48,47 @@ app.use(passport.session());
 require('./config/passportConfig')(passport);
 
 
-//Routes
-app.post('/login',(req,res, next) => {
-  passport.authenticate('local', (err, user,info) => {
-    if (err) throw err 
-    if (!user) res.send('No User Exists')
-    else {
-      req.login(user, err => {
-        if (err) throw err
-        res.send('Successfully Authenticated')
-        console.log(req.user)
-      })
-    }
-  })(req,res,next)
-})
+//Routes Passport
+// app.post('/login',(req,res, next) => {
+//   passport.authenticate('local', (err, user,info) => {
+//     if (err) throw err 
+//     if (!user) res.send('No User Exists')
+//     else {
+//       req.login(user, err => {
+//         if (err) throw err
+//         res.send('Successfully Authenticated')
+//         console.log(req.user)
+//       })
+//     }
+//   })(req,res,next)
+// })
 
-app.post('/register',(req,res) => {
-  User.findOne({username: req.body.username}, async (err,doc) => {
-    if (err) throw err;
-    if (doc) res.send('User Already Exists');
-    if (!doc) {
-      async function asyncCall() {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        const newUser = new User({
-          username:req.body.username,
-          password: hashedPassword
-        });
-        await newUser.save();
-        res.send('User Created')
-      }
-      asyncCall()
-    }
-  })
-})
+// app.post('/register',(req,res) => {
+//   User.findOne({username: req.body.username}, async (err,doc) => {
+//     if (err) throw err;
+//     if (doc) res.send('User Already Exists');
+//     if (!doc) {
+//       async function asyncCall() {
+//         const hashedPassword = await bcrypt.hash(req.body.password, 10)
+//         const newUser = new User({
+//           username:req.body.username,
+//           password: hashedPassword
+//         });
+//         await newUser.save();
+//         res.send('User Created')
+//       }
+//       asyncCall()
+//     }
+//   })
+// })
 
-app.get('/User',(req,res) => {
-  res.send(req.user);
-})
+// app.get('/User',(req,res) => {
+//   res.send(req.user);
+// })
 
 
   // Define API routes here
-  app.use(apiRoutes)
+  app.use("/api", checkAuth, apiRoutes )
 
   // Send every other request to the React app
   // Define any API routes before this runs
