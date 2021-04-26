@@ -15,9 +15,6 @@ import { useAuth } from '../../contexts/AuthContext'
 import CheckInput from '../TopInput/CheckInput'
 
 
-
-
-
 const RxForm = (props) => {
 
   let history = useHistory();
@@ -262,7 +259,7 @@ const RxForm = (props) => {
     Shade: "",
     StumpShade: "",
     DrLIcense: "",
-    Email: "",
+    Email: "OfficeEmail@test.com",
   });
 
   const toggleItems = (e) => {
@@ -595,8 +592,9 @@ const RxForm = (props) => {
               <Form.Label>{key}</Form.Label>
               <Form.Control
                 name={key}
-                as="textarea"
+                as="input"
                 rows={4}
+                placeholder={value}
                 onChange={checkUpdate14}
               />
             </Form.Group>
