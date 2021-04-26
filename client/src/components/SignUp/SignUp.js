@@ -36,7 +36,7 @@ export default function SignUp() {
 
 
   return (
-    <>
+    <div classNameclassName="d-flex align-items-center justify-content-center">
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>
@@ -61,6 +61,6 @@ export default function SignUp() {
       <div className="w-100 text-center mt-2">
         Already have an account? <Link to="/login">Log In</Link>
       </div>
-    </>
+    </div>
   )
 }

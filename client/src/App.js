@@ -42,9 +42,7 @@ function App() {
         <Dropdown isOpen={isOpen} toggle={toggle} />
         <Container
           className="d-flex align-items-center justify-content-center"
-          style={{ minHeight: "100vH" }}
         >
-          <div className="w-100" style={{ maxWidth: "400px" }}>
             <Switch>
               <PrivateRoute exact path="/" component={Home} />
               <PrivateRoute
@@ -59,7 +57,6 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
             </Switch>
-          </div>
         </Container>
         <Footer />
       </AuthProvider>
