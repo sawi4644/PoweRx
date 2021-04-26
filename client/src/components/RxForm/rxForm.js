@@ -232,8 +232,8 @@ const RxForm = (props) => {
 
 
   return (
-    <Wrapper className="flex flex-wrap">
-      <div className="grid grid-cols gap-2">
+    <Wrapper>
+     <div>
         <Form>
           <Form.Group controlId="Doctors Name">
             <Form.Label>Doctors Name</Form.Label>
