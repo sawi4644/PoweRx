@@ -15,9 +15,10 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const User = require('./models/user')
 const morgan = require('morgan')
+//code to allow commit 
 
-// mongoose.connect(process.env.MONGODB_URI, {
-mongoose.connect("mongodb://localhost/powerrx", {
+mongoose.connect(process.env.MONGODB_URI, {
+// mongoose.connect("mongodb://localhost/powerrx", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
