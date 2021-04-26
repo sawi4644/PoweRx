@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Card, Modal, Button } from 'react-bootstrap'
 
-//code to allow push
+//code to allow
 export default function MyCard(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
