@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Card, Modal, Button } from 'react-bootstrap'
 
-
+//code to allow
 export default function MyCard(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -25,16 +25,29 @@ export default function MyCard(props) {
     "Temps": props.temps,
     "Temps Continued": props.temps2,
     "If No Occlusal": props.ifNoOcclusalClearance,
-    "Teeth": props.teeth
+    "Teeth": props.teeth,
+    "Additional Questions": props.bottomBoo,
+    "Additonal Questions Continued": props.shade
+    // "Teeth Shade": props.shade,
+    // "Extra Choices": props.bottomBoo,
+    // "Occlution Staining": props.occlutionStaining
 
   }
-  console.log(props)
+  console.log(objectsToMap)
+
+  const mappingObject = {
+    accountNumber: "Account Number",
+    Rxforms: "Rx Form"
+  }
 
 
   return (
+
+
+
     <Card className="m-5 px-6 group border-indigo-500 hover:bg-blue hover:shadow-lg hover:border-transparent" style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title className="text-indigo-300 group-hover:text-indigo-600 ">{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
+    <Card.Body>
+      <Card.Title className="text-indigo-300 group-hover:text-indigo-600 ">{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
         <Card.Text>
           <div>Office: {props.personalInformation.office}</div>
           <div>Doctor Name: {props.personalInformation.doctorName}</div>

@@ -16,9 +16,30 @@ import CheckInput from '../TopInput/CheckInput'
 
 
 
+
+
 const RxForm = (props) => {
+
   let history = useHistory();
   const { currentUser, createToken } = useAuth()
+  // createToken().then((Headers) => console.log(Headers))
+  // console.log(currentUser.uid)
+  
+  const [personalInformation, setpersonalInformation] = useState({
+    accountNumber: "",
+    phoneNumber: "",
+    doctorName: "",
+    office: "",
+    patientLastName: "",
+    patientFirstName: "",
+    dateSent: Date(),
+    dateDue: Date(),
+  });
+  const [attachedItems, setAttachedItems] = useState({
+    RxForm: false,
+    Boxes: false,
+    MailingLabel: false,
+  });
   const [allPorcelain, setAllPorcelain] = useState({
     techRec: false,
     layeredEmax: false,
@@ -55,6 +76,11 @@ const RxForm = (props) => {
   const [atlantisAbutment, setAtlantisAbutment] = useState({
     titanium: false,
     zirconia: false,
+    goldHue: false,
+  });
+  const [screwRetainedCrown, setAllScrewRetainedCrown] = useState({
+    semiNoble: false,
+    zirconia: false,
     composite: false,
   });
   const [temps, setAllTemps] = useState({
@@ -81,26 +107,65 @@ const RxForm = (props) => {
     3: false,
     4: false,
     5: false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+    10: false,
+    11: false,
+    12: false,
+    13: false,
+    14: false,
+    15: false,
+    16: false,
+    17: false,
+    18: false,
+    19: false,
+    20: false,
+    21: false,
+    22: false,
+    23: false,
+    24: false,
+    25: false,
+    26: false,
+    27: false,
+    28: false,
+    29: false,
+    30: false,
+    31: false,
+    32: false,
   });
-  const [screwRetainedCrown, setAllScrewRetainedCrown] = useState({
-    semiNoble: false,
-    zirconia: false,
-    composite: false,
+  const [bottomBoo, setAllBottomBoo] = useState({
+    drToDieTrim: false,
+    metalTryIn: false,
+    bisqueBake: false,
+    finishBox: false,
+    nothingBox: false,
+    lightBox: false,
+    darkBox: false,
   });
-  const checkUpdate11 = (e) => {
-    const name = e.target.name
-    setAllScrewRetainedCrown({
-      ...screwRetainedCrown,
-      [name]: !screwRetainedCrown[name]
-    })
-  }
-  const checkUpdate10 = (e) => {
-    const name = e.target.name
-    setAllTeeth({
-      ...teeth,
-      [name]: !teeth[name]
-    })
-  }
+  const [shade, setAllShade] = useState({
+    shadeBox: "",
+    stumpShade: "",
+    drLicense: "",
+    email: "",
+  });
+
+  const FormUpdate = (e) => {
+    const { name, value } = e.target;
+    console.log(name);
+    setpersonalInformation({
+      ...personalInformation,
+      [name]: value,
+    });
+  };
+  const toggleItems = (e) => {
+    const name = e.target.name;
+    setAttachedItems({
+      ...attachedItems,
+      [name]: !attachedItems[name],
+    });
+  };
   const checkUpdate = (e) => {
     const name = e.target.name
     setAllPorcelain({
@@ -164,343 +229,384 @@ const RxForm = (props) => {
       [name]: !ifNoOcclusalClearance[name]
     })
   }
+  const checkUpdate10 = (e) => {
+    const name = e.target.name
+    setAllTeeth({
+      ...teeth,
+      [name]: !teeth[name]
+    })
+  }
+  const checkUpdate11 = (e) => {
+    const name = e.target.name
+    setAllScrewRetainedCrown({
+      ...screwRetainedCrown,
+      [name]: !screwRetainedCrown[name]
+    })
+  }
+  const checkUpdate12 = (e) => {
+    const name = e.target.name
+    setAllBottomBoo({
+      ...bottomBoo,
+      [name]: !bottomBoo[name]
+    })
+  }
+  const checkUpdate13 = (e) => {
+    const {name, value} = e.target
+    setAllShade({
+      ...shade,
+      [name]: value
+    })
+  }
+  
+
   const save = (e) => {
     e.preventDefault()
     console.log(allPorcelain)
     createToken().then(headers => {
       console.log(headers)
-      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, temps2, ifNoOcclusalClearance, teeth, screwRetainedCrown, personalInformation, attachedItems,  userId: currentUser.uid }, headers)
+      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, temps2, ifNoOcclusalClearance, teeth, screwRetainedCrown, personalInformation, attachedItems, bottomBoo, shade,  userId: currentUser.uid }, headers)
         .then(data => {
           console.log("Nick", data)
         })
         .catch(err => console.log(err))
-      .then(history.push('/history'))
+      // .then(history.push('/'))
     })
   }
-  const [personalInformation, setpersonalInformation] = useState({
-    accountNumber: "",
-    phoneNumber: "",
-    doctorName: "",
-    office: "",
-    patientLastName: "",
-    patientFirstName: "",
-    dateSent: Date(),
-    dateDue: Date(),
-  });
-  const [attachedItems, setAttachedItems] = useState({
-    RxForm: false,
-    Boxes: false,
-    MailingLabel: false,
-  });
-  const toggleItems = (e) => {
-    const name = e.target.name;
-    setAttachedItems({
-      ...attachedItems,
-      [name]: !attachedItems[name],
-    });
-  };
-  const FormUpdate = (e) => {
-    const { name, value } = e.target;
-    console.log(name);
-    setpersonalInformation({
-      ...personalInformation,
-      [name]: value,
-    });
-  };
+
   return (
-    <Wrapper>
-     <div className="px-3 m-5">
-        <Form>
-          <Form.Group controlId="Doctors Name">
-            <Form.Label>Doctors Name</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.doctorName}
-              name="doctorName"
-              label="Doctors Name"
-              type="input"
-              placeholder="Doctors Name"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Form.Group controlId="Doctors Account Number">
-            <Form.Label>Doctors Account Number</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.accountNumber}
-              name="accountNumber"
-              label="Doctors Account Number"
-              type="number"
-              placeholder="Account Number"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Form.Group controlId="phone Number">
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.phoneNumber}
-              name="phoneNumber"
-              label="phone Number"
-              type="number"
-              placeholder="Phone Number"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Form.Group controlId="office">
-            <Form.Label>Office</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.office}
-              name="office"
-              label="office"
-              type="input"
-              placeholder="Office"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Form.Group controlId="Doctors Name">
-            <Form.Label>Patient Last Name</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.patientLastName}
-              name="patientLastName"
-              label="Doctors Name"
-              type="input"
-              placeholder="Last Name"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Form.Group controlId="Patient FirstName">
-            <Form.Label>Patient First Name</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.patientFirstName}
-              name="patientFirstName"
-              label="Patient FirstName"
-              type="input"
-              placeholder="First Name"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Form.Group controlId="Date Due">
-            <Form.Label>Due Date</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.dateDue}
-              name="dateDue"
-              label="Date Due"
-              type="date"
-              placeholder="Date Due"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Form.Group controlId="Date Sent">
-            <Form.Label>Date Sent</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.dateSent}
-              name="dateSent"
-              label="Date Sent"
-              type="date"
-              placeholder="Date Sent"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-            <pre><strong>Please Send: </strong></pre>
-            <CheckInput
-              toggleItems={toggleItems}
-              attachedItems={attachedItems}
-            />
-          </Form.Group>
-        </Form>
-      </div>
-      <div>
-        <pre><strong>ALL PORCELAIN</strong></pre>
-        {Object.entries(allPorcelain).map((pork) => {
-          const [key, value] = pork;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        <pre><strong>PFM</strong></pre>
-        {Object.entries(pfm).map((mfp) => {
-          const [key, value] = mfp;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate2}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        <pre><strong>METAL COLLAR</strong></pre>
-        {Object.entries(metalCollar).map((metC) => {
-          const [key, value] = metC;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate3}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        <pre><strong>ALL GOLD</strong></pre>
-        {Object.entries(allGold).map((gold) => {
-          const [key, value] = gold;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate4}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        <pre><strong>ABUTMENT</strong></pre>
-        {Object.entries(abutment).map((abut) => {
-          const [key, value] = abut;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate5}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        <pre><strong>ATLANTIS ABUTMENT</strong></pre>
-        {Object.entries(atlantisAbutment).map((atlantis) => {
-          const [key, value] = atlantis;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate6}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        <pre><strong>SCREW RETAINED CROWN</strong></pre>
-        {Object.entries(screwRetainedCrown).map((screw) => {
-          const [key, value] = screw;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate11}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        <pre><strong> TEMPS</strong></pre>
-        {Object.entries(temps).map((temp) => {
-          const [key, value] = temp;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate7}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        {Object.entries(temps2).map((temp2) => {
-          const [key, value] = temp2;
-          return (
-            <Form.Group>
-              <Form.Label>{key}</Form.Label>
+      <div >
+        <div className="card mt-4" style={{width: "18rem;"}}>
+          <div className="card-body">
+          <div> <h2 style={{textDecoration: "underline"}}>Personal Information</h2>
+          {/* <pre>{JSON.stringify(personalInformation, null, 2)}</pre> */}
+          <Form>
+            <Form.Group controlId="Doctors Name">
+              <Form.Label>Doctors Name</Form.Label>
               <Form.Control
-                name={key}
-                as="textarea"
-                rows={1}
-                onChange={checkUpdate8}
+                onChange={FormUpdate}
+                value={personalInformation.doctorName}
+                name="doctorName"
+                label="Doctors Name"
+                type="input"
+                placeholder="Doctors Name"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            <Form.Group controlId="Doctors Account Number">
+              <Form.Label>Doctors Account Number</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.accountNumber}
+                name="accountNumber"
+                label="Doctors Account Number"
+                type="number"
+                placeholder="Account Number"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            <Form.Group controlId="phone Number">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.phoneNumber}
+                name="phoneNumber"
+                label="phone Number"
+                type="number"
+                placeholder="phone Number"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            <Form.Group controlId="office">
+              <Form.Label>office</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.office}
+                name="office"
+                label="office"
+                type="input"
+                placeholder="office"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            <Form.Group controlId="Doctors Name">
+              <Form.Label>Patient Last Name</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.patientLastName}
+                name="patientLastName"
+                label="Doctors Name"
+                type="input"
+                placeholder="patient LastName"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            <Form.Group controlId="Patient FirstName">
+              <Form.Label>Patient First Name</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.patientFirstName}
+                name="patientFirstName"
+                label="Patient FirstName"
+                type="input"
+                placeholder="patient FirstName"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            <Form.Group controlId="Date Due">
+              <Form.Label>Due Date</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.dateDue}
+                name="dateDue"
+                label="Date Due"
+                type="date"
+                placeholder="Date Due"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+            <Form.Group controlId="Date Sent">
+              <Form.Label>Date Sent</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.dateSent}
+                name="dateSent"
+                label="Date Sent"
+                type="date"
+                placeholder="Date Sent"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+              {/* <pre>{JSON.stringify(attachedItems, null, 2)}</pre> */}
+              <CheckInput
+                toggleItems={toggleItems}
+                attachedItems={attachedItems}
               />
             </Form.Group>
-          );
-        })}
+          </Form>
+        </div>
+          </div>
+        </div>
+        <div ><h2 style={{textDecoration: "underline"}}>All Porcelain</h2>
+          {/* <pre>{JSON.stringify(allPorcelain, null, 2)}</pre> */}
+          {Object.entries(allPorcelain).map((pork) => {
+            const [key, value] = pork;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div><h2 style={{textDecoration: "underline"}}>PFM</h2>
+          {/* <pre>{JSON.stringify(pfm, null, 2)}</pre> */}
+          {Object.entries(pfm).map((mfp) => {
+            const [key, value] = mfp;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate2}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Metal Collar</h2>
+          {/* <pre>{JSON.stringify(metalCollar, null, 2)}</pre> */}
+          {Object.entries(metalCollar).map((metC) => {
+            const [key, value] = metC;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate3}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>All Gold</h2>
+          {/* <pre>{JSON.stringify(allGold, null, 2)}</pre> */}
+          {Object.entries(allGold).map((gold) => {
+            const [key, value] = gold;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate4}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Abutment</h2>
+          {/* <pre>{JSON.stringify(abutment, null, 2)}</pre> */}
+          {Object.entries(abutment).map((abut) => {
+            const [key, value] = abut;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate5}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Atlantis Abutment</h2>
+          {/* <pre>{JSON.stringify(atlantisAbutment, null, 2)}</pre> */}
+          {Object.entries(atlantisAbutment).map((atlantis) => {
+            const [key, value] = atlantis;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate6}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Screw Retained Crown</h2>
+          {/* <pre>{JSON.stringify(screwRetainedCrown, null, 2)}</pre> */}
+          {Object.entries(screwRetainedCrown).map((screw) => {
+            const [key, value] = screw;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate11}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Temps</h2>
+          {/* <pre>{JSON.stringify(temps, null, 2)}</pre> */}
+          {Object.entries(temps).map((temp) => {
+            const [key, value] = temp;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate7}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Temps Continued</h2>
+          {/* <pre>{JSON.stringify(temps2, null, 2)}</pre> */}
+          {Object.entries(temps2).map((temp2) => {
+            const [key, value] = temp2;
+            return (
+              <Form.Group>
+                <Form.Label>{key}</Form.Label>
+                <Form.Control
+                  name={key}
+                  as="input"
+                  rows={1}
+                  onChange={checkUpdate8}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div><h2 style={{textDecoration: "underline"}}>If No Occlusal Clearance</h2>
+          {/* <pre>{JSON.stringify(ifNoOcclusalClearance, null, 2)}</pre> */}
+          {Object.entries(ifNoOcclusalClearance).map((occlusal) => {
+            const [key, value] = occlusal;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate9}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Teeth</h2>
+          {/* <pre>{JSON.stringify(teeth, null, 2)}</pre> */}
+          {Object.entries(teeth).map((tooth) => {
+            const [key, value] = tooth;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate10}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Additional Questions</h2>
+          {/* <pre>{JSON.stringify(teeth, null, 2)}</pre> */}
+          {Object.entries(bottomBoo).map((oneBoo) => {
+            const [key, value] = oneBoo;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={key}
+                  onChange={checkUpdate12}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Additional Questions Continued</h2>
+          {/* <pre>{JSON.stringify(temps2, null, 2)}</pre> */}
+          {Object.entries(shade).map((shadeOne) => {
+            const [key, value] = shadeOne;
+            return (
+              <Form.Group>
+                <Form.Label>{key}</Form.Label>
+                <Form.Control
+                  name={key}
+                  as="input"
+                  rows={1}
+                  onChange={checkUpdate13}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <Button variant="primary" type="submit" onClick={save}>
+          Submit
+        </Button>
+        <br />
+        <br />
+        <Button>
+          <Link to="/" style={{ color: "white" }}>
+            Home
+          </Link>
+        </Button>
       </div>
-      <div>
-        <pre><strong>IF NO OCCLUSAL CLEARANCE</strong></pre>
-        {Object.entries(ifNoOcclusalClearance).map((occlusal) => {
-          const [key, value] = occlusal;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate9}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-        <pre><strong>TEETH</strong></pre>
-        {Object.entries(teeth).map((tooth) => {
-          const [key, value] = tooth;
-          return (
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                type={"checkbox"}
-                name={key}
-                label={key}
-                onChange={checkUpdate10}
-              />
-            </Form.Group>
-          );
-        })}
-      </div>
-      <div>
-      <Button className="py-10 px-5" variant="primary" type="submit" onClick={save}>
-        Submit
-      </Button>
-      <Button className="py-10 px-5 m-1" >
-        <Link to="/" style={{ color: "white" }}>
-          Home
-        </Link>
-      </Button>
-      </div>
-    </Wrapper>
+    
   );
 }
 export default RxForm
