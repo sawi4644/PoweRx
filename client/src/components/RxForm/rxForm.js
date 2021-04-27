@@ -274,7 +274,7 @@ const RxForm = (props) => {
   }
 
   return (
-      <div >
+      <div>
         <div className="card mt-4" style={{width: "18rem;"}}>
           <div className="card-body">
           <div> <h2 style={{textDecoration: "underline"}}>Personal Information</h2>
@@ -312,19 +312,19 @@ const RxForm = (props) => {
                 name="phoneNumber"
                 label="phone Number"
                 type="number"
-                placeholder="phone Number"
+                placeholder="Phone Number"
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
             <Form.Group controlId="office">
-              <Form.Label>office</Form.Label>
+              <Form.Label>Office</Form.Label>
               <Form.Control
                 onChange={FormUpdate}
                 value={personalInformation.office}
                 name="office"
                 label="office"
                 type="input"
-                placeholder="office"
+                placeholder="Office"
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
@@ -336,7 +336,7 @@ const RxForm = (props) => {
                 name="patientLastName"
                 label="Doctors Name"
                 type="input"
-                placeholder="patient LastName"
+                placeholder="Last Name"
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
@@ -348,7 +348,7 @@ const RxForm = (props) => {
                 name="patientFirstName"
                 label="Patient FirstName"
                 type="input"
-                placeholder="patient FirstName"
+                placeholder="First Name"
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>

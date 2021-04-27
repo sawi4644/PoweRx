@@ -1,13 +1,12 @@
 // authenticateToken.js
 const admin = require("firebase-admin");
-const serviceAccount = require("./serviceAccountENV");
-const serviceAccountB = require("./serviceAccount.json")
-const serviceAccountC= require("./serviceAccountS.json")
+const serviceAccount = require("./serviceAccount");
 
-console.log("A", serviceAccount)
-console.log("B", serviceAccountB)
+
+
+
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccountC),
+  credential: admin.credential.cert(serviceAccount),
 });
 async function decodeIDToken(req, res, next) {
   console.log("Hello");
