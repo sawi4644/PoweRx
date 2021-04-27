@@ -24,8 +24,21 @@ const RxForm = (props) => {
   const { currentUser, createToken } = useAuth()
   // createToken().then((Headers) => console.log(Headers))
   // console.log(currentUser.uid)
-  const [bob, setAllBob] = useState({
-    niceGuy: false,
+  
+  const [personalInformation, setpersonalInformation] = useState({
+    accountNumber: "",
+    phoneNumber: "",
+    doctorName: "",
+    office: "",
+    patientLastName: "",
+    patientFirstName: "",
+    dateSent: Date(),
+    dateDue: Date(),
+  });
+  const [attachedItems, setAttachedItems] = useState({
+    RxForm: false,
+    Boxes: false,
+    MailingLabel: false,
   });
   const [allPorcelain, setAllPorcelain] = useState({
     techRec: false,
@@ -48,13 +61,11 @@ const RxForm = (props) => {
     halfLingual: false,
     fullCollar: false,
   });
-
   const [allGold, setAllGold] = useState({
     fullGoldTypeThree: false,
     inlayOnlayTypeTwo: false,
     fullWhiteNoble: false,
   });
-
   const [abutment, setAllAbutment] = useState({
     techRecommendation: false,
     titaniumCadCam: false,
@@ -62,13 +73,16 @@ const RxForm = (props) => {
     customUCLA: false,
     stock: false,
   });
-
   const [atlantisAbutment, setAtlantisAbutment] = useState({
     titanium: false,
     zirconia: false,
     goldHue: false,
   });
-
+  const [screwRetainedCrown, setAllScrewRetainedCrown] = useState({
+    semiNoble: false,
+    zirconia: false,
+    composite: false,
+  });
   const [temps, setAllTemps] = useState({
     diagnosticWaxUp: false,
     wireCast: false,
@@ -76,12 +90,10 @@ const RxForm = (props) => {
     splinted: false,
     individual: false,
   });
-
   const [temps2, setAllTemps2] = useState({
     abutmentNums: "",
     ponticsNums: "",
   });
-
   const [ifNoOcclusalClearance, setAllNoOcclusal] = useState({
     metalOcclusion: false,
     reductionCoping: false,
@@ -89,7 +101,6 @@ const RxForm = (props) => {
     makePermanentNote: false,
     callDoctor: false,
   });
-
   const [teeth, setAllTeeth] = useState({
     1: false,
     2: false,
@@ -124,145 +135,22 @@ const RxForm = (props) => {
     31: false,
     32: false,
   });
-
-  const [screwRetainedCrown, setAllScrewRetainedCrown] = useState({
-    semiNoble: false,
-    zirconia: false,
-    composite: false,
+  const [bottomBoo, setAllBottomBoo] = useState({
+    drToDieTrim: false,
+    metalTryIn: false,
+    bisqueBake: false,
+    finishBox: false,
+    nothingBox: false,
+    lightBox: false,
+    darkBox: false,
+  });
+  const [shade, setAllShade] = useState({
+    shadeBox: "",
+    stumpShade: "",
+    drLicense: "",
+    email: "",
   });
 
-  const checkUpdate11 = (e) => {
-    const name = e.target.name
-    setAllScrewRetainedCrown({
-      ...screwRetainedCrown,
-      [name]: !screwRetainedCrown[name]
-    })
-  }
-
-  const checkUpdate10 = (e) => {
-    const name = e.target.name
-    setAllTeeth({
-      ...teeth,
-      [name]: !teeth[name]
-    })
-  }
-
-  const checkUpdate = (e) => {
-    const name = e.target.name
-    setAllPorcelain({
-      ...allPorcelain,
-      [name]: !allPorcelain[name]
-    })
-  }
-
-  const checkUpdate2 = (e) => {
-    const name = e.target.name
-    setPfm({
-      ...pfm,
-      [name]: !pfm[name]
-    })
-  }
-
-  const checkUpdate3 = (e) => {
-    const name = e.target.name
-    setMetalCollar({
-      ...metalCollar,
-      [name]: !metalCollar[name]
-    })
-  }
-
-  const checkUpdate4 = (e) => {
-    const name = e.target.name
-    setAllGold({
-      ...allGold,
-      [name]: !allGold[name]
-    })
-  }
-
-  const checkUpdate5 = (e) => {
-    const name = e.target.name
-    setAllAbutment({
-      ...abutment,
-      [name]: !abutment[name]
-    })
-  }
-
-  const checkUpdate6 = (e) => {
-    const name = e.target.name
-    setAtlantisAbutment({
-      ...atlantisAbutment,
-      [name]: !atlantisAbutment[name]
-    })
-  }
-
-  const checkUpdate7 = (e) => {
-    const name = e.target.name
-    setAllTemps({
-      ...temps,
-      [name]: !temps[name]
-    })
-  }
-
-  const checkUpdate8 = (e) => {
-    const {name, value} = e.target
-    setAllTemps2({
-      ...temps2,
-      [name]: value
-    })
-  }
-
-  const checkUpdate9 = (e) => {
-    const name = e.target.name
-    setAllNoOcclusal({
-      ...ifNoOcclusalClearance,
-      [name]: !ifNoOcclusalClearance[name]
-    })
-  }
-
-  const checkUpdate12 = (e) => {
-    const name = e.target.name
-    setAllBob({
-      ...bob,
-      [name]: !bob[name]
-    })
-  }
-
-  const save = (e) => {
-    e.preventDefault()
-    console.log(allPorcelain)
-    createToken().then(headers => {
-      console.log(headers)
-      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, temps2, ifNoOcclusalClearance, teeth, screwRetainedCrown, personalInformation, attachedItems, bob,  userId: currentUser.uid }, headers)
-        .then(data => {
-          console.log("Nick", data)
-        })
-        .catch(err => console.log(err))
-      // .then(history.push('/'))
-    })
-  }
-
-  const [personalInformation, setpersonalInformation] = useState({
-    accountNumber: "",
-    phoneNumber: "",
-    doctorName: "",
-    office: "",
-    patientLastName: "",
-    patientFirstName: "",
-    dateSent: Date(),
-    dateDue: Date(),
-  });
-  const [attachedItems, setAttachedItems] = useState({
-    RxForm: false,
-    Boxes: false,
-    MailingLabel: false,
-  });
-  const toggleItems = (e) => {
-    const name = e.target.name;
-    setAttachedItems({
-      ...attachedItems,
-      [name]: !attachedItems[name],
-    });
-  };
   const FormUpdate = (e) => {
     const { name, value } = e.target;
     console.log(name);
@@ -271,12 +159,122 @@ const RxForm = (props) => {
       [name]: value,
     });
   };
+  const toggleItems = (e) => {
+    const name = e.target.name;
+    setAttachedItems({
+      ...attachedItems,
+      [name]: !attachedItems[name],
+    });
+  };
+  const checkUpdate = (e) => {
+    const name = e.target.name
+    setAllPorcelain({
+      ...allPorcelain,
+      [name]: !allPorcelain[name]
+    })
+  }
+  const checkUpdate2 = (e) => {
+    const name = e.target.name
+    setPfm({
+      ...pfm,
+      [name]: !pfm[name]
+    })
+  }
+  const checkUpdate3 = (e) => {
+    const name = e.target.name
+    setMetalCollar({
+      ...metalCollar,
+      [name]: !metalCollar[name]
+    })
+  }
+  const checkUpdate4 = (e) => {
+    const name = e.target.name
+    setAllGold({
+      ...allGold,
+      [name]: !allGold[name]
+    })
+  }
+  const checkUpdate5 = (e) => {
+    const name = e.target.name
+    setAllAbutment({
+      ...abutment,
+      [name]: !abutment[name]
+    })
+  }
+  const checkUpdate6 = (e) => {
+    const name = e.target.name
+    setAtlantisAbutment({
+      ...atlantisAbutment,
+      [name]: !atlantisAbutment[name]
+    })
+  }
+  const checkUpdate7 = (e) => {
+    const name = e.target.name
+    setAllTemps({
+      ...temps,
+      [name]: !temps[name]
+    })
+  }
+  const checkUpdate8 = (e) => {
+    const {name, value} = e.target
+    setAllTemps2({
+      ...temps2,
+      [name]: value
+    })
+  }
+  const checkUpdate9 = (e) => {
+    const name = e.target.name
+    setAllNoOcclusal({
+      ...ifNoOcclusalClearance,
+      [name]: !ifNoOcclusalClearance[name]
+    })
+  }
+  const checkUpdate10 = (e) => {
+    const name = e.target.name
+    setAllTeeth({
+      ...teeth,
+      [name]: !teeth[name]
+    })
+  }
+  const checkUpdate11 = (e) => {
+    const name = e.target.name
+    setAllScrewRetainedCrown({
+      ...screwRetainedCrown,
+      [name]: !screwRetainedCrown[name]
+    })
+  }
+  const checkUpdate12 = (e) => {
+    const name = e.target.name
+    setAllBottomBoo({
+      ...bottomBoo,
+      [name]: !bottomBoo[name]
+    })
+  }
+  const checkUpdate13 = (e) => {
+    const {name, value} = e.target
+    setAllShade({
+      ...shade,
+      [name]: value
+    })
+  }
+  
 
+  const save = (e) => {
+    e.preventDefault()
+    console.log(allPorcelain)
+    createToken().then(headers => {
+      console.log(headers)
+      API.saveFormData({ allPorcelain, pfm, metalCollar, allGold, abutment, atlantisAbutment, temps, temps2, ifNoOcclusalClearance, teeth, screwRetainedCrown, personalInformation, attachedItems, bottomBoo, shade,  userId: currentUser.uid }, headers)
+        .then(data => {
+          console.log("Nick", data)
+        })
+        .catch(err => console.log(err))
+      // .then(history.push('/'))
+    })
+  }
 
   return (
-    
       <div >
-
         <div className="card mt-4" style={{width: "18rem;"}}>
           <div className="card-body">
           <div> <h2 style={{textDecoration: "underline"}}>Personal Information</h2>
@@ -291,7 +289,6 @@ const RxForm = (props) => {
                 label="Doctors Name"
                 type="input"
                 placeholder="Doctors Name"
-
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
@@ -304,11 +301,9 @@ const RxForm = (props) => {
                 label="Doctors Account Number"
                 type="number"
                 placeholder="Account Number"
-
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
-
             <Form.Group controlId="phone Number">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
@@ -390,8 +385,6 @@ const RxForm = (props) => {
         </div>
           </div>
         </div>
-
-        
         <div ><h2 style={{textDecoration: "underline"}}>All Porcelain</h2>
           {/* <pre>{JSON.stringify(allPorcelain, null, 2)}</pre> */}
           {Object.entries(allPorcelain).map((pork) => {
@@ -529,7 +522,7 @@ const RxForm = (props) => {
                 <Form.Label>{key}</Form.Label>
                 <Form.Control
                   name={key}
-                  as="textarea"
+                  as="input"
                   rows={1}
                   onChange={checkUpdate8}
                 />
@@ -569,10 +562,10 @@ const RxForm = (props) => {
             );
           })}
         </div>
-        <div> <h2 style={{textDecoration: "underline"}}>Bob</h2>
+        <div> <h2 style={{textDecoration: "underline"}}>Additional Questions</h2>
           {/* <pre>{JSON.stringify(teeth, null, 2)}</pre> */}
-          {Object.entries(bob).map((bobs) => {
-            const [key, value] = bobs;
+          {Object.entries(bottomBoo).map((oneBoo) => {
+            const [key, value] = oneBoo;
             return (
               <Form.Group controlId="formBasicCheckbox">
                 <Form.Check
@@ -580,6 +573,23 @@ const RxForm = (props) => {
                   name={key}
                   label={key}
                   onChange={checkUpdate12}
+                />
+              </Form.Group>
+            );
+          })}
+        </div>
+        <div> <h2 style={{textDecoration: "underline"}}>Additional Questions Continued</h2>
+          {/* <pre>{JSON.stringify(temps2, null, 2)}</pre> */}
+          {Object.entries(shade).map((shadeOne) => {
+            const [key, value] = shadeOne;
+            return (
+              <Form.Group>
+                <Form.Label>{key}</Form.Label>
+                <Form.Control
+                  name={key}
+                  as="input"
+                  rows={1}
+                  onChange={checkUpdate13}
                 />
               </Form.Group>
             );

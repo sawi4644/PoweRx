@@ -27,6 +27,8 @@ export default function MyCard(props) {
     "Temps Continued": props.temps2,
     "If No Occlusal": props.ifNoOcclusalClearance,
     "Teeth": props.teeth,
+    "Additional Questions": props.bottomBoo,
+    "Additonal Questions Continued": props.shade
     // "Teeth Shade": props.shade,
     // "Extra Choices": props.bottomBoo,
     // "Occlution Staining": props.occlutionStaining
@@ -34,8 +36,16 @@ export default function MyCard(props) {
   }
   console.log(objectsToMap)
 
+  const mappingObject = {
+    accountNumber: "Account Number",
+    Rxforms: "Rx Form"
+  }
+
 
   return (
+
+
+
     <Card className="m-5" style={{ width: "18rem" }}>
       <Card.Body>
         <Card.Title>{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
