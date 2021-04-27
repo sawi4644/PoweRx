@@ -34,8 +34,16 @@ export default function MyCard(props) {
   }
   console.log(objectsToMap)
 
+  const mappingObject = {
+    accountNumber: "Account Number",
+    Rxforms: "Rx Form"
+  }
+
 
   return (
+
+
+
     <Card className="m-5" style={{ width: "18rem" }}>
       <Card.Body>
         <Card.Title>{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
@@ -69,7 +77,7 @@ export default function MyCard(props) {
                 console.log(typeof(value))
                 return (
                   <p>
-                    <>{key}:</> {
+                    <>{mappingObject[key]}:</> {
                     typeof(value) === "boolean" 
                       ? value === true ? "✓" : "" 
                       : value}
