@@ -341,383 +341,386 @@ const RxForm = (props) => {
   }
 
   return (
-    <Container
-      className="mt-5 mb-5 align-items-center justify-content-center"
-      style={{ textAlign: "center" }}
-    >
-      <h1
-        className="mb-4"
-        style={{ fontSize: "75px", textDecoration: "underline" }}
+    <div className="bg-blue-300">
+
+      <Container 
+        className=" align-items-center justify-content-center "
+        style={{ textAlign: "center" }}
       >
-        New RxForm
-      </h1>
-      <Row>
-        <Col style={{ border: "solid", height: "125px", width: "100px" }}>
-          <Form.Group controlId="Doctors Name">
-            <Form.Label className="formHeader">Doctors Name</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.doctorName}
-              name="doctorName"
-              label="Doctors Name"
-              type="input"
-              placeholder="Doctors Name"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-        </Col>
-        <Col style={{ border: "solid", height: "125px", width: "100px" }}>
-          <Form.Group controlId="Doctors Account Number">
+        <h1
+          className="mb-4"
+          style={{ fontSize: "75px", textDecoration: "underline", color: "black" }}
+        >
+          New RxForm
+        </h1>
+        <Row>
+          <Col style={{ border: "solid", height: "125px", width: "100px", backgroundColor: "white"}}>
+            <Form.Group controlId="Doctors Name">
+              <Form.Label className="formHeader">Doctors Name</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.doctorName}
+                name="doctorName"
+                label="Doctors Name"
+                type="input"
+                placeholder="Doctors Name"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+          </Col>
+          <Col style={{ border: "solid", height: "125px", width: "100px", backgroundColor: "white" }}>
+            <Form.Group controlId="Doctors Account Number">
+              <Form.Label className="formHeader">
+                Doctors Account Number
+              </Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.accountNumber}
+                name="accountNumber"
+                label="Doctors Account Number"
+                type="number"
+                placeholder="Account Number"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ border: "solid", height: "125px", width: "100px", backgroundColor: "white" }}>
+            <Form.Group controlId="phone Number">
+              <Form.Label className="formHeader">Phone Number</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.phoneNumber}
+                name="phoneNumber"
+                label="Phone Number"
+                type="number"
+                placeholder="Phone Number"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+          </Col>
+          <Col style={{ border: "solid", height: "125px", width: "100px", backgroundColor: "white" }}>
+            <Form.Group controlId="office">
+              <Form.Label className="formHeader">Office</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.office}
+                name="office"
+                label="office"
+                type="input"
+                placeholder="Office"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ border: "solid", height: "125px", width: "100px", backgroundColor: "white" }}>
+            <Form.Group controlId="Doctors Name">
+              <Form.Label className="formHeader">Patient Last Name</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.patientLastName}
+                name="patientLastName"
+                label="Doctors Name"
+                type="input"
+                placeholder="Patient Last Name"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+          </Col>
+          <Col style={{ border: "solid", height: "125px", width: "100px", backgroundColor: "white" }}>
+            <Form.Group controlId="Patient FirstName">
+              <Form.Label className="formHeader">Patient First Name</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.patientFirstName}
+                name="patientFirstName"
+                label="Patient FirstName"
+                type="input"
+                placeholder="Patient First Name"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ border: "solid", height: "125px", width: "100px", backgroundColor: "white" }}>
+            <Form.Group controlId="Date Due">
+              <Form.Label className="formHeader">Due Date</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.dateDue}
+                name="dateDue"
+                label="Date Due"
+                type="date"
+                placeholder="Date Due"
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
+          </Col>
+          <Col style={{ border: "solid", height: "125px", width: "100px", backgroundColor: "white" }}>
+            <Form.Group controlId="Date Sent">
+              <Form.Label className="formHeader">Date Sent</Form.Label>
+              <Form.Control
+                onChange={FormUpdate}
+                value={personalInformation.dateSent}
+                name="dateSent"
+                label="Date Sent"
+                type="date"
+                placeholder="Date Sent"
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ border: "solid", height: "200px", width: "100px", backgroundColor: "white" }}>
+            <Form.Group controlId="Date Sent">
+              <Form.Label className="formHeader">Please Send:</Form.Label>
+              <CheckInput
+                toggleItems={toggleItems}
+                attachedItems={attachedItems}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ border: "solid", height: "300px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">All Porcelain:</Form.Label>
+            {Object.entries(allPorcelain).map((pork) => {
+              const [key, value] = pork;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "300px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">PFM:</Form.Label>
+            {Object.entries(pfm).map((mfp) => {
+              const [key, value] = mfp;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate2}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "300px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">Metal Collar:</Form.Label>
+            {Object.entries(metalCollar).map((metC) => {
+              const [key, value] = metC;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate3}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "300px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">All Gold:</Form.Label>
+            {Object.entries(allGold).map((gold) => {
+              const [key, value] = gold;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate4}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ border: "solid", height: "450px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">Abutment:</Form.Label>
+            {Object.entries(abutment).map((abut) => {
+              const [key, value] = abut;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate5}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "450px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">Atlantis Abutment:</Form.Label>
+            {Object.entries(atlantisAbutment).map((atlantis) => {
+              const [key, value] = atlantis;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate6}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "450px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">Screw Retained Crown:</Form.Label>
+            {Object.entries(screwRetainedCrown).map((screw) => {
+              const [key, value] = screw;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate11}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "450px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">Temps:</Form.Label>
+            {Object.entries(temps).map((temp) => {
+              const [key, value] = temp;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate7}
+                  />
+                </Form.Group>
+              );
+            })}
+            {Object.entries(temps2).map((temp2) => {
+              const [key, value] = temp2;
+              return (
+                <Form.Group>
+                  <Form.Label>{mappingObject[key]}</Form.Label>
+                  <Form.Control
+                    name={key}
+                    as="input"
+                    rows={1}
+                    onChange={checkUpdate8}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ border: "solid", height: "450px", width: "100px", backgroundColor: "white" }}>
             <Form.Label className="formHeader">
-              Doctors Account Number
+              If No Occlusal Clearance:
             </Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.accountNumber}
-              name="accountNumber"
-              label="Doctors Account Number"
-              type="number"
-              placeholder="Account Number"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col style={{ border: "solid", height: "125px", width: "100px" }}>
-          <Form.Group controlId="phone Number">
-            <Form.Label className="formHeader">Phone Number</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.phoneNumber}
-              name="phoneNumber"
-              label="Phone Number"
-              type="number"
-              placeholder="Phone Number"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-        </Col>
-        <Col style={{ border: "solid", height: "125px", width: "100px" }}>
-          <Form.Group controlId="office">
-            <Form.Label className="formHeader">Office</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.office}
-              name="office"
-              label="office"
-              type="input"
-              placeholder="Office"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col style={{ border: "solid", height: "125px", width: "100px" }}>
-          <Form.Group controlId="Doctors Name">
-            <Form.Label className="formHeader">Patient Last Name</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.patientLastName}
-              name="patientLastName"
-              label="Doctors Name"
-              type="input"
-              placeholder="Patient Last Name"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-        </Col>
-        <Col style={{ border: "solid", height: "125px", width: "100px" }}>
-          <Form.Group controlId="Patient FirstName">
-            <Form.Label className="formHeader">Patient First Name</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.patientFirstName}
-              name="patientFirstName"
-              label="Patient FirstName"
-              type="input"
-              placeholder="Patient First Name"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col style={{ border: "solid", height: "125px", width: "100px" }}>
-          <Form.Group controlId="Date Due">
-            <Form.Label className="formHeader">Due Date</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.dateDue}
-              name="dateDue"
-              label="Date Due"
-              type="date"
-              placeholder="Date Due"
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-        </Col>
-        <Col style={{ border: "solid", height: "125px", width: "100px" }}>
-          <Form.Group controlId="Date Sent">
-            <Form.Label className="formHeader">Date Sent</Form.Label>
-            <Form.Control
-              onChange={FormUpdate}
-              value={personalInformation.dateSent}
-              name="dateSent"
-              label="Date Sent"
-              type="date"
-              placeholder="Date Sent"
-            />
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col style={{ border: "solid", height: "200px", width: "100px" }}>
-          <Form.Group controlId="Date Sent">
-            <Form.Label className="formHeader">Please Send:</Form.Label>
-            <CheckInput
-              toggleItems={toggleItems}
-              attachedItems={attachedItems}
-            />
-          </Form.Group>
-        </Col>
-      </Row>
-      <Row>
-        <Col style={{ border: "solid", height: "300px", width: "100px" }}>
-          <Form.Label className="formHeader">All Porcelain:</Form.Label>
-          {Object.entries(allPorcelain).map((pork) => {
-            const [key, value] = pork;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "300px", width: "100px" }}>
-          <Form.Label className="formHeader">PFM:</Form.Label>
-          {Object.entries(pfm).map((mfp) => {
-            const [key, value] = mfp;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate2}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "300px", width: "100px" }}>
-          <Form.Label className="formHeader">Metal Collar:</Form.Label>
-          {Object.entries(metalCollar).map((metC) => {
-            const [key, value] = metC;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate3}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "300px", width: "100px" }}>
-          <Form.Label className="formHeader">All Gold:</Form.Label>
-          {Object.entries(allGold).map((gold) => {
-            const [key, value] = gold;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate4}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-      </Row>
-      <Row>
-        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
-          <Form.Label className="formHeader">Abutment:</Form.Label>
-          {Object.entries(abutment).map((abut) => {
-            const [key, value] = abut;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate5}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
-          <Form.Label className="formHeader">Atlantis Abutment:</Form.Label>
-          {Object.entries(atlantisAbutment).map((atlantis) => {
-            const [key, value] = atlantis;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate6}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
-          <Form.Label className="formHeader">Screw Retained Crown:</Form.Label>
-          {Object.entries(screwRetainedCrown).map((screw) => {
-            const [key, value] = screw;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate11}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
-          <Form.Label className="formHeader">Temps:</Form.Label>
-          {Object.entries(temps).map((temp) => {
-            const [key, value] = temp;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate7}
-                />
-              </Form.Group>
-            );
-          })}
-          {Object.entries(temps2).map((temp2) => {
-            const [key, value] = temp2;
-            return (
-              <Form.Group>
-                <Form.Label>{mappingObject[key]}</Form.Label>
-                <Form.Control
-                  name={key}
-                  as="input"
-                  rows={1}
-                  onChange={checkUpdate8}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-      </Row>
-      <Row>
-        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
-          <Form.Label className="formHeader">
-            If No Occlusal Clearance:
-          </Form.Label>
-          {Object.entries(ifNoOcclusalClearance).map((occlusal) => {
-            const [key, value] = occlusal;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate9}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
-          <Form.Label className="formHeader">Teeth:</Form.Label>
-          <p className="mt-3">
-            Please enter which teeth we will be working on, separate each number
-            by a comma!
-          </p>
-          {Object.entries(teeth).map((tooth) => {
-            const [key, value] = tooth;
-            return (
-              <Form.Group>
-                <Form.Label>{mappingObject[key]}</Form.Label>
-                <Form.Control
-                  name={key}
-                  as="input"
-                  rows={1}
-                  onChange={checkUpdate10}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
-          <Form.Label className="formHeader">Additional Questions:</Form.Label>
-          {Object.entries(bottomBoo).map((oneBoo) => {
-            const [key, value] = oneBoo;
-            return (
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type={"checkbox"}
-                  name={key}
-                  label={mappingObject[key]}
-                  onChange={checkUpdate12}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
-          <Form.Label className="formHeader">
-            Additional Questions Continued:
-          </Form.Label>
-          {Object.entries(shade).map((shadeOne) => {
-            const [key, value] = shadeOne;
-            return (
-              <Form.Group>
-                <Form.Label>{mappingObject[key]}</Form.Label>
-                <Form.Control
-                  name={key}
-                  as="input"
-                  rows={1}
-                  onChange={checkUpdate13}
-                />
-              </Form.Group>
-            );
-          })}
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Button
-            className="mt-3"
-            variant="primary"
-            type="submit"
-            onClick={save}
-          >
-            Submit
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+            {Object.entries(ifNoOcclusalClearance).map((occlusal) => {
+              const [key, value] = occlusal;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate9}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "450px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">Teeth:</Form.Label>
+            <p className="mt-3">
+              Please enter which teeth we will be working on, separate each number
+              by a comma!
+            </p>
+            {Object.entries(teeth).map((tooth) => {
+              const [key, value] = tooth;
+              return (
+                <Form.Group>
+                  <Form.Label>{mappingObject[key]}</Form.Label>
+                  <Form.Control
+                    name={key}
+                    as="input"
+                    rows={1}
+                    onChange={checkUpdate10}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "450px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">Additional Questions:</Form.Label>
+            {Object.entries(bottomBoo).map((oneBoo) => {
+              const [key, value] = oneBoo;
+              return (
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check
+                    type={"checkbox"}
+                    name={key}
+                    label={mappingObject[key]}
+                    onChange={checkUpdate12}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+          <Col style={{ border: "solid", height: "450px", width: "100px", backgroundColor: "white" }}>
+            <Form.Label className="formHeader">
+              Additional Questions Continued:
+            </Form.Label>
+            {Object.entries(shade).map((shadeOne) => {
+              const [key, value] = shadeOne;
+              return (
+                <Form.Group>
+                  <Form.Label>{mappingObject[key]}</Form.Label>
+                  <Form.Control
+                    name={key}
+                    as="input"
+                    rows={1}
+                    onChange={checkUpdate13}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button
+              className="mt-3 mb-3"
+              variant="danger"
+              type="submit"
+              onClick={save}
+            >
+              Submit
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </div>
     // <Container  className="align-items-center justify-content-center mt-3">
     //   <div className="w-100" style={{ maxWidth: "100%" }}>
 

@@ -99,61 +99,27 @@ export default function MyCard(props) {
     drLicense: "Dr, License #",
     email: "Email",
     howMany: "Selected Teeth",
-    1: "1",
-    2: "2",
-    3: "3",
-    4: "4",
-    5: "5",
-    6: "6",
-    7: "7",
-    8: "8",
-    9: "9",
-    10: "10",
-    11: "11",
-    12: "12",
-    13: "13",
-    14: "14",
-    15: "15",
-    16: "16",
-    17: "17",
-    18: "18",
-    19: "19",
-    20: "20",
-    21: "21",
-    22: "22",
-    23: "23",
-    24: "24",
-    25: "25",
-    26: "26",
-    27: "27",
-    28: "28",
-    29: "29",
-    30: "30",
-    31: "31",
-    32: "32",
   }
 
 
+
+
   return (
-
-
-
-    <Card className="m-5" style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>{props.personalInformation.patientLastName + ", " + props.personalInformation.patientFirstName}</Card.Title>
+<Card className="m-5 px-6 group border-indigo-500 hover:bg-blue hover:shadow-lg hover:border-transparent  " style={{ width: "18rem" }}>
+    <Card.Body>
+      <Card.Title className="text-black-500 group-hover:text-indigo-600 ">{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
         <Card.Text>
           <div>Office: {props.personalInformation.office}</div>
           <div>Doctor Name: {props.personalInformation.doctorName}</div>
-          <div>Due Date: {props.personalInformation.dateDue}</div>
-          <Button variant="primary" onClick={handleShow}>
-            Launch demo modal
+          <Button className="px-3 bg-blue-500 hover:bg-blue-300 mt-2" onClick={handleShow}>
+            View Full Form
           </Button>
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>{props.personalInformation.patientLastName + ", " + props.personalInformation.patientFirstName}</Modal.Title>
+              <Modal.Title>Patient Form</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body >
             {Object.entries(objectsToMap).map(section => {
           const [
             subtitles,

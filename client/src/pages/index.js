@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap'
 
 function Home() {
     return (
-        <Container className="d-flex  align-items-center justify-content-center">
+        <Container className="d-flex align-items-center justify-content-center ">
             <Hero /> 
             <Content /> 
         </Container>

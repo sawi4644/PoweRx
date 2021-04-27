@@ -17,7 +17,7 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword'
 import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 import { AuthProvider } from './contexts/AuthContext'
 import { Container } from 'react-bootstrap'
-import Billie from '../src/components/History/History'
+import History from '../src/components/History/History'
 // random comment so i can push code
 function App() {
   const [isOpen, setIsOpen]= useState(false)
@@ -40,7 +40,7 @@ function App() {
       <AuthProvider>
         <Navbar toggle={toggle} />
         <Dropdown isOpen={isOpen} toggle={toggle} />
-        <div style={{ minHeight: "100vH" }}>
+        <div className="" style={{ minHeight: "100vH" }}>
           <Switch>
             <PrivateRoute exact path="/" component={Home} />
             <PrivateRoute
@@ -49,8 +49,7 @@ function App() {
               component={UpdateProfile}
             />
             <PrivateRoute exact path="/form" component={RxForm} />
-            <PrivateRoute exact path="/about" component={About} />
-            <PrivateRoute exact path="/history" component={Billie} />
+            <PrivateRoute exact path="/history" component={History} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
