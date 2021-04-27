@@ -27,6 +27,8 @@ export default function MyCard(props) {
     "Temps Continued": props.temps2,
     "If No Occlusal": props.ifNoOcclusalClearance,
     "Teeth": props.teeth,
+    "Additional Questions": props.bottomBoo,
+    "Additonal Questions Continued": props.shade
     // "Teeth Shade": props.shade,
     // "Extra Choices": props.bottomBoo,
     // "Occlution Staining": props.occlutionStaining
@@ -77,7 +79,7 @@ export default function MyCard(props) {
                 console.log(typeof(value))
                 return (
                   <p>
-                    <>{mappingObject[key]}:</> {
+                    <>{key}:</> {
                     typeof(value) === "boolean" 
                       ? value === true ? "✓" : "" 
                       : value}
