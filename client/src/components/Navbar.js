@@ -50,10 +50,6 @@ const Navbar = ({ toggle }) => {
             Home
           </Link>
   
-          <Link className="p-4" to="/about">
-            About
-          </Link>
-  
           <Link className="p-4" to="/update-profile">
             Update Profile
           </Link>
