@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const User = require('./models/user')
 const morgan = require('morgan')
+//code to allow commit 
 
 mongoose.connect(process.env.MONGODB_URI, {
 // mongoose.connect("mongodb://localhost/powerrx", {
@@ -35,16 +36,19 @@ app.use(cors({
   credentials: true
 }))
 
+const root = require('path').join(__dirname, 'client', 'build')
+app.use(express.static(root));
+
 app.use(session({
   secret: 'secretcodoe',
   resave: true,
   saveUninitialized: true,
 }))
 
-app.use(cookieParser('secretcode'));
-app.use(passport.initialize());
-app.use(passport.session());
-require('./config/passportConfig')(passport);
+// app.use(cookieParser('secretcode'));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// require('./config/passportConfig')(passport);
 
 
 //Routes Passport
@@ -100,9 +104,9 @@ require('./config/passportConfig')(passport);
 
   // Send every other request to the React app
   // Define any API routes before this runs
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  // });
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
