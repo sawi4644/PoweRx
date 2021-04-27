@@ -269,12 +269,12 @@ const RxForm = (props) => {
           console.log("Nick", data)
         })
         .catch(err => console.log(err))
-      // .then(history.push('/'))
+      .then(history.push('/history'))
     })
   }
 
   return (
-      <div>
+      <div >
         <div className="card mt-4" style={{width: "18rem;"}}>
           <div className="card-body">
           <div> <h2 style={{textDecoration: "underline"}}>Personal Information</h2>

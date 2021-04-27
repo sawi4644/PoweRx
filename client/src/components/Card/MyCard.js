@@ -40,19 +40,19 @@ export default function MyCard(props) {
     Rxforms: "Rx Form"
   }
 
-
+ 
   return (
 
 
 
-    <Card className="m-5 px-6 group border-indigo-500 hover:bg-blue hover:shadow-lg hover:border-transparent" style={{ width: "18rem" }}>
+    <Card className="m-5 px-6 group border-indigo-500 hover:bg-blue hover:shadow-lg hover:border-transparent  " style={{ width: "18rem" }}>
     <Card.Body>
-      <Card.Title className="text-indigo-300 group-hover:text-indigo-600 ">{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
+      <Card.Title className="text-yellow-500 group-hover:text-indigo-600 ">{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
         <Card.Text>
           <div>Office: {props.personalInformation.office}</div>
           <div>Doctor Name: {props.personalInformation.doctorName}</div>
           <div>Due Date: {props.personalInformation.dateDue}</div>
-          <Button className="bg-blue-500 hover:bg-blue-300" onClick={handleShow}>
+          <Button className="px-3 bg-blue-500 hover:bg-blue-300 m-1" onClick={handleShow}>
             View Full Form
           </Button>
 

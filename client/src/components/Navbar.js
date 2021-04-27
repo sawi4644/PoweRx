@@ -50,9 +50,9 @@ const Navbar = ({ toggle }) => {
             Home
           </Link>
   
-          <Link className="p-4" to="/about">
+          {/* <Link className="p-4" to="/about">
             About
-          </Link>
+          </Link> */}
   
           <Link className="p-4" to="/update-profile">
             Update Profile

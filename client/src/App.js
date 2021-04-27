@@ -51,7 +51,7 @@ function App() {
                 component={UpdateProfile}
               />
               <PrivateRoute exact path="/form" component={RxForm} />
-              <PrivateRoute exact path="/about" component={About} />
+              {/* <PrivateRoute exact path="/about" component={About} /> */}
               <PrivateRoute exact path="/history" component={Billie} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
