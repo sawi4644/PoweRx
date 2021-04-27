@@ -57,7 +57,7 @@ const rxSchema = new Schema({
   atlantisAbutment: {
     titanium: Boolean,
     zirconia: Boolean,
-    composite: Boolean,
+    goldHue: Boolean,
     //lab time 12 days
   },
   screwRetainedCrown: {
