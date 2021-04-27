@@ -209,7 +209,7 @@ const RxForm = (props) => {
   };
   return (
     <Wrapper>
-     <div>
+     <div className="px-3 m-5">
         <Form>
           <Form.Group controlId="Doctors Name">
             <Form.Label>Doctors Name</Form.Label>
@@ -490,16 +490,16 @@ const RxForm = (props) => {
           );
         })}
       </div>
-      <Button variant="primary" type="submit" onClick={save}>
+      <div>
+      <Button className="py-10 px-5" variant="primary" type="submit" onClick={save}>
         Submit
       </Button>
-      <br />
-      <br />
-      <Button>
+      <Button className="py-10 px-5 m-1" >
         <Link to="/" style={{ color: "white" }}>
           Home
         </Link>
       </Button>
+      </div>
     </Wrapper>
   );
 }

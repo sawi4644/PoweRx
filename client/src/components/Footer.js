@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <div className="flex justify-center items-center h-16 bg-black text-white">
+        <div className="w-full text-center border-t border-grey p-4 pin-b">
             <p> Copyright © 2021 Power Dental All rights reserved. </p>
             
         </div>

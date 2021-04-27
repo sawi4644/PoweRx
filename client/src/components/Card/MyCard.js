@@ -32,22 +32,22 @@ export default function MyCard(props) {
 
 
   return (
-    <Card className="m-5" style={{ width: "18rem" }}>
+    <Card className="m-5 px-6 group border-indigo-500 hover:bg-blue hover:shadow-lg hover:border-transparent" style={{ width: "18rem" }}>
       <Card.Body>
-        <Card.Title>{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
+        <Card.Title className="text-indigo-300 group-hover:text-indigo-600 ">{props.personalInformation.patientFirstName + ", " + props.personalInformation.patientLastName}</Card.Title>
         <Card.Text>
           <div>Office: {props.personalInformation.office}</div>
           <div>Doctor Name: {props.personalInformation.doctorName}</div>
           <div>Due Date: {props.personalInformation.dateDue}</div>
-          <Button variant="primary" onClick={handleShow}>
-            Launch demo modal
+          <Button className="bg-blue-500 hover:bg-blue-300" onClick={handleShow}>
+            View Full Form
           </Button>
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>Patient Form</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body >
             {Object.entries(objectsToMap).map(section => {
           const [
             subtitles,

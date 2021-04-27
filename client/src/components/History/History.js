@@ -27,7 +27,7 @@ const RxHistory = () => {
         .catch(err => console.log(err))
     })}
   return (
-    <div className="flex flex-wrap flex-row">
+    <div className="w-100 pt-10 pb-20" style={{ maxWidth: "400px" }}>
       {/* <pre>{JSON.stringify(filledForm, null, 2)}</pre> */}
       {filledForm.map((oneForm) => {
         return(

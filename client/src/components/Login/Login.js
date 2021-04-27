@@ -34,7 +34,7 @@ export default function Login() {
 
 
   return (
-    <div className="flex flex-wrap flex-row">
+    <div className="w-100 pt-10 pb-20" style={{ maxWidth: "400px" }}>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
