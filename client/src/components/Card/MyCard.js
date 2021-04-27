@@ -98,6 +98,7 @@ export default function MyCard(props) {
     stumpShade: "Stump Shade",
     drLicense: "Dr, License #",
     email: "Email",
+    howMany: "Selected Teeth",
     1: "1",
     2: "2",
     3: "3",

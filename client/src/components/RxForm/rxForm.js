@@ -102,38 +102,7 @@ const RxForm = (props) => {
     callDoctor: false,
   });
   const [teeth, setAllTeeth] = useState({
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-    8: false,
-    9: false,
-    10: false,
-    11: false,
-    12: false,
-    13: false,
-    14: false,
-    15: false,
-    16: false,
-    17: false,
-    18: false,
-    19: false,
-    20: false,
-    21: false,
-    22: false,
-    23: false,
-    24: false,
-    25: false,
-    26: false,
-    27: false,
-    28: false,
-    29: false,
-    30: false,
-    31: false,
-    32: false,
+    howMany: "",
   });
   const [bottomBoo, setAllBottomBoo] = useState({
     drToDieTrim: false,
@@ -230,10 +199,10 @@ const RxForm = (props) => {
     })
   }
   const checkUpdate10 = (e) => {
-    const name = e.target.name
+    const {name, value} = e.target
     setAllTeeth({
       ...teeth,
-      [name]: !teeth[name]
+      [name]: value
     })
   }
   const checkUpdate11 = (e) => {
@@ -315,9 +284,9 @@ const RxForm = (props) => {
     metalTryIn: "Metal try-in",
     bisqueBake: "Bisque Bake",
     finishBox: "Finish",
-    nothingBox: "Nothing",
-    lightBox: "Light",
-    darkBox: "Dark",
+    nothingBox: "Occlusion Staining - Nothing",
+    lightBox: "Occlusion Staining - Light",
+    darkBox: "Occlusion Staining - Dark",
     shadeBox: "Shade",
     stumpShade: "Stump Shade",
     drLicense: "Dr, License #",
@@ -367,7 +336,7 @@ const RxForm = (props) => {
           console.log("Nick", data)
         })
         .catch(err => console.log(err))
-      // .then(history.push('/'))
+      .then(history.push('/history'))
     })
   }
 
@@ -376,6 +345,12 @@ const RxForm = (props) => {
       className="mt-5 mb-5 align-items-center justify-content-center"
       style={{ textAlign: "center" }}
     >
+      <h1
+        className="mb-4"
+        style={{ fontSize: "75px", textDecoration: "underline" }}
+      >
+        New RxForm
+      </h1>
       <Row>
         <Col style={{ border: "solid", height: "125px", width: "100px" }}>
           <Form.Group controlId="Doctors Name">
@@ -416,23 +391,23 @@ const RxForm = (props) => {
               onChange={FormUpdate}
               value={personalInformation.phoneNumber}
               name="phoneNumber"
-              label="phone Number"
+              label="Phone Number"
               type="number"
-              placeholder="phone Number"
+              placeholder="Phone Number"
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
         </Col>
         <Col style={{ border: "solid", height: "125px", width: "100px" }}>
           <Form.Group controlId="office">
-            <Form.Label className="formHeader">office</Form.Label>
+            <Form.Label className="formHeader">Office</Form.Label>
             <Form.Control
               onChange={FormUpdate}
               value={personalInformation.office}
               name="office"
               label="office"
               type="input"
-              placeholder="office"
+              placeholder="Office"
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -448,7 +423,7 @@ const RxForm = (props) => {
               name="patientLastName"
               label="Doctors Name"
               type="input"
-              placeholder="patient LastName"
+              placeholder="Patient Last Name"
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -462,7 +437,7 @@ const RxForm = (props) => {
               name="patientFirstName"
               label="Patient FirstName"
               type="input"
-              placeholder="patient FirstName"
+              placeholder="Patient First Name"
             />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
@@ -644,7 +619,7 @@ const RxForm = (props) => {
               <Form.Group>
                 <Form.Label>{mappingObject[key]}</Form.Label>
                 <Form.Control
-                  name={mappingObject[key]}
+                  name={key}
                   as="input"
                   rows={1}
                   onChange={checkUpdate8}
@@ -655,10 +630,92 @@ const RxForm = (props) => {
         </Col>
       </Row>
       <Row>
-        <Col style={{border: "solid", height: "400px", width: "100px"}}></Col>
-        <Col style={{border: "solid", height: "400px", width: "100px"}}></Col>
-        <Col style={{border: "solid", height: "400px", width: "100px"}}></Col>
-        <Col style={{border: "solid", height: "400px", width: "100px"}}></Col>
+        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
+          <Form.Label className="formHeader">
+            If No Occlusal Clearance:
+          </Form.Label>
+          {Object.entries(ifNoOcclusalClearance).map((occlusal) => {
+            const [key, value] = occlusal;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={mappingObject[key]}
+                  onChange={checkUpdate9}
+                />
+              </Form.Group>
+            );
+          })}
+        </Col>
+        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
+          <Form.Label className="formHeader">Teeth:</Form.Label>
+          <p className="mt-3">
+            Please enter which teeth we will be working on, separate each number
+            by a comma!
+          </p>
+          {Object.entries(teeth).map((tooth) => {
+            const [key, value] = tooth;
+            return (
+              <Form.Group>
+                <Form.Label>{mappingObject[key]}</Form.Label>
+                <Form.Control
+                  name={key}
+                  as="input"
+                  rows={1}
+                  onChange={checkUpdate10}
+                />
+              </Form.Group>
+            );
+          })}
+        </Col>
+        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
+          <Form.Label className="formHeader">Additional Questions:</Form.Label>
+          {Object.entries(bottomBoo).map((oneBoo) => {
+            const [key, value] = oneBoo;
+            return (
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check
+                  type={"checkbox"}
+                  name={key}
+                  label={mappingObject[key]}
+                  onChange={checkUpdate12}
+                />
+              </Form.Group>
+            );
+          })}
+        </Col>
+        <Col style={{ border: "solid", height: "450px", width: "100px" }}>
+          <Form.Label className="formHeader">
+            Additional Questions Continued:
+          </Form.Label>
+          {Object.entries(shade).map((shadeOne) => {
+            const [key, value] = shadeOne;
+            return (
+              <Form.Group>
+                <Form.Label>{mappingObject[key]}</Form.Label>
+                <Form.Control
+                  name={key}
+                  as="input"
+                  rows={1}
+                  onChange={checkUpdate13}
+                />
+              </Form.Group>
+            );
+          })}
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button
+            className="mt-3"
+            variant="primary"
+            type="submit"
+            onClick={save}
+          >
+            Submit
+          </Button>
+        </Col>
       </Row>
     </Container>
     // <Container  className="align-items-center justify-content-center mt-3">
