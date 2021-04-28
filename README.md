@@ -2,6 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ​
 ## Description 
+
 This is an application made for Power Dental to provide their customers with an easier way to submit product requests online, instead of having to fill out a form with pen and paper.  Power Dental is an advanced full-service dental laboratory allows us to provide you with the very best cosmetic dentistry, implant dentistry, and aesthetic restorative dentistry care in the Chicagoland area.  The user is able to make an account on this website, create an RX Form, and submit the form to Power Dental.  This form allows the user to select from over fourty different styles of dental molds and also select individual teeth.  Once the form is submitted, Power Dental will be able to access the form and create the order for the customer.  
 ​
 ---
@@ -15,7 +16,7 @@ This is an application made for Power Dental to provide their customers with an 
 * [Contributing](#contributing)
 * [Questions](#questions)
 * [License](#license)
-<!-- * [Usage](#usage) -->
+
 ​
 ​
 ---
@@ -26,21 +27,17 @@ This is an application made for Power Dental to provide their customers with an 
 3) Open the integrated terminal in the selected folder. 
 4) Run git clone and paste HTTPS link from repository. 
 5) Run "npm i" to install  the node modules associated with this application.
-6) Change user info like username and password in the server.js for your mongodb.
+6) Change user info for your mongodb, and firebase accounts.
 7) In the terminal, type in "npm start" to run the application, enjoy!
 ​
----
+
 ​
-<!-- ## Usage 
-![Applicaton in use](public/reference/giphy.gif)
-​
---- -->
 ​
 ## Screenshots
-![Workout-Tracker](public/PowerRxHP.png)
-![Workout-Tracker](public/rxFormSS.png)
-![Workout-Tracker](public/PowerRxHistoryModalSS.png)
-![Workout-Tracker](public/PowerRxHistorySS.png)
+![Workout-Tracker](client/public/PowerRxHP.png)
+![Workout-Tracker](client/public/rxFormSS.png)
+![Workout-Tracker](client/public/PowerRxHistoryModalSS.png)
+![Workout-Tracker](client/public/PowerRxHistorySS.png)
 
 ​
 ---
@@ -62,9 +59,12 @@ Anyone can contribute to this application by forking the repo, adding their code
 ​
 ## Questions
 ​
-You can find the GitHub profile by clicking this link: [My GitHub Profile](https://github.com/sawi4644/PoweRx) 
+You can find the GitHub profile by clicking this link: [My GitHub Profile ](https://github.com/sawi4644/PoweRx)
 ​
-If you have any questions you can email me at:  [My Email](test@test.com)
+----
+
+
+If you have any questions you can email us at:  [My Email](test@test.com)
 ​
 ---
 ​
