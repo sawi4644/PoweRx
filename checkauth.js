@@ -1,9 +1,9 @@
 // authenticateToken.js
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountENV");
-const serviceAccountB = require("./serviceAccount.json")
+
 console.log("A", serviceAccount)
-console.log("B", serviceAccountB)
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
