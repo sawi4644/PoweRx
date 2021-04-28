@@ -5,7 +5,7 @@
 
 This is an application made for Power Dental to provide their customers with an easier way to submit product requests online, instead of having to fill out a form with pen and paper.  Power Dental is an advanced full-service dental laboratory allows us to provide you with the very best cosmetic dentistry, implant dentistry, and aesthetic restorative dentistry care in the Chicagoland area.  The user is able to make an account on this website, create an RX Form, and submit the form to Power Dental.  This form allows the user to select from over fourty different styles of dental molds and also select individual teeth.  Once the form is submitted, Power Dental will be able to access the form and create the order for the customer.  
 ​
----
+
 ​
 ## Table of Contents
 ​
@@ -19,7 +19,7 @@ This is an application made for Power Dental to provide their customers with an 
 
 ​
 ​
----
+
 ​
 ## Installation
 1) Copy the HTTPS link from repository 
@@ -40,33 +40,33 @@ This is an application made for Power Dental to provide their customers with an 
 ![Workout-Tracker](client/public/PowerRxHistorySS.png)
 
 ​
----
+
 ​
 ## Tests
 [Test of the application](https://drive.google.com/file/d/1CVJdQBwWshNiY5sytBuyJHVhgoAVzaSc/view?usp=sharing)
 ​
----
+
 ​
 ## Deployed Site
 [Live Site](https://power-rx.herokuapp.com/login)
 ​
----
+
 ​
 ## Contributing
 Anyone can contribute to this application by forking the repo, adding their code to the application, and then sending any of the contributors a pull request so the main branch can be updated.
 ​
----
+
 ​
 ## Questions
 ​
 You can find the GitHub profile by clicking this link: [My GitHub Profile ](https://github.com/sawi4644/PoweRx)
 ​
-----
+-
 
 
 If you have any questions you can email us at:  [My Email](test@test.com)
 ​
----
+
 ​
 ## License Under
 ​
